@@ -1,0 +1,72 @@
+{%- form 'product', product, id: 'product-form-installment', class: 'installment caption-large' -%}
+{%- assign product_form_id = 'product-form-' | append: section.id -%}
+<input type="hidden" name="id" value="{{ product.selected_or_first_available_variant.id }}">
+{{ form | payment_terms }}
+{%- unless product.has_only_default_variant -%}
+<variant-radios data-section="{{ section.id }}" data-url="{{ product.url }}" {{ block.shopify_attributes }}>
+  {%- comment -%}<!---------------------------------Variant List----------------------------------->{%- endcomment -%}
+  {%- if variant_type == 'row' -%}
+      {%- for option in product.options_with_values -%}
+      <div class="option-wrap" data-index="{{forloop.index}}" data-name="{{ option.name }}">
+        {%- if block.settings.display_variant_label -%}
+        <label>{{- option.name -}}</label>
+        {%- endif -%}
+        <div class="variant-{{variant_type}}-list">
+          {%- for value in option.values -%}
+          <div>
+          <input type="radio" id="{{ section.id }}-{{ option.position }}-{{ forloop.index0 }}"
+                 name="{{ option.name }}"
+                 value="{{ value | escape }}"
+                 form="{{ product_form_id }}"                          
+                 {%- if pageQuerystring contains 'variant' or choose_selector == false -%}
+                 	{% if option.selected_value == value %}checked{% endif %}
+                 {%- endif -%}
+                 test="{{choose_selector}}-{{pageQuerystring}}">
+          <label for="{{ section.id }}-{{ option.position }}-{{ forloop.index0 }}">
+            {{ value }}
+          </label>
+          </div>
+          {%- endfor -%}
+        </div>
+      </div>
+      {%- endfor -%}
+  {%- else -%}
+      {%- comment -%}<!--------------------------Start Variant Dropdown------------------------------------------>{%- endcomment -%}
+      {%- for option in product.options_with_values -%}
+      <div class="option-wrap dropdown-wrap" data-index="{{forloop.index}}" data-name="{{ option.name }}">
+        <a href="#" class="variant-dropdown button">
+          {%- if pageQuerystring contains 'variant' or choose_selector == false -%}
+          	{%- for value in option.values -%}
+          		{%- if option.selected_value == value -%}{{value}}{%- endif -%}
+          	{%- endfor -%}
+          {%- else -%}
+          {{ option.name }}
+          {%- endif -%}
+        </a>
+        <div class="variant-{{variant_type}}-list">
+          {%- for value in option.values -%}
+          <div>
+            <input type="radio" id="{{ section.id }}-{{ option.position }}-{{ forloop.index0 }}"
+                   name="{{ option.name }}"
+                   value="{{ value | escape }}"
+                   form="{{ product_form_id }}"
+                   {%- if pageQuerystring contains 'variant' or choose_selector == false -%}
+                   {% if option.selected_value == value %}checked{% endif %}
+                   {% endif %}             
+                   >
+            <label for="{{ section.id }}-{{ option.position }}-{{ forloop.index0 }}">
+              {{ value }}
+            </label>
+          </div>
+          {%- endfor -%}
+        </div>
+      </div>
+      {%- endfor -%}
+  {%- endif -%}
+  {%- comment -%}<!--------------------------End Variant Dropdown------------------------------------------>{%- endcomment -%}
+  <script type="application/json">
+  {{ product.variants | json }}
+  </script>
+</variant-radios>
+{%- endunless -%}
+{%- endform -%}

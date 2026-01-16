@@ -1,0 +1,192 @@
+{
+  "settings_schema": {
+    "colors": {
+      "name": "สี",
+      "settings": {
+      }
+    },
+    "typography": {
+      "name": "ตัวพิมพ์",
+      "settings": {
+        "type_header_font": {
+          "label": "แบบอักษร",
+          "info": "การเลือกแบบอักษรอื่นอาจส่งผลต่อความเร็วของร้านค้าได้ [ดูข้อมูลเพิ่มเติมเกี่ยวกับแบบอักษรของระบบ](https:\/\/help.shopify.com\/en\/manual\/online-store\/os\/store-speed\/improving-speed#fonts)"
+        },
+        "header__1": {
+          "content": "หัวเรื่อง"
+        },
+        "header__2": {
+          "content": "เนื้อหา"
+        },
+        "type_body_font": {
+          "label": "แบบอักษร",
+          "info": "การเลือกแบบอักษรอื่นอาจส่งผลต่อความเร็วของร้านค้าได้ [ดูข้อมูลเพิ่มเติมเกี่ยวกับแบบอักษรของระบบ](https:\/\/help.shopify.com\/en\/manual\/online-store\/os\/store-speed\/improving-speed#fonts)"
+        }
+      }
+    },
+    "social-media": {
+      "name": "โซเชียลมีเดีย",
+      "settings": {
+        "social_twitter_link": {
+          "label": "Twitter",
+          "info": "https:\/\/twitter.com\/shopify"
+        },
+        "social_facebook_link": {
+          "label": "Facebook",
+          "info": "https:\/\/facebook.com\/shopify"
+        },
+        "social_pinterest_link": {
+          "label": "Pinterest",
+          "info": "https:\/\/pinterest.com\/shopify"
+        },
+        "social_instagram_link": {
+          "label": "Instagram",
+          "info": "http:\/\/instagram.com\/shopify"
+        },
+        "social_tiktok_link": {
+          "label": "TikTok",
+          "info": "https:\/\/tiktok.com\/@shopify"
+        },
+        "social_tumblr_link": {
+          "label": "Tumblr",
+          "info": "http:\/\/shopify.tumblr.com"
+        },
+        "social_snapchat_link": {
+          "label": "Snapchat",
+          "info": "https:\/\/www.snapchat.com\/add\/shopify"
+        },
+        "social_youtube_link": {
+          "label": "YouTube",
+          "info": "https:\/\/www.youtube.com\/shopify"
+        },
+        "social_vimeo_link": {
+          "label": "Vimeo",
+          "info": "https:\/\/vimeo.com\/shopify"
+        },
+        "header": {
+          "content": "บัญชีผู้ใช้โซเชียลมีเดีย"
+        }
+      }
+    },
+    "favicon": {
+      "name": "Favicon",
+      "settings": {
+        "favicon": {
+          "label": "รูปภาพ Favicon",
+          "info": "จะถูกลดขนาดลงเป็น 32 x 32 พิกเซล"
+        }
+      }
+    },
+    "global": {
+      "settings": {
+      }
+    },
+    "buttons": {
+      "name": "ปุ่ม"
+    },
+    "inputs": {
+      "name": "อินพุต"
+    },
+    "media": {
+      "name": "สื่อ"
+    }
+  },
+  "sections": {
+    "footer": {
+      "name": "ส่วนท้าย",
+      "settings": {
+      }
+    },
+    "header": {
+      "name": "ส่วนหัว",
+      "settings": {
+        "logo": {
+          "label": "รูปภาพโลโก้"
+        },
+        "menu": {
+          "label": "เมนู"
+        }
+      }
+    },
+    "main-article": {
+      "name": "บล็อกโพสต์"
+    },
+    "main-blog": {
+      "name": "บล็อกโพสต์",
+      "settings": {
+      }
+    },
+    "main-cart-items": {
+      "name": "รายการ",
+      "settings": {
+      }
+    },
+    "main-collection-product-grid": {
+      "name": "กริดสินค้า",
+      "settings": {
+      }
+    },
+    "main-list-collections": {
+      "name": "หน้ารายการคอลเลกชัน",
+      "settings": {
+        "sort": {
+          "label": "จัดเรียงคอลเลกชันตาม:",
+          "options__1": {
+            "label": "เรียงตามตัวอักษร A-Z"
+          },
+          "options__2": {
+            "label": "เรียงตามตัวอักษร Z-A"
+          },
+          "options__3": {
+            "label": "วันที่ จากใหม่ไปเก่า"
+          },
+          "options__4": {
+            "label": "วันที่ จากเก่าไปใหม่"
+          },
+          "options__5": {
+            "label": "จำนวนสินค้า จากสูงไปต่ำ"
+          },
+          "options__6": {
+            "label": "รูปแบบรูปภาพ จากต่ำไปสูง"
+          }
+        }
+      }
+    },
+    "main-page": {
+      "name": "หน้า"
+    },
+    "main-password-footer": {
+      "name": "ส่วนท้ายของรหัสผ่าน",
+      "settings": {
+      }
+    },
+    "main-password-header": {
+      "name": "ส่วนหัวของรหัสผ่าน",
+      "settings": {
+        "logo": {
+          "label": "รูปภาพโลโก้"
+        }
+      }
+    },
+    "main-product": {
+      "name": "ข้อมูลสินค้า",
+      "settings": {
+      }
+    },
+    "main-search": {
+      "name": "ผลลัพธ์การค้นหา",
+      "settings": {
+      }
+    },
+    "page": {
+      "name": "หน้า",
+      "settings": {
+      }
+    },
+    "product-recommendations": {
+      "name": "คำแนะนำสินค้า",
+      "settings": {
+      }
+    }
+  }
+}

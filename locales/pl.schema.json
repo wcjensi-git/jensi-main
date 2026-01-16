@@ -1,0 +1,192 @@
+{
+  "settings_schema": {
+    "colors": {
+      "name": "Kolory",
+      "settings": {
+      }
+    },
+    "typography": {
+      "name": "Typografia",
+      "settings": {
+        "type_header_font": {
+          "label": "Czcionka",
+          "info": "Wybór innej czcionki może wpłynąć na szybkość działania Twojego sklepu. [Dowiedz się więcej o czcionkach systemowych.](https:\/\/help.shopify.com\/en\/manual\/online-store\/os\/store-speed\/improving-speed#fonts)"
+        },
+        "header__1": {
+          "content": "Nagłówki"
+        },
+        "header__2": {
+          "content": "Tekst podstawowy"
+        },
+        "type_body_font": {
+          "label": "Czcionka",
+          "info": "Wybór innej czcionki może wpłynąć na szybkość działania Twojego sklepu. [Dowiedz się więcej o czcionkach systemowych.](https:\/\/help.shopify.com\/en\/manual\/online-store\/os\/store-speed\/improving-speed#fonts)"
+        }
+      }
+    },
+    "social-media": {
+      "name": "Media społecznościowe",
+      "settings": {
+        "social_twitter_link": {
+          "label": "Twitter",
+          "info": "https:\/\/twitter.com\/shopify"
+        },
+        "social_facebook_link": {
+          "label": "Facebook",
+          "info": "https:\/\/facebook.com\/shopify"
+        },
+        "social_pinterest_link": {
+          "label": "Pinterest",
+          "info": "https:\/\/pinterest.com\/shopify"
+        },
+        "social_instagram_link": {
+          "label": "Instagram",
+          "info": "http:\/\/instagram.com\/shopify"
+        },
+        "social_tiktok_link": {
+          "label": "TikTok",
+          "info": "https:\/\/tiktok.com\/@shopify"
+        },
+        "social_tumblr_link": {
+          "label": "Tumblr",
+          "info": "https:\/\/shopify.tumblr.com"
+        },
+        "social_snapchat_link": {
+          "label": "Snapchat",
+          "info": "https:\/\/www.snapchat.com\/add\/shopify"
+        },
+        "social_youtube_link": {
+          "label": "Youtube",
+          "info": "https:\/\/www.youtube.com\/shopify"
+        },
+        "social_vimeo_link": {
+          "label": "Vimeo",
+          "info": "https:\/\/vimeo.com\/shopify"
+        },
+        "header": {
+          "content": "Konta społecznościowe"
+        }
+      }
+    },
+    "favicon": {
+      "name": "Ikona Favicon",
+      "settings": {
+        "favicon": {
+          "label": "Obraz ikony Favicon",
+          "info": "Zostanie zmniejszony do rozmiaru 32 x 32 piksele."
+        }
+      }
+    },
+    "global": {
+      "settings": {
+      }
+    },
+    "buttons": {
+      "name": "Przyciski"
+    },
+    "inputs": {
+      "name": "Dane wejściowe"
+    },
+    "media": {
+      "name": "Media"
+    }
+  },
+  "sections": {
+    "footer": {
+      "name": "Stopka",
+      "settings": {
+      }
+    },
+    "header": {
+      "name": "Nagłówek",
+      "settings": {
+        "logo": {
+          "label": "Obraz logo"
+        },
+        "menu": {
+          "label": "Menu"
+        }
+      }
+    },
+    "main-article": {
+      "name": "Post na blogu"
+    },
+    "main-blog": {
+      "name": "Posty na blogu",
+      "settings": {
+      }
+    },
+    "main-cart-items": {
+      "name": "Pozycje",
+      "settings": {
+      }
+    },
+    "main-collection-product-grid": {
+      "name": "Siatka produktów",
+      "settings": {
+      }
+    },
+    "main-list-collections": {
+      "name": "Strona listy kolekcji",
+      "settings": {
+        "sort": {
+          "label": "Sortuj kolekcje według:",
+          "options__1": {
+            "label": "Alfabetycznie, A-Z"
+          },
+          "options__2": {
+            "label": "Alfabetycznie, Z-A"
+          },
+          "options__3": {
+            "label": "Data, od najpóźniejszej do najwcześniejszej"
+          },
+          "options__4": {
+            "label": "Data, od najwcześniejszej do najpóźniejszej"
+          },
+          "options__5": {
+            "label": "Liczba produktów, od najwyższej do najniższej"
+          },
+          "options__6": {
+            "label": "Liczba produktów, od najniższej do najwyższej"
+          }
+        }
+      }
+    },
+    "main-page": {
+      "name": "Strona"
+    },
+    "main-password-footer": {
+      "name": "Stopka hasła",
+      "settings": {
+      }
+    },
+    "main-password-header": {
+      "name": "Nagłówek hasła",
+      "settings": {
+        "logo": {
+          "label": "Obraz logo"
+        }
+      }
+    },
+    "main-product": {
+      "name": "Informacje o produkcie",
+      "settings": {
+      }
+    },
+    "main-search": {
+      "name": "Wyniki wyszukiwania",
+      "settings": {
+      }
+    },
+    "page": {
+      "name": "Strona",
+      "settings": {
+      }
+    },
+    "product-recommendations": {
+      "name": "Rekomendacje produktów",
+      "settings": {
+      }
+    }
+  }
+}

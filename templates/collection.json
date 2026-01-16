@@ -1,0 +1,127 @@
+{
+  "wrapper": ".template-collection",
+  "sections": {
+    "16493026503cd6224f": {
+      "type": "breadcrumb",
+      "settings": {
+        "title": ""
+      }
+    },
+    "banner": {
+      "type": "collection-banner",
+      "settings": {
+        "enable_image": true,
+        "desktop_fix_height": true,
+        "desktop_height": 500,
+        "mobile_fix_height": true,
+        "mobile_height": 280,
+        "text_alignment": "left",
+        "show_title": true,
+        "show_description": true
+      }
+    },
+    "product-grid": {
+      "type": "collection-section",
+      "blocks": {
+        "c3d45b11-e235-441e-b249-0fd03df740a0": {
+          "type": "promo_image",
+          "settings": {
+            "collection": "shoes",
+            "image": "shopify:\/\/shop_images\/main-slider.jpg",
+            "url": "#",
+            "overlay": "",
+            "title": "Test",
+            "paragraph": "<p>lorem ipsum<\/p>",
+            "caption_color": "#000000",
+            "button_label": "",
+            "text_alignment": "center",
+            "horizontal_alignment": "middle",
+            "vertical_alignment": "middle",
+            "mobile_text_alignment": "left",
+            "mobile_horizontal_alignment": "left",
+            "mobile_vertical_alignment": "bottom",
+            "grid_column_placement": 3,
+            "grid_row_placement": 1,
+            "grid_span": 1,
+            "margin_bottom": 0,
+            "mob_grid_column_placement": 1,
+            "mob_grid_row_placement": 2,
+            "mob_grid_span": 1,
+            "mob_margin_bottom": 0
+          }
+        },
+        "050aadd3-84ae-43d7-a389-0b0d5e0a45db": {
+          "type": "promo_image",
+          "settings": {
+            "collection": "shoes",
+            "image": "shopify:\/\/shop_images\/main-slider.jpg",
+            "url": "#",
+            "overlay": "",
+            "title": "Test",
+            "paragraph": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. <\/p>",
+            "caption_color": "#000000",
+            "button_label": "Button",
+            "text_alignment": "left",
+            "horizontal_alignment": "center",
+            "vertical_alignment": "middle",
+            "mobile_text_alignment": "left",
+            "mobile_horizontal_alignment": "left",
+            "mobile_vertical_alignment": "top",
+            "grid_column_placement": 1,
+            "grid_row_placement": 2,
+            "grid_span": 1,
+            "margin_bottom": 0,
+            "mob_grid_column_placement": 1,
+            "mob_grid_row_placement": 4,
+            "mob_grid_span": 1,
+            "mob_margin_bottom": 0
+          }
+        },
+        "e1e6d952-ef4b-4c45-bfef-4dd8e402426d": {
+          "type": "promo_image",
+          "settings": {
+            "collection": "shoes",
+            "image": "shopify:\/\/shop_images\/main-slider.jpg",
+            "url": "",
+            "overlay": "",
+            "title": "Broken Test media",
+            "paragraph": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. <\/p>",
+            "caption_color": "",
+            "button_label": "",
+            "text_alignment": "left",
+            "horizontal_alignment": "right",
+            "vertical_alignment": "bottom",
+            "mobile_text_alignment": "left",
+            "mobile_horizontal_alignment": "left",
+            "mobile_vertical_alignment": "top",
+            "grid_column_placement": 1,
+            "grid_row_placement": 5,
+            "grid_span": 2,
+            "margin_bottom": 0,
+            "mob_grid_column_placement": 1,
+            "mob_grid_row_placement": 8,
+            "mob_grid_span": 2,
+            "mob_margin_bottom": 0
+          }
+        }
+      },
+      "block_order": [
+        "c3d45b11-e235-441e-b249-0fd03df740a0",
+        "050aadd3-84ae-43d7-a389-0b0d5e0a45db",
+        "e1e6d952-ef4b-4c45-bfef-4dd8e402426d"
+      ],
+      "settings": {
+        "desktop_grid": 4,
+        "mob_grid": "two_column",
+        "product_limit": 8,
+        "enable_filter": true,
+        "enable_sort": true
+      }
+    }
+  },
+  "order": [
+    "16493026503cd6224f",
+    "banner",
+    "product-grid"
+  ]
+}

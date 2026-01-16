@@ -1,0 +1,192 @@
+{
+  "settings_schema": {
+    "colors": {
+      "name": "Kleuren",
+      "settings": {
+      }
+    },
+    "typography": {
+      "name": "Typografie",
+      "settings": {
+        "type_header_font": {
+          "label": "Lettertype",
+          "info": "Als je een ander lettertype selecteert, kan dit de snelheid van je winkel beïnvloeden. Meer informatie over systeemlettertypen.](https:\/\/help.shopify.com\/en\/manual\/online-store\/os\/store-speed\/improving-speed#fonts)"
+        },
+        "header__1": {
+          "content": "Kopteksten"
+        },
+        "header__2": {
+          "content": "Hoofdtekst"
+        },
+        "type_body_font": {
+          "label": "Lettertype",
+          "info": "Als je een ander lettertype selecteert, kan dit de snelheid van je winkel beïnvloeden. Meer informatie over systeemlettertypen.](https:\/\/help.shopify.com\/en\/manual\/online-store\/os\/store-speed\/improving-speed#fonts)"
+        }
+      }
+    },
+    "social-media": {
+      "name": "Social media",
+      "settings": {
+        "social_twitter_link": {
+          "label": "Twitter",
+          "info": "https:\/\/twitter.com\/shopify"
+        },
+        "social_facebook_link": {
+          "label": "Facebook",
+          "info": "https:\/\/facebook.com\/shopify"
+        },
+        "social_pinterest_link": {
+          "label": "Pinterest",
+          "info": "https:\/\/pinterest.com\/shopify"
+        },
+        "social_instagram_link": {
+          "label": "Instagram",
+          "info": "http:\/\/instagram.com\/shopify"
+        },
+        "social_tiktok_link": {
+          "label": "TikTok",
+          "info": "https:\/\/tiktok.com\/@shopify"
+        },
+        "social_tumblr_link": {
+          "label": "Tumblr",
+          "info": "https:\/\/shopify.tumblr.com"
+        },
+        "social_snapchat_link": {
+          "label": "Snapchat",
+          "info": "https:\/\/www.snapchat.com\/add\/shopify"
+        },
+        "social_youtube_link": {
+          "label": "YouTube",
+          "info": "https:\/\/www.youtube.com\/shopify"
+        },
+        "social_vimeo_link": {
+          "label": "Vimeo",
+          "info": "https:\/\/vimeo.com\/shopify"
+        },
+        "header": {
+          "content": "Socialmedia-accounts"
+        }
+      }
+    },
+    "favicon": {
+      "name": "Favicon",
+      "settings": {
+        "favicon": {
+          "label": "Favicon-afbeelding",
+          "info": "Wordt verkleind tot 32x32 pixels"
+        }
+      }
+    },
+    "global": {
+      "settings": {
+      }
+    },
+    "buttons": {
+      "name": "Knoppen"
+    },
+    "inputs": {
+      "name": "Invoer"
+    },
+    "media": {
+      "name": "Media"
+    }
+  },
+  "sections": {
+    "footer": {
+      "name": "Voettekst",
+      "settings": {
+      }
+    },
+    "header": {
+      "name": "Koptekst",
+      "settings": {
+        "logo": {
+          "label": "Afbeelding van logo"
+        },
+        "menu": {
+          "label": "Menu"
+        }
+      }
+    },
+    "main-article": {
+      "name": "Blogpost"
+    },
+    "main-blog": {
+      "name": "Blogberichten",
+      "settings": {
+      }
+    },
+    "main-cart-items": {
+      "name": "Artikelen",
+      "settings": {
+      }
+    },
+    "main-collection-product-grid": {
+      "name": "Productgrid",
+      "settings": {
+      }
+    },
+    "main-list-collections": {
+      "name": "Pagina collectielijst",
+      "settings": {
+        "sort": {
+          "label": "Collecties sorteren op:",
+          "options__1": {
+            "label": "Alfabetisch: A-Z"
+          },
+          "options__2": {
+            "label": "Alfabetisch: Z-A"
+          },
+          "options__3": {
+            "label": "Datum: nieuw naar oud"
+          },
+          "options__4": {
+            "label": "Datum: oud naar nieuw"
+          },
+          "options__5": {
+            "label": "Aantal producten, van hoog naar laag"
+          },
+          "options__6": {
+            "label": "Aantal producten, van laag naar hoog"
+          }
+        }
+      }
+    },
+    "main-page": {
+      "name": "Pagina"
+    },
+    "main-password-footer": {
+      "name": "Wachtwoord voettekst",
+      "settings": {
+      }
+    },
+    "main-password-header": {
+      "name": "Wachtwoord koptekst",
+      "settings": {
+        "logo": {
+          "label": "Afbeelding van logo"
+        }
+      }
+    },
+    "main-product": {
+      "name": "Productinformatie",
+      "settings": {
+      }
+    },
+    "main-search": {
+      "name": "Zoekresultaten",
+      "settings": {
+      }
+    },
+    "page": {
+      "name": "Pagina",
+      "settings": {
+      }
+    },
+    "product-recommendations": {
+      "name": "Productaanbevelingen",
+      "settings": {
+      }
+    }
+  }
+}

@@ -1,0 +1,192 @@
+{
+  "settings_schema": {
+    "colors": {
+      "name": "颜色",
+      "settings": {
+      }
+    },
+    "typography": {
+      "name": "版式",
+      "settings": {
+        "type_header_font": {
+          "label": "字体",
+          "info": "选择其他字体可能会影响您商店的速度。[详细了解系统字体。](https:\/\/help.shopify.com\/en\/manual\/online-store\/os\/store-speed\/improving-speed#fonts)"
+        },
+        "header__1": {
+          "content": "标题"
+        },
+        "header__2": {
+          "content": "正文"
+        },
+        "type_body_font": {
+          "label": "字体",
+          "info": "选择其他字体可能会影响您商店的速度。[详细了解系统字体。](https:\/\/help.shopify.com\/en\/manual\/online-store\/os\/store-speed\/improving-speed#fonts)"
+        }
+      }
+    },
+    "social-media": {
+      "name": "社交媒体",
+      "settings": {
+        "social_twitter_link": {
+          "label": "Twitter",
+          "info": "https:\/\/twitter.com\/shopify"
+        },
+        "social_facebook_link": {
+          "label": "Facebook",
+          "info": "https:\/\/facebook.com\/shopify"
+        },
+        "social_pinterest_link": {
+          "label": "Pinterest",
+          "info": "https:\/\/pinterest.com\/shopify"
+        },
+        "social_instagram_link": {
+          "label": "Instagram",
+          "info": "http:\/\/instagram.com\/shopify"
+        },
+        "social_tiktok_link": {
+          "label": "TikTok",
+          "info": "https:\/\/tiktok.com\/@shopify"
+        },
+        "social_tumblr_link": {
+          "label": "Tumblr",
+          "info": "https:\/\/shopify.tumblr.com"
+        },
+        "social_snapchat_link": {
+          "label": "Snapchat",
+          "info": "https:\/\/www.snapchat.com\/add\/shopify"
+        },
+        "social_youtube_link": {
+          "label": "YouTube",
+          "info": "https:\/\/www.youtube.com\/shopify"
+        },
+        "social_vimeo_link": {
+          "label": "Vimeo",
+          "info": "https:\/\/vimeo.com\/shopify"
+        },
+        "header": {
+          "content": "社交媒体账户"
+        }
+      }
+    },
+    "favicon": {
+      "name": "网站图标",
+      "settings": {
+        "favicon": {
+          "label": "网站图标图片",
+          "info": "将缩小到 32 x 32px"
+        }
+      }
+    },
+    "global": {
+      "settings": {
+      }
+    },
+    "buttons": {
+      "name": "按钮"
+    },
+    "inputs": {
+      "name": "输入"
+    },
+    "media": {
+      "name": "媒体文件"
+    }
+  },
+  "sections": {
+    "footer": {
+      "name": "页脚",
+      "settings": {
+      }
+    },
+    "header": {
+      "name": "标头",
+      "settings": {
+        "logo": {
+          "label": "logo 图片"
+        },
+        "menu": {
+          "label": "菜单"
+        }
+      }
+    },
+    "main-article": {
+      "name": "博客文章"
+    },
+    "main-blog": {
+      "name": "博客文章",
+      "settings": {
+      }
+    },
+    "main-cart-items": {
+      "name": "商品",
+      "settings": {
+      }
+    },
+    "main-collection-product-grid": {
+      "name": "产品网格",
+      "settings": {
+      }
+    },
+    "main-list-collections": {
+      "name": "产品系列列表页面",
+      "settings": {
+        "sort": {
+          "label": "产品系列排序依据：",
+          "options__1": {
+            "label": "按字母顺序排序，A-Z"
+          },
+          "options__2": {
+            "label": "按字母顺序排序，Z-A"
+          },
+          "options__3": {
+            "label": "日期从近到早"
+          },
+          "options__4": {
+            "label": "日期从早到近"
+          },
+          "options__5": {
+            "label": "产品数量，从高到低"
+          },
+          "options__6": {
+            "label": "产品数量，从低到高"
+          }
+        }
+      }
+    },
+    "main-page": {
+      "name": "页面"
+    },
+    "main-password-footer": {
+      "name": "密码页脚",
+      "settings": {
+      }
+    },
+    "main-password-header": {
+      "name": "密码标头",
+      "settings": {
+        "logo": {
+          "label": "logo 图片"
+        }
+      }
+    },
+    "main-product": {
+      "name": "产品信息",
+      "settings": {
+      }
+    },
+    "main-search": {
+      "name": "搜索结果",
+      "settings": {
+      }
+    },
+    "page": {
+      "name": "页面",
+      "settings": {
+      }
+    },
+    "product-recommendations": {
+      "name": "产品推荐",
+      "settings": {
+      }
+    }
+  }
+}

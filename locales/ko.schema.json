@@ -1,0 +1,192 @@
+{
+  "settings_schema": {
+    "colors": {
+      "name": "색상",
+      "settings": {
+      }
+    },
+    "typography": {
+      "name": "입력 체계",
+      "settings": {
+        "type_header_font": {
+          "label": "글꼴",
+          "info": "다른 글꼴을 선택하면 스토어 속도가 영향을 받을 수 있습니다. [시스템 글꼴에 대해 자세히 알아보십시오.](https:\/\/help.shopify.com\/en\/manual\/online-store\/os\/store-speed\/improving-speed#fonts)"
+        },
+        "header__1": {
+          "content": "제목"
+        },
+        "header__2": {
+          "content": "본문"
+        },
+        "type_body_font": {
+          "label": "글꼴",
+          "info": "다른 글꼴을 선택하면 스토어 속도가 영향을 받을 수 있습니다. [시스템 글꼴에 대해 자세히 알아보십시오.](https:\/\/help.shopify.com\/en\/manual\/online-store\/os\/store-speed\/improving-speed#fonts)"
+        }
+      }
+    },
+    "social-media": {
+      "name": "소셜 미디어",
+      "settings": {
+        "social_twitter_link": {
+          "label": "Twitter",
+          "info": "https:\/\/twitter.com\/shopify"
+        },
+        "social_facebook_link": {
+          "label": "Facebook",
+          "info": "https:\/\/facebook.com\/shopify"
+        },
+        "social_pinterest_link": {
+          "label": "Pinterest",
+          "info": "https:\/\/pinterest.com\/shopify"
+        },
+        "social_instagram_link": {
+          "label": "Instagram",
+          "info": "http:\/\/instagram.com\/shopify"
+        },
+        "social_tiktok_link": {
+          "label": "TikTok",
+          "info": "https:\/\/tiktok.com\/@shopify"
+        },
+        "social_tumblr_link": {
+          "label": "Tumblr",
+          "info": "http:\/\/shopify.tumblr.com"
+        },
+        "social_snapchat_link": {
+          "label": "Snapchat",
+          "info": "https:\/\/www.snapchat.com\/add\/shopify"
+        },
+        "social_youtube_link": {
+          "label": "YouTube",
+          "info": "https:\/\/www.youtube.com\/shopify"
+        },
+        "social_vimeo_link": {
+          "label": "Vimeo",
+          "info": "https:\/\/vimeo.com\/shopify"
+        },
+        "header": {
+          "content": "소셜 계정"
+        }
+      }
+    },
+    "favicon": {
+      "name": "Favicon",
+      "settings": {
+        "favicon": {
+          "label": "Favicon 이미지",
+          "info": "32x32픽셀로 축소됩니다."
+        }
+      }
+    },
+    "global": {
+      "settings": {
+      }
+    },
+    "buttons": {
+      "name": "버튼"
+    },
+    "inputs": {
+      "name": "입력"
+    },
+    "media": {
+      "name": "미디어"
+    }
+  },
+  "sections": {
+    "footer": {
+      "name": "바닥글",
+      "settings": {
+      }
+    },
+    "header": {
+      "name": "머리글",
+      "settings": {
+        "logo": {
+          "label": "로고 이미지"
+        },
+        "menu": {
+          "label": "메뉴"
+        }
+      }
+    },
+    "main-article": {
+      "name": "블로그 게시물"
+    },
+    "main-blog": {
+      "name": "블로그 게시물",
+      "settings": {
+      }
+    },
+    "main-cart-items": {
+      "name": "품목",
+      "settings": {
+      }
+    },
+    "main-collection-product-grid": {
+      "name": "제품 그리드",
+      "settings": {
+      }
+    },
+    "main-list-collections": {
+      "name": "컬렉션 목록 페이지",
+      "settings": {
+        "sort": {
+          "label": "컬렉션 정렬 기준:",
+          "options__1": {
+            "label": "알파벳순, A-Z"
+          },
+          "options__2": {
+            "label": "알파벳순, Z-A"
+          },
+          "options__3": {
+            "label": "날짜(최신 날짜부터)"
+          },
+          "options__4": {
+            "label": "날짜(오래된 날짜부터)"
+          },
+          "options__5": {
+            "label": "제품 개수, 높은 개수부터"
+          },
+          "options__6": {
+            "label": "제품 개수, 낮은 개수부터"
+          }
+        }
+      }
+    },
+    "main-page": {
+      "name": "페이지"
+    },
+    "main-password-footer": {
+      "name": "비밀번호 바닥글",
+      "settings": {
+      }
+    },
+    "main-password-header": {
+      "name": "비밀번호 머리글",
+      "settings": {
+        "logo": {
+          "label": "로고 이미지"
+        }
+      }
+    },
+    "main-product": {
+      "name": "제품 정보",
+      "settings": {
+      }
+    },
+    "main-search": {
+      "name": "검색 결과",
+      "settings": {
+      }
+    },
+    "page": {
+      "name": "페이지",
+      "settings": {
+      }
+    },
+    "product-recommendations": {
+      "name": "추천 제품",
+      "settings": {
+      }
+    }
+  }
+}

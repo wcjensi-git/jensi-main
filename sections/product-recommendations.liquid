@@ -1,0 +1,211 @@
+<link rel="stylesheet" href="{{ 'product-carousel.css' | asset_url }}" media="print" onload="this.media='all'">
+<link rel="stylesheet" href="{{ 'product-grid.css' | asset_url }}" media="print" onload="this.media='all'">
+<noscript>{{ 'product-carousel.css' | asset_url | stylesheet_tag }}</noscript>
+<noscript>{{ 'product-grid.css' | asset_url | stylesheet_tag }}</noscript>
+  <product-recommendations class="section-product-carousel product-recommendations section-{{ section.id }}" data-url="{{ routes.product_recommendations_url }}?section_id={{ section.id }}&product_id={{ product.id }}&limit={{ section.settings.products_to_show }}">
+    {% if recommendations.performed and recommendations.products_count > 0 %}
+      {%- if section.settings.title != blank -%}
+      <div class="text-{{section.settings.text_alignment}}">
+      <{{section.settings.heading_selector}}>{{section.settings.title}}</{{section.settings.heading_selector}}>
+      </div>
+      {%- endif -%}
+      {%- liquid   
+        assign loopslide = false
+        assign spacerow = false
+        assign showarrows = false
+        assign total_products = section.settings.products_to_show
+        assign desktopgrid = section.settings.desktop_grid
+        if section.settings.loop_infinite
+          assign loopslide = true
+        endif
+        if total_products > desktopgrid
+          assign spacerow = true
+          assign showarrows = true
+        endif
+        if loopslide
+          assign spacerow = true
+          assign showarrows = true
+        endif
+        case section.settings.desktop_grid
+         when 2
+            assign grid = 'col-md-6'
+         when 3
+            assign grid = 'col-md-4'
+         when 4
+            assign grid = 'col-md-3'
+         endcase
+         case section.settings.mob_grid
+         when 'two_column'
+            assign mobgrid = 'col-6'
+         when 'one_column'
+            assign mobgrid = 'col-12'
+         endcase
+      -%}
+      <div class="carousel-rowouter {% if spacerow == true %}carousel-row-space{% endif %}">
+        <div class="carousel-row product-carousel swiper" data-id="{{section.id}}" data-loop="{{loopslide}}">
+          <div class="swiper-wrapper">
+            {% for recommendation in recommendations.products %}
+              <div class="swiper-slide col {{grid}} {{mobgrid}}">
+                {%- render 'product-grid', product:recommendation -%}    
+              </div>
+            {% endfor %}
+          </div>
+        </div>
+        <div class="swiper-button-next {% unless showarrows %}hide-arrows{% endunless %}"></div>
+        <div class="swiper-button-prev {% unless showarrows %}hide-arrows{% endunless %}"></div>  
+      </div>
+    {% endif %}
+  </product-recommendations>
+
+{% javascript %}
+  class ProductRecommendations extends HTMLElement {
+    constructor() {
+      super();
+      const handleIntersection = (entries, observer) => {
+        if (!entries[0].isIntersecting) return;
+        observer.unobserve(this);
+
+        fetch(this.dataset.url)
+          .then(response => response.text())
+          .then(text => {
+            const html = document.createElement('div');
+            html.innerHTML = text;
+            const recommendations = html.querySelector('product-recommendations');
+            if (recommendations && recommendations.innerHTML.trim().length) {
+              this.innerHTML = recommendations.innerHTML;
+            }
+            if (html.querySelector('.grid__item')) {
+              this.classList.add('product-recommendations--loaded');
+            }    		
+              var productslider=[];
+              document.querySelectorAll('.product-carousel').forEach(function(Element,index){    
+                let productid = Element.dataset.id;
+                let outer_carousel = Element.closest('.carousel-rowouter');
+                let nextbutton = outer_carousel.querySelectorAll('.swiper-button-next')[0];
+                let prevbutton = outer_carousel.querySelectorAll('.swiper-button-prev')[0];
+                let swiperObject={
+                  loop:eval(Element.dataset.loop),
+                  slidesPerView: "auto",
+                  navigation: {
+                    nextEl:nextbutton,
+                    prevEl:prevbutton,
+                  },
+                };    
+                productslider[productid]=new Swiper(Element,swiperObject);
+              }); 
+              if(typeof quickAddButton == 'function'){
+              quickAddButton();
+              }
+          })
+          .catch(e => {
+            console.error(e);
+          });
+      }
+      new IntersectionObserver(handleIntersection.bind(this), {rootMargin: '0px 0px 200px 0px'}).observe(this);
+    }
+  }
+  customElements.define('product-recommendations', ProductRecommendations);
+{% endjavascript %}
+
+{% schema %}
+{
+  "name": "t:sections.product-recommendations.name",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    	{
+			"type":"text",
+			"id":"title",
+			"label":"t:sections.all.title"
+		},
+        {
+            "type":"select",
+            "id":"text_alignment",
+            "label":"t:sections.all.text_alignment.name",
+            "options":[
+                {
+                  "label":"t:sections.all.text_alignment.left.label",
+                  "value":"left"
+                },
+                {
+                  "label":"t:sections.all.text_alignment.center.label",
+                  "value":"center"
+                },
+                {
+                  "label":"t:sections.all.text_alignment.right.label",
+                  "value":"right"
+                }
+            ]
+        },
+		{
+			"type":"select",
+			"id":"heading_selector",
+			"label":"t:sections.all.title_format.name",
+			"options":[
+				{
+					"label":"t:sections.all.title_format.option__1.label",
+					"value":"h1"
+				},
+				{
+					"label":"t:sections.all.title_format.option__2.label",
+					"value":"h2"
+				},
+				{
+					"label":"t:sections.all.title_format.option__3.label",
+					"value":"h3"
+				},
+				{
+					"label":"t:sections.all.title_format.option__4.label",
+					"value":"h4"
+				},
+				{
+					"label":"t:sections.all.title_format.option__5.label",
+					"value":"h5"
+				},
+				{
+					"label":"t:sections.all.title_format.option__6.label",
+					"value":"h6"
+				}
+			],
+			"default":"h2"
+		},		
+		{
+			"type":"checkbox",
+			"id":"loop_infinite",
+			"label":"t:sections.product-carousel.settings.loop_infinite.label",
+			"default":true
+		},
+		{
+			"type":"range",
+			"id":"products_to_show",
+			"label":"t:sections.product-carousel.settings.products_amount.label",
+			"min":2,
+			"max":6,
+			"default":6
+		},
+		{
+			"type":"range",
+			"id":"desktop_grid",
+			"label":"t:sections.all.desktop_grid.label",
+			"min":2,
+			"max":4,
+			"default":4
+		},
+		{
+			"type":"select",
+			"id":"mob_grid",
+			"label":"t:sections.all.mobile_grid.name",
+			"options":[
+				{
+					"label":"t:sections.all.mobile_grid.option__1.label",
+					"value":"two_column"
+				},
+				{
+					"label":"t:sections.all.mobile_grid.option__2.label",
+					"value":"one_column"
+				}
+			]
+		}
+  ]
+}
+{% endschema %}

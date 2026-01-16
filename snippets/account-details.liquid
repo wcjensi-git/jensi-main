@@ -1,0 +1,93 @@
+<script src="{{ 'customer.js' | asset_url }}" defer></script>
+<div class="snippet-account-details">
+  <div class="account-wrap">
+    {%- render 'account-sidebar' -%}    
+    <div class="account-right account-page-active">
+      <div class="d-block d-lg-none">
+        {%- render 'account-back-button' -%}
+      </div>
+      <div class="order">
+      	{%- paginate customer.orders by 20 -%}        	
+        	{%- if customer.orders.size > 0 -%}
+        	<div class="order-wrap d-none d-md-block">
+              <div class="order-row">
+                <div><h3>{{ 'customer.orders.order_number' | t }}</h3></div>
+                <div><h3>{{ 'customer.orders.date' | t }}</h3></div>
+                <div><h3>{{ 'customer.orders.products' | t }}</h3></div>
+                <div><h3>{{ 'customer.orders.payment_status' | t }}</h3></div>
+                <div><h3>{{ 'customer.orders.address' | t }}</h3></div>
+                <div><h3>{{ 'customer.orders.total' | t }}</h3></div>
+                <div>&nbsp;</div>
+              </div>
+              {%- for order in customer.orders -%}
+              <div class="order-row">
+                <div><a href="{{ order.customer_url }}" aria-label="{{ 'customer.orders.order_number_link' | t: number: order.name }}">{{ order.name }}</a></div>
+                <div>{{ order.created_at | date: "%d/%m/%Y" }}</div>
+                <div>
+                {%- assign product_count = 0 -%}
+                {%- for line_item in order.line_items -%}
+                  {%- assign product_count = product_count | plus:1 -%}
+                {%- endfor -%}
+                  {{product_count}}
+                </div>
+                <div>{{ order.financial_status_label }}</div>
+                <div>
+                {{ order.shipping_address | format_address }}
+                </div>
+                <div>{{ order.total_price | money }}</div>
+                <div><a href="{{ order.customer_url }}" aria-label="{{ 'customer.orders.order_number_link' | t: number: order.name }}" class="button">{{ 'customer.orders.view' |t}}</a></div>
+              </div>
+              {%- endfor -%}
+        	</div>
+        	<div class="order-wrap d-block d-md-none">
+              <div class="order-row">
+                <div class="order-date">{{ 'customer.orders.date' | t }}</div>
+                <div class="order-id">{{ 'customer.orders.id' | t }}</div>
+                <div class="order-total">{{ 'customer.orders.total' | t }}</div>
+                <div class="order-view">&nbsp;</div>
+              </div>
+              {%- for order in customer.orders -%}
+              <div class="order-row">
+                <div class="order-date">{{ order.created_at | date: "%d/%m/%Y" }}</div>
+                <div class="order-id">{{ order.name }}</div>
+                <div class="order-total">{{ order.total_price | money }}</div>
+                <div class="order-view"><a href="{{ order.customer_url }}" aria-label="{{ 'customer.orders.order_number_link' | t: number: order.name }}" class="button">{{ 'customer.orders.view' |t}}</a></div>
+              </div>
+              {%- endfor -%}
+        	</div>
+        	{%- else -%}
+              <p>{{ 'customer.orders.none' | t }}</p>            	
+        	{%- endif -%}
+			{%- comment -%}<!------------------Pagination----------------------->{%- endcomment -%}
+            {%- if paginate.pages > 1 -%}
+              {%- if paginate.parts.size > 0 -%}
+              <nav class="pagination" role="navigation" aria-label="{{ 'general.pagination.label' | t }}">
+                <ul role="list">
+                  {%- if paginate.previous -%}
+                  <li><a href="{{ paginate.previous.url }}" aria-label="{{ 'general.pagination.previous' | t }}"><</a></li>
+                  {%- endif -%}
+                  {%- for part in paginate.parts -%}
+                  <li>
+                    {%- if part.is_link -%}
+                    <a href="{{ part.url }}" aria-label="{{ 'general.pagination.page' | t: number: part.title }}">{{ part.title }}</a>
+                    {%- else -%}
+                      {%- if part.title == paginate.current_page -%}
+                      <span aria-current="page" aria-label="{{ 'general.pagination.page' | t: number: part.title }}">{{ part.title }}</span>
+                      {%- else -%}
+                      <span>{{ part.title }}</span>
+                      {%- endif -%}
+                    {%- endif -%}
+                  </li>
+                  {%- endfor -%}
+                  {%- if paginate.next -%}
+                  <li><a href="{{ paginate.next.url }}" aria-label="{{ 'general.pagination.next' | t }}" >></a></li>
+                 {%- endif -%}
+                </ul>
+              </nav>
+              {%- endif -%}
+            {%- endif -%}
+        {%- endpaginate -%}
+      </div>
+    </div>
+  </div>
+</div>

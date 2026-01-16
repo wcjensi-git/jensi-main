@@ -1,0 +1,40 @@
+{%- liquid
+	assign desktop_caption = section.settings.desktop_caption_position
+    assign mobile_caption = section.settings.mobile_caption_position
+    assign desktop_text = section.settings.text_alignment
+    assign mobile_text = section.settings.mobile_text_alignment
+    assign desktop_vertical = section.settings.vertical_alignments
+    assign mobile_vertical = section.settings.mobile_vertical_alignments
+    if desktop_caption == 'above_image'
+    	assign desk_caption_cls = 'desktop_above'
+    else
+    	assign desk_caption_cls = 'desktop_below'
+    endif
+    if mobile_caption == 'above_image'
+    	assign mob_caption_cls = 'mobile_above'
+    else
+    	assign mob_caption_cls = 'mobile_below'
+    endif
+-%}
+<div class="snippet-blog">
+  <a href="{{article.url}}" class="blog-grid-image">
+    {%- if article.image -%}
+    <img src="{{article.image | img_url:'master'}}" alt="{{ article.image.src.alt | escape }}" loading="lazy"/>
+    {%- else -%}
+    {{- 'image' | placeholder_svg_tag: 'placeholder-svg' -}}
+    {%- endif -%}   
+  </a>  
+  <div class="mediatext-{{desktop_text}} mobile-mediatext-{{mobile_text}} {{desk_caption_cls}} {{mob_caption_cls}} {% if desktop_caption == 'above_image' %}vertical-{{desktop_vertical}}{% endif %} {% if mobile_caption == 'above_image' %}mobile-vertical-{{mobile_vertical}}{% endif %}">
+    {%- if section.settings.enable_title -%}
+    <{{section.settings.heading_selector}}><a href="{{article.url}}">{{- article.title -}}</a></{{section.settings.heading_selector}}>
+    {%- endif -%}    
+    {%- if article.content != blank and section.settings.enable_description -%}
+    <div class="rte">
+      {{- article.content | strip_html | truncate:100 -}}
+    </div>
+    {%- endif -%}
+    {%- if section.settings.enable_readmore -%}
+    <a href="{{article.url}}" class="button">{{-section.settings.read_more_text-}}</a>
+    {%- endif -%}
+  </div>
+</div>

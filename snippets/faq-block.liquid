@@ -1,0 +1,25 @@
+<div class="snippet-faq-block">
+  <{{section.settings.category_title_select}}>{{categories}}</{{section.settings.category_title_select}}>
+  <div>
+    {%- assign cat_handle = categories | handle -%}
+    {%- assign faq_count = 0 -%}
+  	{%- for block in section.blocks -%}
+    	{%- assign blog_cat = block.settings.title | handle -%}
+    	{%- if blog_cat == cat_handle -%}
+    		{%- assign faq_count = faq_count | plus:1 -%}
+    		{%- if block.settings.question != blank or block.settings.answer != blank -%}
+              <div class="accordian-wrap {% if faq_count == 1 %}active{% endif %}" data-index="{{faq_count}}">
+                {%- if block.settings.question != blank -%}
+                <{{section.settings.question_title_select}} class="accordian-title">{{block.settings.question}}</{{section.settings.question_title_select}}>
+                {%- endif -%}
+                {%- if block.settings.answer != blank -%}
+                <div class="accordian-content">
+                  <div>{{block.settings.answer}}</div>
+                </div>
+                {%- endif -%}
+              </div>
+    		{%- endif -%}
+    	{%- endif -%}
+    {%- endfor -%}
+  </div>
+</div>

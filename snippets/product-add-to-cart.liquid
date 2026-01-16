@@ -1,0 +1,49 @@
+<div class="snippet-addto-cart" {{ block.shopify_attributes }}>
+  {%- assign product_form_id = 'product-form-' | append: section.id -%}
+  {%- form 'product', product, id: product_form_id, class: 'form', novalidate: 'novalidate', data-type: 'add-to-cart-form' -%}
+  <input type="hidden" name="id" value="{{ product.selected_or_first_available_variant.id }}">
+  {%- comment -%}<!------------Variant Row----------------------------->{%- endcomment -%}
+  {%- if variant_type == 'row' -%}
+  	{% unless product.has_only_default_variant %}
+    <div class="choose-selector {% if pageQuerystring contains 'variant' or choose_selector == false %}hide-selectore-button{% endif %}">
+      <a href="javascript:void(0)" class="button">{{'products.product.size_selector' | t}}
+      {%- comment -%}
+        <span class="next-option">{%- for option in product.options limit:1 -%}{{- option -}}{%- endfor -%}</span>
+      {%- endcomment -%}
+      </a>
+    </div>
+    {%- endunless -%}
+    <div class="choose-cart {% unless product.has_only_default_variant %}{% unless pageQuerystring contains 'variant' or choose_selector == false %}hide-selectore-button{% endunless %}{% endunless %}">
+      <button type="submit" name="add" {% if product.selected_or_first_available_variant.available == false %}disabled{% endif %} class="button product-addcart">
+        <span>
+        {%- if product.selected_or_first_available_variant.available -%}
+        {{ 'products.product.add_to_cart' | t }}
+        {%- else -%}
+        {{ 'products.product.sold_out' | t }}
+        {%- endif -%}
+        </span>
+      </button>
+    </div>
+  {%- else -%}
+    {%- comment -%}<!------------Variant Dropdown----------------------------->{%- endcomment -%}
+    {% unless product.has_only_default_variant %}
+    <div class="choose-selector {% if pageQuerystring contains 'variant' or choose_selector == false %}hide-selectore-button{% endif %}">
+      <a href="javascript:void(0)" class="button">{{'products.product.size_selector' | t}}      
+      </a>
+    </div>
+    {%- endunless -%}
+    <div class="choose-cart {% unless product.has_only_default_variant %}{% unless pageQuerystring contains 'variant' or choose_selector == false %}hide-selectore-button{% endunless %}{% endunless %}">
+      <button type="submit" name="add" {% if product.selected_or_first_available_variant.available == false %}disabled{% endif %} class="button product-addcart">
+        <span>
+        {%- if product.selected_or_first_available_variant.available -%}
+        {{ 'products.product.add_to_cart' | t }}
+        {%- else -%}
+        {{ 'products.product.sold_out' | t }}
+        {%- endif -%}
+        </span>
+      </button>
+    </div>
+  {%- endif -%}
+  <div class="product-form-error"></div>
+  {%- endform -%}
+</div>

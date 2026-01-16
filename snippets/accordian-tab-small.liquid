@@ -1,0 +1,48 @@
+{%- case block.settings.select -%}
+  {%-  when 'description' -%}
+	{%- if product.description != blank -%}
+    <div class="accordian-wrap {% if acco_count == 1 %}active{% endif %}" data-index="{{acco_count}}">
+      {%- if block.settings.selector_title != blank -%}
+      <h5 class="accordian-title">{{- block.settings.selector_title -}}</h5>
+      {%- endif -%}
+      <div class="accordian-content">
+        <div class="rte">{{product.description}}</div>
+      </div>
+    </div>
+  	{%- endif -%}
+  {%-  when 'payment_icon' -%}
+	<div class="accordian-wrap" data-index="{{acco_count}}">
+      {%- if block.settings.selector_title != blank -%}
+      <h5 class="accordian-title">{{- block.settings.selector_title -}}</h5>
+      {%- endif -%}
+      <div class="accordian-content">
+        {%- render 'payments' -%}
+      </div>
+    </div>
+  {%-  when 'text' -%}
+    {%- if block.settings.selector_title != blank -%}
+    <div class="accordian-wrap" data-index="{{acco_count}}">
+      {%- if block.settings.selector_title != blank -%}
+      <h5 class="accordian-title">{{- block.settings.selector_title -}}</h5>
+      {%- endif -%}
+      <div class="accordian-content">
+        <div class="rte">
+          {{- block.settings.text_selector -}}
+        </div>
+      </div>
+    </div>
+    {%- endif -%}
+  {%-  when 'image' -%}
+    {%- if block.settings.selector_title != blank -%}
+    <div class="accordian-wrap" data-index="{{acco_count}}">
+      {%- if block.settings.selector_title != blank -%}
+      <h5 class="accordian-title">{{- block.settings.selector_title -}}</h5>
+      {%- endif -%}
+      <div class="accordian-content">
+        <div>
+          <img src="{{block.settings.image | img_url:'master'}}" loading="lazy"/>
+        </div>
+      </div>
+    </div>
+    {%- endif -%}
+{%- endcase -%}

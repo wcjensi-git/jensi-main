@@ -1,0 +1,192 @@
+{
+  "settings_schema": {
+    "colors": {
+      "name": "Färger",
+      "settings": {
+      }
+    },
+    "typography": {
+      "name": "Typografi",
+      "settings": {
+        "type_header_font": {
+          "label": "Typsnitt",
+          "info": "Om du väljer ett annat typsnitt kan det påverka butikshastigheten. [Lär dig mer om typsnitt i system.](https:\/\/help.shopify.com\/en\/manual\/online-store\/os\/store-speed\/improving-speed#fonts)"
+        },
+        "header__1": {
+          "content": "Rubriker"
+        },
+        "header__2": {
+          "content": "Brödtext"
+        },
+        "type_body_font": {
+          "label": "Typsnitt",
+          "info": "Om du väljer ett annat typsnitt kan det påverka butikshastigheten. [Lär dig mer om typsnitt i system.](https:\/\/help.shopify.com\/en\/manual\/online-store\/os\/store-speed\/improving-speed#fonts)"
+        }
+      }
+    },
+    "social-media": {
+      "name": "Sociala medier",
+      "settings": {
+        "social_twitter_link": {
+          "label": "Twitter",
+          "info": "https:\/\/twitter.com\/shopify"
+        },
+        "social_facebook_link": {
+          "label": "Facebook",
+          "info": "https:\/\/facebook.com\/shopify"
+        },
+        "social_pinterest_link": {
+          "label": "Pinterest",
+          "info": "https:\/\/pinterest.com\/shopify"
+        },
+        "social_instagram_link": {
+          "label": "Instagram",
+          "info": "https:\/\/instagram.com\/shopify"
+        },
+        "social_tiktok_link": {
+          "label": "TikTok",
+          "info": "https:\/\/tiktok.com\/@shopify"
+        },
+        "social_tumblr_link": {
+          "label": "Tumblr",
+          "info": "http:\/\/shopify.tumblr.com"
+        },
+        "social_snapchat_link": {
+          "label": "Snapchat",
+          "info": "https:\/\/www.snapchat.com\/add\/shopify"
+        },
+        "social_youtube_link": {
+          "label": "YouTube",
+          "info": "https:\/\/www.youtube.com\/user\/shopify"
+        },
+        "social_vimeo_link": {
+          "label": "Vimeo",
+          "info": "https:\/\/vimeo.com\/shopify"
+        },
+        "header": {
+          "content": "Sociala konton"
+        }
+      }
+    },
+    "favicon": {
+      "name": "Favicon",
+      "settings": {
+        "favicon": {
+          "label": "Favicon-bild",
+          "info": "Kommer skalas ned till 32 x 32 px"
+        }
+      }
+    },
+    "global": {
+      "settings": {
+      }
+    },
+    "buttons": {
+      "name": "Knappar"
+    },
+    "inputs": {
+      "name": "Inmatningar"
+    },
+    "media": {
+      "name": "Media"
+    }
+  },
+  "sections": {
+    "footer": {
+      "name": "Sidfot",
+      "settings": {
+      }
+    },
+    "header": {
+      "name": "Rubrik",
+      "settings": {
+        "logo": {
+          "label": "Logotypbild"
+        },
+        "menu": {
+          "label": "Meny"
+        }
+      }
+    },
+    "main-article": {
+      "name": "Blogginlägg"
+    },
+    "main-blog": {
+      "name": "Blogginlägg",
+      "settings": {
+      }
+    },
+    "main-cart-items": {
+      "name": "Artiklar",
+      "settings": {
+      }
+    },
+    "main-collection-product-grid": {
+      "name": "Produktrutnät",
+      "settings": {
+      }
+    },
+    "main-list-collections": {
+      "name": "Kollektionslistsida",
+      "settings": {
+        "sort": {
+          "label": "Sortera kollektioner efter:",
+          "options__1": {
+            "label": "Alfabetiskt, A–Ö"
+          },
+          "options__2": {
+            "label": "Alfabetiskt, Ö–A"
+          },
+          "options__3": {
+            "label": "Datum, nytt till gammalt"
+          },
+          "options__4": {
+            "label": "Datum, gammalt till nytt"
+          },
+          "options__5": {
+            "label": "Produktantal, högt till lågt"
+          },
+          "options__6": {
+            "label": "Produktantal, lågt till högt"
+          }
+        }
+      }
+    },
+    "main-page": {
+      "name": "Sida"
+    },
+    "main-password-footer": {
+      "name": "Lösenord sidfot",
+      "settings": {
+      }
+    },
+    "main-password-header": {
+      "name": "Lösenord sidhuvud",
+      "settings": {
+        "logo": {
+          "label": "Logotypbild"
+        }
+      }
+    },
+    "main-product": {
+      "name": "Produktinformation",
+      "settings": {
+      }
+    },
+    "main-search": {
+      "name": "Sökresultat",
+      "settings": {
+      }
+    },
+    "page": {
+      "name": "Sida",
+      "settings": {
+      }
+    },
+    "product-recommendations": {
+      "name": "Produktrekommendationer",
+      "settings": {
+      }
+    }
+  }
+}

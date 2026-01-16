@@ -1,0 +1,54 @@
+<div class="snippet-menu-drawer">
+  <style>
+    {%- if section.settings.mobile_menu_direction == 'left' -%}
+    .snippet-menu-drawer{left: 0;-webkit-transform:translateX(-100%);transform:translateX(-100%);}
+    {%- else -%}
+    .snippet-menu-drawer{right: 0;-webkit-transform:translateX(100%);transform:translateX(100%);}
+    {%- endif -%}
+  </style>
+  <button class="close-menu">{%- render 'icon-close' -%}</button>
+  <div class="menu-drawer-inner">
+    <ul class="mobile-nav first-mobile-nav">
+      {%- for link in linklists[section.settings.mobile_first_nav].links -%}
+      <li>
+        <div {% if link.links != blank %}class="nav-wrap"{% endif %}>
+          <a href="{{link.url}}">{{link.title}}</a>
+          {%- if link.links != blank -%}
+          <span class="nav-arrow">
+          	{%- render 'icon-chevron' -%}
+          </span>
+          {%- endif -%}
+        </div>
+        {%- if link.links != blank -%}
+        <ul class="navmobile-dropdown">
+      	{%- for child in link.links -%}
+          <li>
+            <div {% if child.links != blank %}class="nav-wrap"{% endif %}>
+            <a href="{{child.url}}">{{child.title}}</a>
+            {%- if child.links != blank -%}
+            <span class="nav-arrow">
+            	{%- render 'icon-chevron' -%}
+            </span>
+            {%- endif -%}
+            </div>
+            {%- if child.links != blank -%}
+            <ul class="navmobile-dropdown">
+            {%- for grand in child.links -%}
+              <li><a href="{{grand.url}}">{{grand.title}}</a></li>
+            {%- endfor -%}
+            </ul>
+            {%- endif -%}
+          </li>
+        {%- endfor -%}
+        </ul>
+        {%- endif -%}
+      </li>
+      {%- endfor -%}
+    </ul>
+    <ul class="mobile-nav second-mobile-nav">
+      {%- for link in linklists[section.settings.mobile_second_nav].links -%}
+      <li><a href="{{link.url}}">{{link.title}}</a></li>
+      {%- endfor -%}
+    </ul>
+  </div>
+</div>

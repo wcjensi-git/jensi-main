@@ -1,0 +1,56 @@
+{
+  "wrapper": ".template-contact",
+  "sections": {
+    "16493919527b7324f2": {
+      "type": "breadcrumb",
+      "settings": {
+        "title": "Contact"
+      }
+    },
+    "form": {
+      "type": "contact-form",
+      "blocks": {
+        "e6c463d3-eb4c-4114-814a-9662d9c18c4d": {
+          "type": "text_field",
+          "settings": {
+            "title": "Name"
+          }
+        },
+        "7965edbb-5bac-41c3-abfd-75ee0998a521": {
+          "type": "email_field",
+          "settings": {
+            "title": "Email"
+          }
+        },
+        "1100bbc9-91b6-431c-9115-8f046f21eec9": {
+          "type": "number_field",
+          "settings": {
+            "title": "Number"
+          }
+        },
+        "c292dbdc-a004-484f-bf77-726a97ab12f6": {
+          "type": "textarea_field",
+          "settings": {
+            "title": "Message"
+          }
+        }
+      },
+      "block_order": [
+        "e6c463d3-eb4c-4114-814a-9662d9c18c4d",
+        "7965edbb-5bac-41c3-abfd-75ee0998a521",
+        "1100bbc9-91b6-431c-9115-8f046f21eec9",
+        "c292dbdc-a004-484f-bf77-726a97ab12f6"
+      ],
+      "settings": {
+        "enable_title": true,
+        "title": "Contact",
+        "text_alignment": "left",
+        "enable_page_content": false
+      }
+    }
+  },
+  "order": [
+    "16493919527b7324f2",
+    "form"
+  ]
+}

@@ -1,0 +1,192 @@
+{
+  "settings_schema": {
+    "colors": {
+      "name": "色",
+      "settings": {
+      }
+    },
+    "typography": {
+      "name": "タイポグラフィー",
+      "settings": {
+        "type_header_font": {
+          "label": "フォント",
+          "info": "異なるフォントを選択すると、ストアの速度に影響を与える可能性があります。[システムフォントについて詳しく知る。](https:\/\/help.shopify.com\/en\/manual\/online-store\/os\/store-speed\/improving-speed#fonts)"
+        },
+        "header__1": {
+          "content": "見出し"
+        },
+        "header__2": {
+          "content": "本文"
+        },
+        "type_body_font": {
+          "label": "フォント",
+          "info": "異なるフォントを選択すると、ストアの速度に影響を与える可能性があります。[システムフォントについて詳しく知る。](https:\/\/help.shopify.com\/en\/manual\/online-store\/os\/store-speed\/improving-speed#fonts)"
+        }
+      }
+    },
+    "social-media": {
+      "name": "SNS",
+      "settings": {
+        "social_twitter_link": {
+          "label": "Twitter",
+          "info": "https:\/\/twitter.com\/shopify"
+        },
+        "social_facebook_link": {
+          "label": "Facebook",
+          "info": "https:\/\/facebook.com\/shopify"
+        },
+        "social_pinterest_link": {
+          "label": "Pinterest",
+          "info": "https:\/\/pinterest.com\/shopify"
+        },
+        "social_instagram_link": {
+          "label": "Instagram",
+          "info": "http:\/\/instagram.com\/shopify"
+        },
+        "social_tiktok_link": {
+          "label": "TikTok",
+          "info": "https:\/\/tiktok.com\/@shopify"
+        },
+        "social_tumblr_link": {
+          "label": "Tumblr",
+          "info": "https:\/\/shopify.tumblr.com"
+        },
+        "social_snapchat_link": {
+          "label": "Snapchat",
+          "info": "https:\/\/www.snapchat.com\/add\/shopify"
+        },
+        "social_youtube_link": {
+          "label": "YouTube",
+          "info": "https:\/\/www.youtube.com\/shopify"
+        },
+        "social_vimeo_link": {
+          "label": "Vimeo",
+          "info": "https:\/\/vimeo.com\/shopify"
+        },
+        "header": {
+          "content": "ソーシャルアカウント"
+        }
+      }
+    },
+    "favicon": {
+      "name": "ファビコン",
+      "settings": {
+        "favicon": {
+          "label": "ファビコン画像",
+          "info": "32×32ピクセルに縮小されます。"
+        }
+      }
+    },
+    "global": {
+      "settings": {
+      }
+    },
+    "buttons": {
+      "name": "ボタン"
+    },
+    "inputs": {
+      "name": "入力"
+    },
+    "media": {
+      "name": "メディア"
+    }
+  },
+  "sections": {
+    "footer": {
+      "name": "フッター",
+      "settings": {
+      }
+    },
+    "header": {
+      "name": "ヘッダー",
+      "settings": {
+        "logo": {
+          "label": "ロゴ画像"
+        },
+        "menu": {
+          "label": "メニュー"
+        }
+      }
+    },
+    "main-article": {
+      "name": "ブログ記事"
+    },
+    "main-blog": {
+      "name": "ブログ記事",
+      "settings": {
+      }
+    },
+    "main-cart-items": {
+      "name": "アイテム",
+      "settings": {
+      }
+    },
+    "main-collection-product-grid": {
+      "name": "商品グリッド",
+      "settings": {
+      }
+    },
+    "main-list-collections": {
+      "name": "コレクションリストのページ",
+      "settings": {
+        "sort": {
+          "label": "コレクションの並べ替え方法:",
+          "options__1": {
+            "label": "アルファベット順、A～Z"
+          },
+          "options__2": {
+            "label": "アルファベット順、Z～A"
+          },
+          "options__3": {
+            "label": "日付、新しい順"
+          },
+          "options__4": {
+            "label": "日付、古い順"
+          },
+          "options__5": {
+            "label": "商品数、多い順"
+          },
+          "options__6": {
+            "label": "商品数、少ない順"
+          }
+        }
+      }
+    },
+    "main-page": {
+      "name": "ページ"
+    },
+    "main-password-footer": {
+      "name": "パスワードフッター",
+      "settings": {
+      }
+    },
+    "main-password-header": {
+      "name": "パスワードヘッダー",
+      "settings": {
+        "logo": {
+          "label": "ロゴ画像"
+        }
+      }
+    },
+    "main-product": {
+      "name": "商品情報",
+      "settings": {
+      }
+    },
+    "main-search": {
+      "name": "検索結果",
+      "settings": {
+      }
+    },
+    "page": {
+      "name": "ページ",
+      "settings": {
+      }
+    },
+    "product-recommendations": {
+      "name": "おすすめ商品",
+      "settings": {
+      }
+    }
+  }
+}

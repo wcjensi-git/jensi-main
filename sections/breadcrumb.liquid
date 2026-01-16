@@ -1,0 +1,48 @@
+<section class="section-breadcrumb section-{{section.id}}">
+  <p>
+    <a href="{{ routes.root_url }}">{{'general.breadcrumb.home' | t}}</a>
+    <span>/</span>
+    {%- if section.settings.title != blank -%}
+    	{{- section.settings.title -}}
+    {%- else -%}
+    	{%- if template contains 'collection' -%}
+    		{{- collection.title -}}
+    	{%- elsif template contains 'product' -%}
+    		{{- product.title -}}
+    	{%- elsif template contains 'article' -%}
+    		{{- article.title -}}
+    	{%- elsif template contains '404' -%}
+    		{{ 'templates.404.title' | t }}
+    	{%- elsif template contains 'blog' -%}
+    		{{- 'blogs.article.blog' | t -}}
+    	{%- elsif template contains 'cart' -%}
+    		{{- 'sections.cart.title' | t -}}
+    	{%- elsif template contains 'list-collection' -%}
+    		{{- 'sections.collection_list.title' | t -}}
+    	{%- elsif template contains 'page' -%}
+    		{{- page.title -}}
+    	{%- elsif template contains 'search' -%}
+    		{{- 'templates.search.title' | t -}}
+    	{%- else -%}
+    	{%- endif -%}
+    {%- endif -%}
+  </p>
+</section>
+{% schema %}
+  {
+    "name": "t:sections.breadcrumb.name",
+    "settings": [
+		{
+			"type":"text",
+			"id":"title",
+			"label":"t:sections.breadcrumb.settings.title.label",
+			"info":"t:sections.breadcrumb.settings.title.info"
+		}
+	],
+	"presets":[
+		{
+			"name":"t:sections.breadcrumb.presets.name"
+		}
+	]
+  }
+{% endschema %}

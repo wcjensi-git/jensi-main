@@ -1,0 +1,45 @@
+{%- if section.settings.title != blank -%}
+<section class="section-announcement-bar section-id-{{section.id}}">
+  <style>.section-id-{{section.id}}{background-color:var(--accent-background-2);color:var(--accent-text-2);}</style>
+  <div class="text-{{section.settings.text_alignment}}">
+	{{- section.settings.title -}}
+  </div>
+</section>
+{%- endif -%}
+{% schema %}
+  {
+    "name": "t:sections.announcement-bar.name",
+	"settings": [
+		{
+			"type":"richtext",
+			"id":"title",
+			"label":"t:sections.announcement-bar.settings.text.label",
+			"default":"<p>Announcement text here</p>"
+		},
+		{
+			"type":"select",
+			"id":"text_alignment",
+			"label":"t:sections.all.text_alignment.name",
+			"options":[
+				{
+					"label":"t:sections.all.text_alignment.left.label",
+					"value":"left"
+				},
+				{
+					"label":"t:sections.all.text_alignment.center.label",
+					"value":"center"
+				},
+				{
+					"label":"t:sections.all.text_alignment.right.label",
+					"value":"right"
+				}
+			]
+		}
+	],	
+	"presets":[
+		{
+			"name":"t:sections.announcement-bar.presets.name"
+		}
+	]
+  }
+{% endschema %}

@@ -1,0 +1,192 @@
+{
+  "settings_schema": {
+    "colors": {
+      "name": "Värit",
+      "settings": {
+      }
+    },
+    "typography": {
+      "name": "Typografia",
+      "settings": {
+        "type_header_font": {
+          "label": "Fontti",
+          "info": "Muun fontin valitseminen voi vaikuttaa kauppasi nopeuteen. [Lue lisää järjestelmäfonteista.](https:\/\/help.shopify.com\/en\/manual\/online-store\/os\/store-speed\/improving-speed#fonts)"
+        },
+        "header__1": {
+          "content": "Otsikot"
+        },
+        "header__2": {
+          "content": "Leipäteksti"
+        },
+        "type_body_font": {
+          "label": "Fontti",
+          "info": "Muun fontin valitseminen voi vaikuttaa kauppasi nopeuteen. [Lue lisää järjestelmäfonteista.](https:\/\/help.shopify.com\/en\/manual\/online-store\/os\/store-speed\/improving-speed#fonts)"
+        }
+      }
+    },
+    "social-media": {
+      "name": "Sosiaalinen media",
+      "settings": {
+        "social_twitter_link": {
+          "label": "Twitter",
+          "info": "https:\/\/twitter.com\/shopify"
+        },
+        "social_facebook_link": {
+          "label": "Facebook",
+          "info": "https:\/\/facebook.com\/shopify"
+        },
+        "social_pinterest_link": {
+          "label": "Pinterest",
+          "info": "https:\/\/facebook.com\/shopify"
+        },
+        "social_instagram_link": {
+          "label": "Instagram",
+          "info": "https:\/\/instagram.com\/shopify"
+        },
+        "social_tiktok_link": {
+          "label": "TikTok",
+          "info": "https:\/\/twitter.com\/shopify"
+        },
+        "social_tumblr_link": {
+          "label": "Tumblr",
+          "info": "http:\/\/shopify.tumblr.com"
+        },
+        "social_snapchat_link": {
+          "label": "Snapchat",
+          "info": "https:\/\/www.snapchat.com\/add\/shopify"
+        },
+        "social_youtube_link": {
+          "label": "YouTube",
+          "info": "https:\/\/facebook.com\/shopify"
+        },
+        "social_vimeo_link": {
+          "label": "Vimeo",
+          "info": "https:\/\/vimeo.com\/shopify"
+        },
+        "header": {
+          "content": "Sosiaalisen median tilit"
+        }
+      }
+    },
+    "favicon": {
+      "name": "Favicon",
+      "settings": {
+        "favicon": {
+          "label": "Favicon-kuva",
+          "info": "Skaalataan 32 x 32 pikseliin"
+        }
+      }
+    },
+    "global": {
+      "settings": {
+      }
+    },
+    "buttons": {
+      "name": "Painikkeet"
+    },
+    "inputs": {
+      "name": "Syötteet"
+    },
+    "media": {
+      "name": "Tietovälineet"
+    }
+  },
+  "sections": {
+    "footer": {
+      "name": "Alatunniste",
+      "settings": {
+      }
+    },
+    "header": {
+      "name": "Ylätunniste",
+      "settings": {
+        "logo": {
+          "label": "Logokuva"
+        },
+        "menu": {
+          "label": "Valikko"
+        }
+      }
+    },
+    "main-article": {
+      "name": "Blogipostaus"
+    },
+    "main-blog": {
+      "name": "Blogipostaukset",
+      "settings": {
+      }
+    },
+    "main-cart-items": {
+      "name": "Tuotteet",
+      "settings": {
+      }
+    },
+    "main-collection-product-grid": {
+      "name": "Tuoteruudukko",
+      "settings": {
+      }
+    },
+    "main-list-collections": {
+      "name": "Kokoelmaluettelosivu",
+      "settings": {
+        "sort": {
+          "label": "Lajittele kokoelmat seuraavasti:",
+          "options__1": {
+            "label": "Aakkosjärjestyksessä A–Z"
+          },
+          "options__2": {
+            "label": "Aakkosjärjestyksessä Z–A"
+          },
+          "options__3": {
+            "label": "Päivämäärä uusimmasta vanhimpaan"
+          },
+          "options__4": {
+            "label": "Päivämäärä vanhimmasta uusimpaan"
+          },
+          "options__5": {
+            "label": "Tuotteiden määrä suurimmasta pienimpään"
+          },
+          "options__6": {
+            "label": "Tuotteiden määrä pienimmästä suurimpaan"
+          }
+        }
+      }
+    },
+    "main-page": {
+      "name": "Sivu"
+    },
+    "main-password-footer": {
+      "name": "Salasana-alatunniste",
+      "settings": {
+      }
+    },
+    "main-password-header": {
+      "name": "Salasanaylätunniste",
+      "settings": {
+        "logo": {
+          "label": "Logokuva"
+        }
+      }
+    },
+    "main-product": {
+      "settings": {
+      },
+      "name": "Tuotetiedot"
+    },
+    "main-search": {
+      "name": "Hakutulokset",
+      "settings": {
+      }
+    },
+    "page": {
+      "name": "Sivu",
+      "settings": {
+      }
+    },
+    "product-recommendations": {
+      "name": "Tuotesuositukset",
+      "settings": {
+      }
+    }
+  }
+}

@@ -1,0 +1,224 @@
+{
+  "wrapper": ".template-about",
+  "sections": {
+    "16492454337b0eb3e8": {
+      "type": "breadcrumb",
+      "settings": {
+        "title": "About"
+      }
+    },
+    "main": {
+      "type": "about-section",
+      "settings": {
+        "enable_title": true,
+        "title": "About",
+        "title_alignment": "left",
+        "enable_page_content": false
+      }
+    },
+    "16492447070f3a71ad": {
+      "type": "rich-text",
+      "settings": {
+        "title_format": "h2",
+        "title": "Title",
+        "paragraph": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Zombie ipsum reversus ab viral inferno, nam rick grimes malum cerebro. De carne lumbering animata corpora quaeritis. Summus brains sit​​, morbo vel maleficia? De apocalypsi gorger omero undead survivor dictum mauris. Hi mindless mortuis soulless creaturas, imo evil stalking monstra adventus resi dentevil vultus comedat cerebella viventium. <\/p>",
+        "button_label": "button",
+        "button_url": "shopify:\/\/pages\/about",
+        "text_alignment": "left"
+      }
+    },
+    "16492339616669b399": {
+      "type": "media-row",
+      "blocks": {
+        "09c438c8-f4be-4a05-b02a-f74d9b7a488d": {
+          "type": "video",
+          "settings": {
+            "media_type": "mp4",
+            "video": "",
+            "mp4": "https:\/\/cdn.shopify.com\/s\/files\/1\/0567\/3543\/2863\/files\/placeholder-video.mp4?v=1647514642",
+            "url": "",
+            "overlay": "",
+            "title": "Title",
+            "paragraph": "",
+            "caption_color": "",
+            "button_label": "",
+            "text_alignment": "left",
+            "horizontal_alignment": "left",
+            "vertical_alignment": "bottom",
+            "mobile_text_alignment": "left",
+            "mobile_horizontal_alignment": "left",
+            "mobile_vertical_alignment": "top",
+            "advanced": false,
+            "column_count": 1
+          }
+        },
+        "1649233961b5696344-1": {
+          "type": "image",
+          "settings": {
+            "url": "",
+            "overlay": "",
+            "title": "Title",
+            "paragraph": "",
+            "caption_color": "",
+            "button_label": "",
+            "text_alignment": "left",
+            "horizontal_alignment": "left",
+            "vertical_alignment": "bottom",
+            "mobile_text_alignment": "left",
+            "mobile_horizontal_alignment": "left",
+            "mobile_vertical_alignment": "top",
+            "advanced": false,
+            "column_count": 0
+          }
+        }
+      },
+      "block_order": [
+        "09c438c8-f4be-4a05-b02a-f74d9b7a488d",
+        "1649233961b5696344-1"
+      ],
+      "settings": {
+        "desktop_height": "adapt_media",
+        "mobile_height": "square",
+        "reverse_direction_mobile": false,
+        "heading_selector": "h2"
+      }
+    },
+    "16492339893351a5fb": {
+      "type": "media-row",
+      "blocks": {
+        "f1ddc4a4-ca7c-4e7e-b16f-cc9762cf6e65": {
+          "type": "text",
+          "settings": {
+            "overlay": "",
+            "title": "Title",
+            "paragraph": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididuntut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.<\/p>",
+            "caption_color": "",
+            "button_label": "",
+            "url": "",
+            "text_alignment": "left",
+            "horizontal_alignment": "left",
+            "vertical_alignment": "top",
+            "mobile_text_alignment": "left",
+            "mobile_horizontal_alignment": "left",
+            "mobile_vertical_alignment": "top",
+            "advanced": false,
+            "column_count": 1
+          }
+        },
+        "16492339890a76b08d-1": {
+          "type": "image",
+          "settings": {
+            "url": "",
+            "overlay": "",
+            "title": "Title",
+            "paragraph": "",
+            "caption_color": "",
+            "button_label": "",
+            "text_alignment": "left",
+            "horizontal_alignment": "left",
+            "vertical_alignment": "bottom",
+            "mobile_text_alignment": "left",
+            "mobile_horizontal_alignment": "left",
+            "mobile_vertical_alignment": "top",
+            "advanced": false,
+            "column_count": 1
+          }
+        }
+      },
+      "block_order": [
+        "f1ddc4a4-ca7c-4e7e-b16f-cc9762cf6e65",
+        "16492339890a76b08d-1"
+      ],
+      "settings": {
+        "desktop_height": "adapt_media",
+        "mobile_height": "adapt_media",
+        "reverse_direction_mobile": false,
+        "heading_selector": "h2"
+      }
+    },
+    "16492341602366a070": {
+      "type": "media-row",
+      "blocks": {
+        "1649234160af8c8391-0": {
+          "type": "image",
+          "settings": {
+            "url": "",
+            "overlay": "",
+            "title": "Title",
+            "paragraph": "",
+            "caption_color": "",
+            "button_label": "",
+            "text_alignment": "left",
+            "horizontal_alignment": "left",
+            "vertical_alignment": "bottom",
+            "mobile_text_alignment": "left",
+            "mobile_horizontal_alignment": "left",
+            "mobile_vertical_alignment": "top",
+            "advanced": false,
+            "column_count": 1
+          }
+        },
+        "37635eee-d77c-4c98-9a1b-f7da9b739a71": {
+          "type": "video",
+          "settings": {
+            "media_type": "mp4",
+            "video": "",
+            "mp4": "https:\/\/cdn.shopify.com\/s\/files\/1\/0567\/3543\/2863\/files\/placeholder-video.mp4?v=1647514642",
+            "url": "",
+            "overlay": "",
+            "title": "Title",
+            "paragraph": "",
+            "caption_color": "",
+            "button_label": "",
+            "text_alignment": "left",
+            "horizontal_alignment": "left",
+            "vertical_alignment": "bottom",
+            "mobile_text_alignment": "left",
+            "mobile_horizontal_alignment": "left",
+            "mobile_vertical_alignment": "top",
+            "advanced": false,
+            "column_count": 1
+          }
+        },
+        "1649234160af8c8391-1": {
+          "type": "image",
+          "settings": {
+            "url": "",
+            "overlay": "",
+            "title": "Title",
+            "paragraph": "",
+            "caption_color": "",
+            "button_label": "",
+            "text_alignment": "left",
+            "horizontal_alignment": "left",
+            "vertical_alignment": "bottom",
+            "mobile_text_alignment": "left",
+            "mobile_horizontal_alignment": "left",
+            "mobile_vertical_alignment": "top",
+            "advanced": false,
+            "column_count": 1
+          }
+        }
+      },
+      "block_order": [
+        "1649234160af8c8391-0",
+        "37635eee-d77c-4c98-9a1b-f7da9b739a71",
+        "1649234160af8c8391-1"
+      ],
+      "settings": {
+        "desktop_height": "adapt_media",
+        "mobile_height": "adapt_media",
+        "reverse_direction_mobile": true,
+        "heading_selector": "h2"
+      }
+    }
+  },
+  "order": [
+    "16492454337b0eb3e8",
+    "main",
+    "16492447070f3a71ad",
+    "16492339616669b399",
+    "16492339893351a5fb",
+    "16492341602366a070"
+  ]
+}

@@ -1,0 +1,33 @@
+<div class="section-main-page section-{{section.id}}">
+  <div class="text-{{section.settings.text_alignment}}">
+  <h1>{{- page.title | escape -}}</h1>
+  </div>
+  <div>{{ page.content }}</div>
+</div>
+
+{% schema %}
+{
+    "name": "t:sections.main-page.name",
+      "settings": [
+      {
+        "type":"select",
+        "id":"text_alignment",
+        "label":"t:sections.all.text_alignment.name",
+        "options":[
+          {
+            "label":"t:sections.all.text_alignment.left.label",
+            "value":"left"
+          },
+          {
+            "label":"t:sections.all.text_alignment.center.label",
+            "value":"center"
+          },
+          {
+            "label":"t:sections.all.text_alignment.right.label",
+            "value":"right"
+          }
+        ]
+      }
+    ]
+}
+{% endschema %}

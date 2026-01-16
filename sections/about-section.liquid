@@ -1,0 +1,61 @@
+<section class="section-about section-id-{{section.id}}">  
+  {%- comment -%}<!-----------Title--------------->{%- endcomment -%}
+  {%- if section.settings.enable_title -%}
+  <div class="text-{{section.settings.title_alignment}}">
+    <h1>
+      {%- if section.settings.title != blank -%}
+      {{- section.settings.title -}}
+      {%- else -%}
+      {{- page.title -}}
+      {%- endif -%}
+    </h1>
+  </div>  
+  {%- endif -%}
+  {%- comment -%}<!-----------Content--------------->{%- endcomment -%}
+  {%- if section.settings.enable_page_content -%}
+  	<div>{{page.content}}</div>
+  {%- endif -%}
+</section>
+{% schema %}
+  {
+    "name": "t:sections.about-section.name",
+    "settings": [		
+		{
+			"type":"checkbox",
+			"id":"enable_title",
+			"label":"t:sections.about-section.settings.enable_title.label",
+			"default":true
+		},
+		{
+			"type":"text",
+			"id":"title",
+			"label":"t:sections.about-section.settings.title.label",
+			"info":"t:sections.about-section.settings.title.info"
+		},		
+		{
+			"type":"select",
+			"id":"title_alignment",
+			"label":"t:sections.all.text_alignment.name",
+            "options":[
+                {
+                  "label":"t:sections.all.text_alignment.left.label",
+                  "value":"left"
+                },
+                {
+                  "label":"t:sections.all.text_alignment.center.label",
+                  "value":"center"
+                },
+                {
+                  "label":"t:sections.all.text_alignment.right.label",
+                  "value":"right"
+                }
+            ]
+		},
+		{
+			"type":"checkbox",
+			"id":"enable_page_content",
+			"label":"t:sections.about-section.settings.enable_content.label"
+		}
+	 ]
+  }
+{% endschema %}

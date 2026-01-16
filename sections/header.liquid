@@ -1,0 +1,308 @@
+{{ 'header.css' | asset_url | stylesheet_tag }}
+<header class="section-header section-id-{{section.id}}">
+  <div class="container header-container">
+    <div class="header-row">
+      <div class="header-left">
+        <div class="d-block d-lg-none">
+          <button class="menu-burdger">
+            <span></span><span></span><span></span><span></span>
+          </button>	
+        </div>
+        <div class="header-logo">
+          <a href="{{ routes.root_url }}">
+          {%- if section.settings.logo != blank or section.settings.svg_logo != blank -%}
+            {%- if section.settings.logo_type == 'image' and section.settings.logo != blank -%}
+              {%- assign image_size = section.settings.logo.width | append: 'x' -%}
+              <img srcset="{{ section.settings.logo | img_url: image_size }} 1x, {{ section.settings.logo | img_url: image_size, scale: 2 }} 2x"
+                   src="{{ section.settings.logo | img_url: image_size }}"
+                   loading="lazy"
+                   width="{{ section.settings.logo.width }}"
+                   height="{{ section.settings.logo.height }}"
+                   alt="{{ section.settings.logo.alt | default: shop.name | escape }}"
+                   >
+            {%- else -%}
+            {{- section.settings.svg_logo -}}
+            {%- endif -%}
+          {%- else -%}
+            <span class="h2">{{- shop.name -}}</span>
+          {%- endif -%}
+          </a>
+        </div>
+        <div class="header-menu d-none d-lg-block">{%- render 'header-nav' , section:section -%}</div>
+      </div>
+      <div class="header-right">
+        <ul class="header-icons list--inline" role="list">
+          {%- if section.settings.enable_search -%}
+          <li class="searchlist">
+            <div class="d-none d-lg-block">
+            	{%- render 'search-bar', section:section -%}
+            </div>
+            <div class="d-block d-lg-none">
+              <button class="mobile-search">{{-section.settings.search_icon-}}</button>
+            </div>
+          </li>
+          {%- endif -%}
+          {%- if shop.customer_accounts_enabled -%}
+          <li class="userlist">
+            <a href="{%- if customer -%}{{ routes.account_url }}{%- else -%}{{ routes.account_login_url }}{%- endif -%}">
+            {%- if section.settings.account_icon != blank -%}
+              {{- section.settings.account_icon -}}
+            {%- else -%}
+              {{- 'customer.account_fallback' | t -}}
+            {%- endif -%}
+            </a>
+          </li>
+          {%- endif -%}
+          <li class="cartlist">
+            {%- unless settings.enable_cart_drawer -%}
+              <a href="{{ routes.cart_url }}">
+              {%- if section.settings.cart_icon != blank -%}
+                {{- section.settings.cart_icon -}}
+              {%- else -%}
+                {{- 'templates.cart.cart' | t -}}
+              {%- endif -%}
+                <span class="cart-count">{%- if cart.item_count > 0 -%}{{cart.item_count}}{%- endif -%}</span>
+              </a>
+            {%- else -%}
+              {%- if template contains 'cart' -%}
+            	<a href="{{ routes.cart_url }}">
+                {%- if section.settings.cart_icon != blank -%}
+                  {{- section.settings.cart_icon -}}
+                {%- else -%}
+                  {{- 'templates.cart.cart' | t -}}
+                {%- endif -%}
+                  <span class="cart-count">{%- if cart.item_count > 0 -%}{{cart.item_count}}{%- endif -%}</span>
+                </a>
+              {%- else -%}
+            	<button class="header-cart">
+                {%- if section.settings.cart_icon != blank -%}
+                  {{- section.settings.cart_icon -}}
+                {%- else -%}
+                  {{- 'templates.cart.cart' | t -}}
+                {%- endif -%}
+                  <span class="cart-count">{%- if cart.item_count > 0 -%}{{cart.item_count}}{%- endif -%}</span>
+                </button>
+              {%- endif -%}              
+            {%- endunless -%}
+          </li>          
+        </ul>
+      </div>
+    </div>
+    {%- comment -%}<!----------Search Mobile------------------->{%- endcomment -%}
+    <div class="mobile-serachbox">
+    {%- render 'search-bar', section:section -%}
+    </div>
+  </div>
+  {%- if section.settings.enable_search -%}
+  <div id="predictive-search" tabindex="-1"></div>
+  {%- endif -%}
+</header>
+{%- render 'menu-drawer' -%}
+<script type="application/ld+json">
+  {
+    "@context": "http://schema.org",
+    "@type": "Organization",
+    "name": {{ shop.name | json }},
+    {% if section.settings.logo %}
+      "logo": {{ section.settings.logo | img_url: 'master' | prepend: "https:" | json }},
+    {% endif %}
+    "sameAs": [
+      {{ settings.social_twitter_link | json }},
+      {{ settings.social_facebook_link | json }},
+      {{ settings.social_pinterest_link | json }},
+      {{ settings.social_instagram_link | json }},
+      {{ settings.social_tiktok_link | json }},
+      {{ settings.social_tumblr_link | json }},
+      {{ settings.social_snapchat_link | json }},
+      {{ settings.social_youtube_link | json }},
+      {{ settings.social_vimeo_link | json }}
+    ],
+    "url": {{ request.origin | append: page.url | json }}
+  }
+</script>
+{%- if request.page_type == 'index' -%}
+  {% assign potential_action_target = request.origin | append: routes.search_url | append: "?q={search_term_string}" %}
+  <script type="application/ld+json">
+    {
+      "@context": "http://schema.org",
+      "@type": "WebSite",
+      "name": {{ shop.name | json }},
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": {{ potential_action_target | json }},
+        "query-input": "required name=search_term_string"
+      },
+      "url": {{ request.origin | append: page.url | json }}
+    }
+  </script>
+{%- endif -%}
+{% schema %}
+{
+  "name": "t:sections.header.name",
+  "settings": [	
+	{
+		"type":"select",
+		"id":"logo_type",
+		"label":"t:sections.header.settings.logo_type.label",
+		"options":[
+			{
+				"label":"t:sections.header.settings.logo_type.option_1.label",
+				"value":"image"
+			},
+			{
+				"label":"t:sections.header.settings.logo_type.option_2.label",
+				"value":"svg"
+			}
+		]
+	},
+	{
+		"type":"image_picker",
+		"id":"logo",
+		"label": "t:sections.header.settings.logo.label"
+	},
+	{
+		"type":"html",
+		"id":"svg_logo",
+		"label": "t:sections.header.settings.svg_logo.label"
+	},
+    {
+      "type": "link_list",
+      "id": "menu",
+      "default": "main-menu",
+      "label": "t:sections.header.settings.menu.label"
+    },
+	{
+		"type":"header",
+		"content":"t:sections.header.settings.header_icons.content"
+	},
+	{
+		"type":"checkbox",
+		"id":"enable_search",
+		"label":"t:sections.header.settings.enable_search.label",
+		"default":true
+	},
+	{
+		"type":"html",
+		"id":"search_icon",
+		"label":"t:sections.header.settings.search_icon.label"
+	},
+	{
+		"type":"text",
+		"id":"search_placeholder",
+		"label":"t:sections.header.settings.search_placeholder.label",
+		"default":"Search..."
+	},
+	{
+		"type":"html",
+		"id":"cart_icon",
+		"label":"t:sections.header.settings.cart_icon.label"
+	},
+	{
+		"type":"html",
+		"id":"account_icon",
+		"label":"t:sections.header.settings.account_icon.label"
+	},
+	{
+		"type":"header",
+		"content":"t:sections.header.settings.header_mobile.content"
+	},
+	{
+		"type":"select",
+		"id":"mobile_menu_direction",
+		"label":"t:sections.header.settings.mobile_direction.name",
+		"options":[
+			{
+				"label":"t:sections.header.settings.mobile_direction.option__1.label",
+				"value":"left"
+			},
+			{
+				"label":"t:sections.header.settings.mobile_direction.option__2.label",
+				"value":"right"
+			}
+		]
+	},
+	{
+		"type":"link_list",
+		"id":"mobile_first_nav",
+		"label":"t:sections.header.settings.mobile_nav_first.label",
+		"default": "main-menu"
+	},
+	{
+		"type":"link_list",
+		"id":"mobile_second_nav",
+		"label":"t:sections.header.settings.mobile_nav_second.label"
+	}
+  ],
+  "blocks":[
+	{
+		"name":"t:sections.header.blocks.mega-image.name",
+		"type":"mega-images",
+		"settings":[
+			{
+				"type":"text",
+				"id":"title",
+				"label":"t:sections.header.blocks.mega-image.settings.menu-title.label",
+				"info":"t:sections.header.blocks.mega-image.settings.menu-title.info"
+			},
+			{
+				"type":"header",
+				"content":"t:sections.header.blocks.mega-image.settings.header_1"
+			},
+			{
+				"type":"image_picker",
+				"id":"image_1",
+				"label":"t:sections.header.blocks.mega-image.settings.image.label"
+			},
+			{
+				"type":"text",
+				"id":"title_1",
+				"label":"t:sections.header.blocks.mega-image.settings.title.label"
+			},
+			{
+				"type":"url",
+				"id":"url_1",
+				"label":"t:sections.header.blocks.mega-image.settings.url.label"
+			},
+			{
+				"type":"header",
+				"content":"t:sections.header.blocks.mega-image.settings.header_2"
+			},
+			{
+				"type":"image_picker",
+				"id":"image_2",
+				"label":"t:sections.header.blocks.mega-image.settings.image.label"
+			},
+			{
+				"type":"text",
+				"id":"title_2",
+				"label":"t:sections.header.blocks.mega-image.settings.title.label"
+			},
+			{
+				"type":"url",
+				"id":"url_2",
+				"label":"t:sections.header.blocks.mega-image.settings.url.label"
+			},
+			{
+				"type":"header",
+				"content":"t:sections.header.blocks.mega-image.settings.header_3"
+			},
+			{
+				"type":"image_picker",
+				"id":"image_3",
+				"label":"t:sections.header.blocks.mega-image.settings.image.label"
+			},
+			{
+				"type":"text",
+				"id":"title_3",
+				"label":"t:sections.header.blocks.mega-image.settings.title.label"
+			},
+			{
+				"type":"url",
+				"id":"url_3",
+				"label":"t:sections.header.blocks.mega-image.settings.url.label"
+			}
+		]
+	 }
+  ]
+}
+{% endschema %}

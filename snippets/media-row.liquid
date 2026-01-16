@@ -1,0 +1,129 @@
+{%- liquid
+	if block.settings.reposnsive_option == 'show_mobile'
+    	assign responsive = 'd-block d-lg-none'
+    elsif block.settings.reposnsive_option == 'show_desktop'
+    	assign responsive = 'd-none d-lg-block'
+    else
+    endif
+-%}
+<div class="{{responsive}} snippet-media-row snippet-media{{block.id}} {% if block.type == 'video' %}snippet-video{% endif %}" {%- if block.settings.advanced -%}style="grid-column: span {{block.settings.column_count}};"{%- endif -%}>
+  {%- if block.settings.url != blank -%}
+  <a href="{{block.settings.url}}" class="snippet-media-inner">
+  {%- else -%}
+  <div class="snippet-media-inner">
+  {%- endif -%}
+  {%- liquid
+  	assign media_image = block.settings.image
+  	assign mob_media_image = block.settings.mobile_image
+  	assign media_iframe = block.settings.video
+  	assign media_video = block.settings.mp4
+  	assign media_type = block.settings.media_type
+  	assign text-alignment = block.settings.text_alignment
+  	assign mob_text_alignment = block.settings.mobile_text_alignment
+  	assign horizontal = block.settings.horizontal_alignment
+  	assign mob_horizontal = block.settings.mobile_horizontal_alignment
+  	assign vertical = block.settings.vertical_alignment
+  	assign mob_vertical = block.settings.mobile_vertical_alignment
+  	assign caption_layout = false
+    if block.settings.title != blank or block.settings.paragraph != blank or block.settings.button_label != blank
+  		assign caption_layout = true
+  	endif
+  -%}
+  {%- if block.settings.caption_color != blank or block.settings.overlay != blank -%}
+  <style>
+    {%- if block.settings.caption_color != blank -%}
+    {%- unless block.settings.caption_color == 'rgba(0,0,0,0)' -%}
+    .snippet-media{{block.id}}{color:{{block.settings.caption_color}};}
+    {%- endunless -%}
+    {%- endif -%}
+    {%- if block.settings.overlay != blank -%}
+    .snippet-media{{block.id}} .snippet-media-inner:after{background:{{block.settings.overlay}};}
+    {%- endif -%}
+  </style>
+  {%- endif -%}
+  {%- capture captionpart -%}
+  <div class="media-caption vertical-{{vertical}} mobile-vertical-{{mob_vertical}}">
+    <div class="media-caption-inner mediatext-{{text-alignment}} mobile-mediatext-{{mob_text_alignment}} horizontal-{{horizontal}} mobile-horizontal-{{mob_horizontal}}">
+      {%- if block.settings.title != blank -%}
+      <{{section.settings.heading_selector}}>{{block.settings.title}}</{{section.settings.heading_selector}}>
+      {%- endif -%}
+      {%- if block.settings.paragraph != blank -%}
+      <div class="rte">{{block.settings.paragraph}}</div>
+      {%- endif -%}
+      {%- if block.settings.url != blank and block.settings.button_label != blank -%}
+      <span class="button">{{block.settings.button_label}}</span>
+      {%- endif -%}
+    </div>
+  </div>
+  {%- endcapture -%}
+  {%- case block.type -%}
+  {%- comment -%}<!------------------------Image---------------------------->{%- endcomment -%}
+  {%- when 'image' -%}
+      <div class="snippet-media-box">
+          {%- if media_image != blank or mob_media_image != blank -%}
+            {%- if mob_media_image != blank -%}
+                {%- assign desktop_media = 'full-row-media d-none d-md-block' -%}
+            {%- else -%}
+                {%- assign desktop_media = 'full-row-media' -%}
+            {%- endif -%}
+            {%- if media_image != blank -%}
+            {{media_image | image_url:width:1920 | image_tag:loading:'lazy',width:nil,class:desktop_media}}
+            {%- endif -%}
+            {%- if mob_media_image != blank -%}
+            {{mob_media_image | image_url:width:1920 | image_tag:loading:'lazy',width:nil,class:'full-image d-block d-md-none'}}
+            {%- endif -%}
+          {%- else -%}
+            {{ 'image' | placeholder_svg_tag: 'full-row-media placeholder-svg' }}
+          {%- endif -%}
+      </div>
+      {%- if caption_layout -%}
+      {{captionpart}}
+      {%- endif -%}
+  {%- when 'video' -%}
+  {%- comment -%}<!------------------------Video---------------------------->{%- endcomment -%}
+    <div class="snippet-media-box">
+      {%- if media_type == 'iframe' -%}
+        {%- if media_iframe != blank -%}
+			{%- if media_iframe.type == 'youtube' -%}
+      		<iframe class="full-row-iframe" src="https://www.youtube.com/embed/{{media_iframe.id}}?mute=1&autoplay=1&loop=1&playlist={{media_iframe.id}}" 
+                frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      		{%- else -%}
+      		<iframe class="full-row-iframe" src="https://player.vimeo.com/video/{{media_iframe.id }}?muted=1&autoplay=1&autopause=0&loop=1&background=1&playlist={{media_iframe.id }}" 
+              frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      		{%- endif -%}
+        {%- endif -%}
+      {%- else -%}
+		{%- if media_video != blank -%}
+        <video class="full-row-media" muted loop autoplay playsinline>
+          <source src="{{media_video}}" type="video/mp4">
+        </video>
+      	{%- endif -%}
+      {%- endif -%}
+    </div>
+    {%- if caption_layout -%}
+    {{captionpart}}
+    {%- endif -%}
+  {%- when 'text' -%}
+  {%- comment -%}<!------------------------Text---------------------------->{%- endcomment -%}
+  {%- if caption_layout -%}
+  <div class="media-row-text row-vertical-{{vertical}} row-mobile-vertical-{{mob_vertical}} row-horizontal-{{horizontal}} row-mobile-horizontal-{{mob_horizontal}}">
+    <div class="media-row-text-inner mediatext-{{text-alignment}} mobile-mediatext-{{mob_text_alignment}}">
+      {%- if block.settings.title != blank -%}
+      <{{section.settings.heading_selector}}>{{block.settings.title}}</{{section.settings.heading_selector}}>
+      {%- endif -%}
+      {%- if block.settings.paragraph != blank -%}
+      <div>{{block.settings.paragraph}}</div>
+      {%- endif -%}
+      {%- if block.settings.url != blank and block.settings.button_label != blank -%}
+      <span class="button">{{block.settings.button_label}}</span>
+      {%- endif -%}
+    </div>
+  </div>
+  {%- endif -%}
+  {%- endcase -%}
+  {%- if block.settings.url == blank -%}
+  </div>
+  {%- else -%}
+  </a>
+  {%- endif -%}
+</div>

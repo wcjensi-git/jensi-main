@@ -1,0 +1,5 @@
+.banner-height img{width:100%;height:100%;object-fit:cover;object-position:center;}
+.section-blog-banner img{width:100%;}
+.section-blog-banner{position:relative;}
+.media-list:after{content: '';position: absolute;top: 0;left: 0;width: 100%;height: 100%;}
+.media-list{position:relative;}

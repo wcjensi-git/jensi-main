@@ -1,0 +1,340 @@
+<script src="{{ 'ajaxinate.min.js' | asset_url }}"></script>
+<script>
+  createSingleInstanceOfJS('{{"collection-section.js" | asset_url}}', '.section-collection')                    
+</script>
+{{ 'collection-section.css' | asset_url | stylesheet_tag }}
+{{ 'product-grid.css' | asset_url | stylesheet_tag }}
+<noscript>
+{{ 'product-grid.css' | asset_url | stylesheet_tag }}
+</noscript>
+{%- paginate collection.products by section.settings.product_limit -%}
+<section class="section-collection section-id-{{section.id}}">
+  {%- liquid
+  	assign desktop_grid = section.settings.desktop_grid
+    if section.settings.mob_grid   == 'two_column'
+    	assign mobile_grid = 2
+    else
+    	assign mobile_grid = 1
+    endif
+  -%}
+  <style>
+    @media(min-width:992px){.collection-grid{grid-template-columns: repeat({{desktop_grid}}, minmax(0, 1fr));}}
+    @media(max-width:991px){.collection-grid{grid-template-columns: repeat({{mobile_grid}}, minmax(0, 1fr));}}
+  </style>
+  {%- comment -%}<!-------------------Collection Filter-------------------------------->{%- endcomment -%}
+  {%- if section.settings.enable_filter or section.settings.enable_sort -%}
+  	{%- render 'collection-filter', section:section , block:block , collection:collection , results:collection -%}
+  {%- endif -%}
+  {%- comment -%}<!-------------------Product Grid------------------------------------->{%- endcomment -%}
+  <div id="collection-grid" data-id="{{ section.id }}">
+    {%- if collection.products.size == 0 -%}
+    {{ 'sections.collection_template.empty' | t }}<br>
+    {%- endif -%}  
+    <div class="collection-grid" id="product-grid">
+      {%- assign pagesize = paginate.page_size -%}
+      {%- assign currentpage = current_page -%}
+      {%- assign pagemultiply = pagesize | times:currentpage -%}
+      {%- for product in collection.products -%}
+        {% assign loopIndex = forloop.index %}
+        {% assign current_page_count = paginate.current_page | minus: 1 %}
+        {% assign paginateLimit = section.settings.product_limit | times: current_page_count %}
+        {% assign loopIndex = forloop.index | plus: paginateLimit %}
+        <div class="product-item">
+          {%- render 'product-grid' , product:product -%}
+        </div>
+      {%- endfor -%}
+      {%- render 'promo-image' , section:section , block:block , forloop:forloop.index , paginate:paginate -%}
+    </div>
+    <div id="AjaxinatePagination" data-text="{{'sections.collection_template.load_more' | t}}">
+      {% if paginate.next %}
+        <a href="{{ paginate.next.url }}" data-page="{{paginate.current_page}}">{{'sections.collection_template.load_more' | t}}</a>
+      {% endif %}
+    </div>
+    {% comment %}
+      {%- if paginate.pages > 1 -%}
+      {%- render 'pagination', paginate: paginate, anchor: '' -%}
+      {%- endif -%}
+    {% endcomment %}
+  </div>
+  {%- comment -%}<!-------------------End Product Grid--------------------------------->{%- endcomment -%}
+</section>
+{%- if request.design_mode -%}
+<script>
+  document.addEventListener("shopify:section:load", function(event) {
+  createSingleInstanceOfJS('{{"collection-section.js" | asset_url}}', '.section-collection')
+  createSingleInstanceOfJS('{{"ajaxinate.min.js" | asset_url}}', '.section-collection')
+  });
+</script>
+{%- endif -%}
+{%- endpaginate -%}
+{% schema %}
+{
+  "name": "t:sections.collection-section.name",
+  "settings": [
+        {
+			"type":"range",
+			"id":"desktop_grid",
+			"label":"t:sections.all.desktop_grid.label",
+			"min":2,
+			"max":4,
+			"default":4
+		},
+		{
+			"type":"select",
+			"id":"mob_grid",
+			"label":"t:sections.all.mobile_grid.name",
+			"options":[
+				{
+					"label":"t:sections.all.mobile_grid.option__1.label",
+					"value":"two_column"
+				},
+				{
+					"label":"t:sections.all.mobile_grid.option__2.label",
+					"value":"one_column"
+				}
+			]
+		},
+        {
+			"type":"range",
+			"id":"product_limit",
+			"label":"t:sections.collection-section.settings.product_limit.label",
+			"min":2,
+			"max":50,
+			"default":16
+		},
+		{
+			"type":"checkbox",
+			"id":"enable_filter",
+			"label":"t:sections.collection-section.settings.enable_filter.label",
+			"default":true
+		},
+		{
+			"type":"checkbox",
+			"id":"enable_sort",
+			"label":"t:sections.collection-section.settings.enable_sort.label",
+			"default":true
+		}
+	],
+	"blocks":[
+		{
+			"name":"t:sections.collection-section.blocks.promo_image.name",
+			"type":"promo_image",
+			"settings":[
+				{
+					"type":"collection",
+					"id":"collection",
+					"label":"t:sections.collection-section.blocks.promo_image.collection.label"
+				},
+				{
+					"type":"image_picker",
+					"id":"image",
+					"label":"t:sections.all.media.image.label"
+				},
+				{
+					"type":"url",
+					"id":"url",
+					"label":"t:sections.all.media.image.label"
+				},
+				{
+					"type":"color_background",
+					"id":"overlay",
+					"label":"t:sections.all.button_url"
+				},				
+				{
+					"type":"text",
+					"id":"title",
+					"label":"t:sections.all.title"
+				},
+				{
+					"type":"richtext",
+					"id":"paragraph",
+					"label":"t:sections.all.paragraph"
+				},
+				{
+					"type":"color",
+					"id":"caption_color",
+					"label":"t:sections.all.text_color"
+				},
+				{
+					"type":"text",
+					"id":"button_label",
+					"label":"t:sections.all.button_label"
+				},
+				{
+					"type":"select",
+					"id":"text_alignment",
+					"label":"t:sections.all.text_alignment.name",
+					"options":[
+						{
+							"label":"t:sections.all.text_alignment.left.label",
+							"value":"left"
+						},
+						{
+							"label":"t:sections.all.text_alignment.center.label",
+							"value":"center"
+						},
+						{
+							"label":"t:sections.all.text_alignment.right.label",
+							"value":"right"
+						}
+					]
+				},
+				{
+					"type":"select",
+					"id":"horizontal_alignment",
+					"label":"t:sections.all.horizontal_alignment.name",
+					"options":[
+						{
+							"label":"t:sections.all.horizontal_alignment.left.label",
+							"value":"top"
+						},
+						{
+							"label":"t:sections.all.horizontal_alignment.center.label",
+							"value":"middle"
+						},
+						{
+							"label":"t:sections.all.horizontal_alignment.right.label",
+							"value":"bottom"
+						}
+					]
+				},
+				{
+					"type":"select",
+					"id":"vertical_alignment",
+					"label":"t:sections.all.vertical_alignment.name",
+					"options":[
+						{
+							"label":"t:sections.all.vertical_alignment.left.label",
+							"value":"top"
+						},
+						{
+							"label":"t:sections.all.vertical_alignment.center.label",
+							"value":"middle"
+						},
+						{
+							"label":"t:sections.all.vertical_alignment.right.label",
+							"value":"bottom"
+						}
+					]
+				},
+				{
+					"type":"image_picker",
+					"id":"mobile_image",
+					"label":"t:sections.all.media.mobile_image.label"
+				},
+				{
+					"type":"select",
+					"id":"mobile_text_alignment",
+					"label":"t:sections.all.text_alignment.name",
+					"options":[
+						{
+							"label":"t:sections.all.text_alignment.left.label",
+							"value":"left"
+						},
+						{
+							"label":"t:sections.all.text_alignment.center.label",
+							"value":"center"
+						},
+						{
+							"label":"t:sections.all.text_alignment.right.label",
+							"value":"right"
+						}
+					]
+				},
+				{
+					"type":"select",
+					"id":"mobile_horizontal_alignment",
+					"label":"t:sections.all.horizontal_alignment.name",
+					"options":[
+						{
+							"label":"t:sections.all.horizontal_alignment.left.label",
+							"value":"top"
+						},
+						{
+							"label":"t:sections.all.horizontal_alignment.center.label",
+							"value":"middle"
+						},
+						{
+							"label":"t:sections.all.horizontal_alignment.right.label",
+							"value":"bottom"
+						}
+					]
+				},
+				{
+					"type":"select",
+					"id":"mobile_vertical_alignment",
+					"label":"t:sections.all.vertical_alignment.name",
+					"options":[
+						{
+							"label":"t:sections.all.vertical_alignment.left.label",
+							"value":"top"
+						},
+						{
+							"label":"t:sections.all.vertical_alignment.center.label",
+							"value":"middle"
+						},
+						{
+							"label":"t:sections.all.vertical_alignment.right.label",
+							"value":"bottom"
+						}
+					]
+				},
+				{
+					"type":"header",
+					"content":"t:sections.all.header_desktop.content"
+				},
+				{
+					"type":"number",
+					"id":"grid_column_placement",
+					"label":"t:sections.collection-section.blocks.promo_image.grid_column_placement.label"
+				},
+				{
+					"type":"number",
+					"id":"grid_row_placement",
+					"label":"t:sections.collection-section.blocks.promo_image.grid_row_placement.label"
+				},
+				{
+					"type":"number",
+					"id":"grid_span",
+					"label":"t:sections.collection-section.blocks.promo_image.grid_span.label"
+				},
+				{
+					"type":"range",
+					"id":"margin_bottom",
+					"label":"t:sections.collection-section.blocks.promo_image.margin_bottom.label",
+					"min":0,
+					"max":50,
+					"default":0
+				},
+				{
+					"type":"header",
+					"content":"t:sections.all.header_mobile.content"
+				},
+				{
+					"type":"number",
+					"id":"mob_grid_column_placement",
+					"label":"t:sections.collection-section.blocks.promo_image.grid_column_placement.label"
+				},
+				{
+					"type":"number",
+					"id":"mob_grid_row_placement",
+					"label":"t:sections.collection-section.blocks.promo_image.grid_row_placement.label"
+				},
+				{
+					"type":"number",
+					"id":"mob_grid_span",
+					"label":"t:sections.collection-section.blocks.promo_image.grid_span.label"
+				},
+				{
+					"type":"range",
+					"id":"mob_margin_bottom",
+					"label":"t:sections.collection-section.blocks.promo_image.margin_bottom.label",
+					"min":0,
+					"max":50,
+					"default":0
+				}
+			]
+		}
+	]
+}
+{% endschema %}

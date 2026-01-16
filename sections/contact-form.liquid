@@ -1,0 +1,133 @@
+{{ 'contact.css' | asset_url | stylesheet_tag }}
+<section class="section-contact-form section-{{section.id}}">
+  {%- if section.settings.enable_title -%}
+  <div class="text-{{section.settings.text_alignment}}">
+    <h1>
+      {%- if section.settings.title != blank -%}
+      {{section.settings.title}}
+      {%- else -%}
+      {{page.title}}
+      {%- endif -%}
+    </h1>
+  </div>
+  {%- endif -%}
+  {%- if section.settings.enable_page_content -%}
+  <div>{{page.content}}</div>
+  {%- endif -%}
+  <div class="contact-form">
+    {%- form 'contact', id: 'ContactForm' -%}
+	{%- if form.posted_successfully? -%}
+        <div class="form-success form-message " tabindex="-1" autofocus>{{ 'templates.contact.form.post_success' | t }}</div>
+      {%- elsif form.errors -%}
+        <div class="form-error">
+          <div class="form--message">
+            <h3 class="form-status" role="alert" tabindex="-1" autofocus>{{ 'templates.contact.form.error_heading' | t }}</h3>
+          </div>
+          <ul class="form-status" role="list">
+            <li>
+              <a href="#ContactForm-email" class="link">
+                {{ form.errors.translated_fields['email'] | capitalize }} {{ form.errors.messages['email'] }}
+              </a>
+            </li>
+          </ul>
+        </div>
+      {%- endif -%}
+      <div>
+      {%- for block in section.blocks -%}
+        {%- render 'contact-fields' , block:block -%}
+      {%- endfor -%}
+        <button type="submit" class="button">{{ 'templates.contact.form.send' | t }}</button>
+      </div>
+    {%- endform -%}
+  </div>
+</section>
+{% schema %}
+{
+	"name": "t:sections.contact-form.name",
+	"settings": [
+		{
+			"type":"checkbox",
+			"id":"enable_title",
+			"label":"t:sections.contact-form.settings.enable_title.label",
+			"default":true
+		},
+		{
+			"type":"text",
+			"id":"title",
+			"label":"t:sections.contact-form.settings.title.label",
+			"info":"t:sections.contact-form.settings.title.info"
+		},		
+		{
+            "type":"select",
+            "id":"text_alignment",
+            "label":"t:sections.all.text_alignment.name",
+            "options":[
+                {
+                  "label":"t:sections.all.text_alignment.left.label",
+                  "value":"left"
+                },
+                {
+                  "label":"t:sections.all.text_alignment.center.label",
+                  "value":"center"
+                },
+                {
+                  "label":"t:sections.all.text_alignment.right.label",
+                  "value":"right"
+                }
+            ]
+        },
+		{
+			"type":"checkbox",
+			"id":"enable_page_content",
+			"label":"t:sections.contact-form.settings.enable_page_content.label"
+		}
+  	],
+	"blocks":[
+		{
+			"name":"t:sections.contact-form.blocks.text_field.name",
+			"type":"text_field",
+			"settings":[
+				{
+					"type":"text",
+					"id":"title",
+					"label":"t:sections.contact-form.blocks.text_field.settings.title.label"
+				}
+			]
+		},
+		{
+			"name":"t:sections.contact-form.blocks.email_field.name",
+			"type":"email_field",
+			"limit":1,
+			"settings":[
+				{
+					"type":"text",
+					"id":"title",
+					"label":"t:sections.contact-form.blocks.email_field.settings.title.label"
+				}
+			]
+		},
+		{
+			"name":"t:sections.contact-form.blocks.textarea_field.name",
+			"type":"textarea_field",
+			"settings":[
+				{
+					"type":"text",
+					"id":"title",
+					"label":"t:sections.contact-form.blocks.textarea_field.settings.title.label"
+				}
+			]
+		},
+		{
+			"name":"t:sections.contact-form.blocks.number_field.name",
+			"type":"number_field",			
+			"settings":[
+				{
+					"type":"text",
+					"id":"title",
+					"label":"t:sections.contact-form.blocks.number_field.settings.title.label"
+				}
+			]
+		}
+	]
+}
+{% endschema %}

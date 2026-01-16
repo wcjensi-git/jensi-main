@@ -1,0 +1,32 @@
+.collection-grid{display: grid;grid-auto-rows: minmax(0, 1fr);gap: 0;}
+.snippet-promo-image{position:relative;}
+.promo-list{display:block;width:100%;height:100%;position:relative;}
+.promo-list:after{content:'';position:absolute;left:0;top:0;width:100%;height:100%;}
+.promo-list{min-height:300px;}
+.snippet-collection-filter{width:100%;display:block;position:relative;}
+.filterwrap{position: absolute;top: 100%;left: 0;background: #fff;z-index: 11;width: 25%;right: 0;min-width: 360px;}
+.filterwrap input[type="radio"],.filterwrap input[type="checkbox"]{display:none;}
+.filterwrap label{cursor:pointer;}
+.filterwrap input[type="radio"]:checked+label,.filterwrap input[type="checkbox"]:checked+label{font-weight:bold;}
+.filterwrap input[type="checkbox"][disabled]+label{opacity:0.4;cursor:no-drop;}
+.range-wrap {position: relative;width: 100%;max-width: 100%;}
+.price-slider {position: relative;z-index: 1;height:3px;margin:0px 5px;}
+.price-slider > .track {position: absolute;z-index: 1;left: 0;right: 0;top: 0;bottom: 0;border-radius: 5px;background-color: #8e8e8e;}
+.price-slider > .range {position: absolute; z-index: 2;left:0;right:0;top: 0;bottom: 0;border-radius: 5px;background-color: #000;}
+.price-slider > .thumb {position: absolute;z-index: 3;width:10px;height:10px;background-color: #000;border-radius: 50%;top:-3px;cursor:pointer;}
+.price-slider > .thumb.left {left: 0%;transform: translateX(-5px);}
+.price-slider > .thumb.right {right: 0%;transform: translateX(5px);}
+#MainContent:not(.firefox) .range-wrap input[type="range"]{pointer-events: none;-webkit-appearance: none;-moz-appearance: none;}
+.range-wrap input[type=range] {position: absolute;z-index: 2;height:3px;width: 100%;opacity: 0;cursor:pointer;margin:0;}
+.range-wrap input[type=range]::-webkit-slider-thumb {pointer-events: all;width:10px;height:10px;border-radius:50%;background-color:#000;-webkit-appearance: none;margin:0;}
+.range-wrap{padding:10px 0px 0;}
+.amount-wrap{display:flex;justify-content:space-between;padding:10px 0px;}
+.section-collection{min-height:600px;}
+.open-filter .filter-box,.open-sort .sort-box{display:block;}
+.filter-box,.sort-box{display:none;}
+@media(max-width:991px){
+  .promo-list{min-height:auto;}
+}
+@media(max-width:640px){
+  .filterwrap{min-width:100%;}
+}

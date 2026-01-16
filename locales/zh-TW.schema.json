@@ -1,0 +1,192 @@
+{
+  "settings_schema": {
+    "colors": {
+      "name": "色彩",
+      "settings": {
+      }
+    },
+    "typography": {
+      "name": "字體",
+      "settings": {
+        "type_header_font": {
+          "label": "字型",
+          "info": "選取不同字型會影響商店速度。[深入瞭解系統字型。](https:\/\/help.shopify.com\/en\/manual\/online-store\/os\/store-speed\/improving-speed#fonts)"
+        },
+        "header__1": {
+          "content": "標題"
+        },
+        "header__2": {
+          "content": "內文"
+        },
+        "type_body_font": {
+          "label": "字型",
+          "info": "選取不同字型會影響商店速度。[深入瞭解系統字型。](https:\/\/help.shopify.com\/en\/manual\/online-store\/os\/store-speed\/improving-speed#fonts)"
+        }
+      }
+    },
+    "social-media": {
+      "name": "社群媒體",
+      "settings": {
+        "social_twitter_link": {
+          "label": "Twitter",
+          "info": "https:\/\/twitter.com\/shopify"
+        },
+        "social_facebook_link": {
+          "label": "Facebook",
+          "info": "https:\/\/facebook.com\/shopify"
+        },
+        "social_pinterest_link": {
+          "label": "Pinterest",
+          "info": "https:\/\/pinterest.com\/shopify"
+        },
+        "social_instagram_link": {
+          "label": "Instagram",
+          "info": "http:\/\/instagram.com\/shopify"
+        },
+        "social_tiktok_link": {
+          "label": "TikTok",
+          "info": "https:\/\/tiktok.com\/@shopify"
+        },
+        "social_tumblr_link": {
+          "label": "Tumblr",
+          "info": "https:\/\/shopify.tumblr.com"
+        },
+        "social_snapchat_link": {
+          "label": "Snapchat",
+          "info": "https:\/\/www.snapchat.com\/add\/shopify"
+        },
+        "social_youtube_link": {
+          "label": "YouTube",
+          "info": "https:\/\/www.youtube.com\/shopify"
+        },
+        "social_vimeo_link": {
+          "label": "Vimeo",
+          "info": "https:\/\/vimeo.com\/shopify"
+        },
+        "header": {
+          "content": "社群帳號"
+        }
+      }
+    },
+    "favicon": {
+      "name": "Favicon",
+      "settings": {
+        "favicon": {
+          "label": "Favicon 圖片",
+          "info": "將會縮小為 32 x 32 像素"
+        }
+      }
+    },
+    "global": {
+      "settings": {
+      }
+    },
+    "buttons": {
+      "name": "按鈕"
+    },
+    "inputs": {
+      "name": "輸入"
+    },
+    "media": {
+      "name": "多媒體檔案"
+    }
+  },
+  "sections": {
+    "footer": {
+      "name": "頁尾",
+      "settings": {
+      }
+    },
+    "header": {
+      "name": "標頭",
+      "settings": {
+        "logo": {
+          "label": "標誌圖片"
+        },
+        "menu": {
+          "label": "選單"
+        }
+      }
+    },
+    "main-article": {
+      "name": "網誌文章"
+    },
+    "main-blog": {
+      "name": "網誌文章",
+      "settings": {
+      }
+    },
+    "main-cart-items": {
+      "name": "商品",
+      "settings": {
+      }
+    },
+    "main-collection-product-grid": {
+      "name": "產品網格",
+      "settings": {
+      }
+    },
+    "main-list-collections": {
+      "name": "商品系列清單頁面",
+      "settings": {
+        "sort": {
+          "label": "以下列方式排序商品系列：",
+          "options__1": {
+            "label": "依字母順序 A 到 Z"
+          },
+          "options__2": {
+            "label": "依字母順序 Z 到 A"
+          },
+          "options__3": {
+            "label": "日期 (從新到舊)"
+          },
+          "options__4": {
+            "label": "日期 (從舊到新)"
+          },
+          "options__5": {
+            "label": "產品數量，從高到低"
+          },
+          "options__6": {
+            "label": "產品數量，從低到高"
+          }
+        }
+      }
+    },
+    "main-page": {
+      "name": "頁面"
+    },
+    "main-password-footer": {
+      "name": "密碼頁尾",
+      "settings": {
+      }
+    },
+    "main-password-header": {
+      "name": "密碼頁首",
+      "settings": {
+        "logo": {
+          "label": "標誌圖片"
+        }
+      }
+    },
+    "main-product": {
+      "name": "產品資訊",
+      "settings": {
+      }
+    },
+    "main-search": {
+      "name": "搜尋結果",
+      "settings": {
+      }
+    },
+    "page": {
+      "name": "頁面",
+      "settings": {
+      }
+    },
+    "product-recommendations": {
+      "name": "商品推薦",
+      "settings": {
+      }
+    }
+  }
+}

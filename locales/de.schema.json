@@ -1,0 +1,192 @@
+{
+  "settings_schema": {
+    "colors": {
+      "name": "Farben",
+      "settings": {
+      }
+    },
+    "typography": {
+      "name": "Typografie",
+      "settings": {
+        "type_header_font": {
+          "label": "Schriftart",
+          "info": "Die Auswahl einer anderen Schriftart kann sich auf die Geschwindigkeit deines Shops auswirken. [Weitere Informationen zu Systemschriftarten.](https:\/\/help.shopify.com\/en\/manual\/online-store\/os\/store-speed\/improving-speed#fonts)"
+        },
+        "header__1": {
+          "content": "Überschriften"
+        },
+        "header__2": {
+          "content": "Nachricht"
+        },
+        "type_body_font": {
+          "label": "Schriftart",
+          "info": "Die Auswahl einer anderen Schriftart kann sich auf die Geschwindigkeit deines Shops auswirken. [Weitere Informationen zu Systemschriftarten.](https:\/\/help.shopify.com\/en\/manual\/online-store\/os\/store-speed\/improving-speed#fonts)"
+        }
+      }
+    },
+    "social-media": {
+      "name": "Social Media",
+      "settings": {
+        "social_twitter_link": {
+          "label": "Twitter",
+          "info": "https:\/\/twitter.com\/shopify"
+        },
+        "social_facebook_link": {
+          "label": "Facebook",
+          "info": "https:\/\/facebook.com\/shopify"
+        },
+        "social_pinterest_link": {
+          "label": "Pinterest",
+          "info": "https:\/\/pinterest.com\/shopify"
+        },
+        "social_instagram_link": {
+          "label": "Instagram",
+          "info": "http:\/\/instagram.com\/shopify"
+        },
+        "social_tiktok_link": {
+          "label": "TikTok",
+          "info": "https:\/\/vimeo.com\/shopify"
+        },
+        "social_tumblr_link": {
+          "label": "Tumblr",
+          "info": "http:\/\/shopify.tumblr.com"
+        },
+        "social_snapchat_link": {
+          "label": "Snapchat",
+          "info": "https:\/\/www.snapchat.com\/add\/shopify"
+        },
+        "social_youtube_link": {
+          "label": "YouTube",
+          "info": "https:\/\/www.youtube.com\/shopify"
+        },
+        "social_vimeo_link": {
+          "label": "Vimeo",
+          "info": "https:\/\/vimeo.com\/shopify"
+        },
+        "header": {
+          "content": "Social-Media-Konten"
+        }
+      }
+    },
+    "favicon": {
+      "name": "Favicon",
+      "settings": {
+        "favicon": {
+          "label": "Favicon-Bild",
+          "info": "Wird auf 32 x 32 Pixel verkleinert"
+        }
+      }
+    },
+    "global": {
+      "settings": {
+      }
+    },
+    "buttons": {
+      "name": "Schaltflächen"
+    },
+    "inputs": {
+      "name": "Eingaben"
+    },
+    "media": {
+      "name": "Medien"
+    }
+  },
+  "sections": {
+    "footer": {
+      "name": "Fußzeile",
+      "settings": {
+      }
+    },
+    "header": {
+      "name": "Header",
+      "settings": {
+        "logo": {
+          "label": "Logo-Bild"
+        },
+        "menu": {
+          "label": "Meny"
+        }
+      }
+    },
+    "main-article": {
+      "name": "Blog-Beitrag"
+    },
+    "main-blog": {
+      "name": "Blog-Beiträge",
+      "settings": {
+      }
+    },
+    "main-cart-items": {
+      "name": "Artikel",
+      "settings": {
+      }
+    },
+    "main-collection-product-grid": {
+      "name": "Produktraster",
+      "settings": {
+      }
+    },
+    "main-list-collections": {
+      "name": "Listenseite für Kategorien",
+      "settings": {
+        "sort": {
+          "label": "Kategorien sortieren nach:",
+          "options__1": {
+            "label": "Alphabetisch, A-Z"
+          },
+          "options__2": {
+            "label": "Alphabetisch, Z-A"
+          },
+          "options__3": {
+            "label": "Datum, neu zu alt"
+          },
+          "options__4": {
+            "label": "Datum, alt zu neu"
+          },
+          "options__5": {
+            "label": "Produktanzahl, hoch zu niedrig"
+          },
+          "options__6": {
+            "label": "Produktanzahl, niedrig zu hoch"
+          }
+        }
+      }
+    },
+    "main-page": {
+      "name": "Seite"
+    },
+    "main-password-footer": {
+      "name": "Passwort-Fußzeile",
+      "settings": {
+      }
+    },
+    "main-password-header": {
+      "name": "Passwort-Header",
+      "settings": {
+        "logo": {
+          "label": "Logo-Bild"
+        }
+      }
+    },
+    "main-product": {
+      "name": "Informationen oder Produkt",
+      "settings": {
+      }
+    },
+    "main-search": {
+      "name": "Suchergebnisse",
+      "settings": {
+      }
+    },
+    "page": {
+      "name": "Buchseite",
+      "settings": {
+      }
+    },
+    "product-recommendations": {
+      "name": "Empfohlene Produkte",
+      "settings": {
+      }
+    }
+  }
+}

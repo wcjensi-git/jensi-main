@@ -1,0 +1,192 @@
+{
+  "settings_schema": {
+    "colors": {
+      "name": "Barvy",
+      "settings": {
+      }
+    },
+    "typography": {
+      "name": "Typografie",
+      "settings": {
+        "type_header_font": {
+          "label": "Písmo",
+          "info": "Výběr jiného písma může ovlivnit rychlost obchodu. [Zjistěte více o systémových písmech.](https:\/\/help.shopify.com\/en\/manual\/online-store\/os\/store-speed\/improving-speed#fonts)"
+        },
+        "header__1": {
+          "content": "Nadpisy"
+        },
+        "header__2": {
+          "content": "Hlavní část"
+        },
+        "type_body_font": {
+          "label": "Písmo",
+          "info": "Výběr jiného písma může ovlivnit rychlost obchodu. [Zjistěte více o systémových písmech.](https:\/\/help.shopify.com\/en\/manual\/online-store\/os\/store-speed\/improving-speed#fonts)"
+        }
+      }
+    },
+    "social-media": {
+      "name": "Sociální sítě",
+      "settings": {
+        "social_twitter_link": {
+          "label": "Twitter",
+          "info": "https:\/\/twitter.com\/shopify"
+        },
+        "social_facebook_link": {
+          "label": "Facebook",
+          "info": "https:\/\/facebook.com\/shopify"
+        },
+        "social_pinterest_link": {
+          "label": "Pinterest",
+          "info": "https:\/\/pinterest.com\/shopify"
+        },
+        "social_instagram_link": {
+          "label": "Instagram",
+          "info": "http:\/\/instagram.com\/shopify"
+        },
+        "social_tiktok_link": {
+          "label": "TikTok",
+          "info": "https:\/\/tiktok.com\/@shopify"
+        },
+        "social_tumblr_link": {
+          "label": "Tumblr",
+          "info": "https:\/\/shopify.tumblr.com"
+        },
+        "social_snapchat_link": {
+          "label": "Snapchat",
+          "info": "https:\/\/www.snapchat.com\/add\/shopify"
+        },
+        "social_youtube_link": {
+          "label": "YouTube",
+          "info": "https:\/\/www.youtube.com\/shopify"
+        },
+        "social_vimeo_link": {
+          "label": "Vimeo",
+          "info": "https:\/\/vimeo.com\/shopify"
+        },
+        "header": {
+          "content": "Účty na sociálních sítích"
+        }
+      }
+    },
+    "favicon": {
+      "name": "Favikona",
+      "settings": {
+        "favicon": {
+          "label": "Obrázek favikony",
+          "info": "Dojde ke zmenšení na 32 × 32 px"
+        }
+      }
+    },
+    "global": {
+      "settings": {
+      }
+    },
+    "buttons": {
+      "name": "Tlačítka"
+    },
+    "inputs": {
+      "name": "Vstupy"
+    },
+    "media": {
+      "name": "Multimédia"
+    }
+  },
+  "sections": {
+    "footer": {
+      "name": "Zápatí",
+      "settings": {
+      }
+    },
+    "header": {
+      "name": "Záhlaví",
+      "settings": {
+        "logo": {
+          "label": "Obrázek loga"
+        },
+        "menu": {
+          "label": "Nabídka"
+        }
+      }
+    },
+    "main-article": {
+      "name": "Blogový příspěvek"
+    },
+    "main-blog": {
+      "name": "Blogové příspěvky",
+      "settings": {
+      }
+    },
+    "main-cart-items": {
+      "name": "Položky",
+      "settings": {
+      }
+    },
+    "main-collection-product-grid": {
+      "name": "Mřížka produktů",
+      "settings": {
+      }
+    },
+    "main-list-collections": {
+      "name": "Stránka se seznamem kolekcí",
+      "settings": {
+        "sort": {
+          "label": "Seřadit kolekce:",
+          "options__1": {
+            "label": "Abecedně, A–Z"
+          },
+          "options__2": {
+            "label": "Abecedně, Z–A"
+          },
+          "options__3": {
+            "label": "Datum od nejnovějšího"
+          },
+          "options__4": {
+            "label": "Datum od nejstaršího"
+          },
+          "options__5": {
+            "label": "Od nejvyššího počtu produktů po nejnižší"
+          },
+          "options__6": {
+            "label": "Od nejnižšího počtu produktů po nejvyšší"
+          }
+        }
+      }
+    },
+    "main-page": {
+      "name": "Stránka"
+    },
+    "main-password-footer": {
+      "name": "Zápatí hesla",
+      "settings": {
+      }
+    },
+    "main-password-header": {
+      "name": "Záhlaví hesla",
+      "settings": {
+        "logo": {
+          "label": "Obrázek loga"
+        }
+      }
+    },
+    "main-product": {
+      "name": "Informace o produktu",
+      "settings": {
+      }
+    },
+    "main-search": {
+      "name": "Výsledky hledání",
+      "settings": {
+      }
+    },
+    "page": {
+      "name": "Stránka",
+      "settings": {
+      }
+    },
+    "product-recommendations": {
+      "name": "Doporučené produkty",
+      "settings": {
+      }
+    }
+  }
+}

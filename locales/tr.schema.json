@@ -1,0 +1,192 @@
+{
+  "settings_schema": {
+    "colors": {
+      "name": "Renkler",
+      "settings": {
+      }
+    },
+    "typography": {
+      "name": "Tipografi",
+      "settings": {
+        "type_header_font": {
+          "label": "Yazı tipi",
+          "info": "Farklı bir yazı tipi seçmeniz mağazanızın hızını etkileyebilir. [Sistem yazı tipleri hakkında daha fazla bilgi edinin.](https:\/\/help.shopify.com\/en\/manual\/online-store\/os\/store-speed\/improving-speed#fonts)"
+        },
+        "header__1": {
+          "content": "Başlıklar"
+        },
+        "header__2": {
+          "content": "Gövde"
+        },
+        "type_body_font": {
+          "label": "Yazı tipi",
+          "info": "Farklı bir yazı tipi seçmeniz mağazanızın hızını etkileyebilir. [Sistem yazı tipleri hakkında daha fazla bilgi edinin.](https:\/\/help.shopify.com\/en\/manual\/online-store\/os\/store-speed\/improving-speed#fonts)"
+        }
+      }
+    },
+    "social-media": {
+      "name": "Sosyal medya",
+      "settings": {
+        "social_twitter_link": {
+          "label": "Twitter",
+          "info": "https:\/\/twitter.com\/shopify"
+        },
+        "social_facebook_link": {
+          "label": "Facebook",
+          "info": "https:\/\/facebook.com\/shopify"
+        },
+        "social_pinterest_link": {
+          "label": "Pinterest",
+          "info": "https:\/\/pinterest.com\/shopify"
+        },
+        "social_instagram_link": {
+          "label": "Instagram",
+          "info": "http:\/\/instagram.com\/shopify"
+        },
+        "social_tiktok_link": {
+          "label": "TikTok",
+          "info": "https:\/\/tiktok.com\/@shopify"
+        },
+        "social_tumblr_link": {
+          "label": "Tumblr",
+          "info": "https:\/\/shopify.tumblr.com"
+        },
+        "social_snapchat_link": {
+          "label": "Snapchat",
+          "info": "https:\/\/www.snapchat.com\/add\/shopify"
+        },
+        "social_youtube_link": {
+          "label": "YouTube",
+          "info": "https:\/\/www.youtube.com\/shopify"
+        },
+        "social_vimeo_link": {
+          "label": "Vimeo",
+          "info": "https:\/\/vimeo.com\/shopify"
+        },
+        "header": {
+          "content": "Sosyal medya hesapları"
+        }
+      }
+    },
+    "favicon": {
+      "name": "Favicon",
+      "settings": {
+        "favicon": {
+          "label": "Favicon görseli",
+          "info": "Ölçeği 32 x 32 piksele düşürülür"
+        }
+      }
+    },
+    "global": {
+      "settings": {
+      }
+    },
+    "buttons": {
+      "name": "Düğmeler"
+    },
+    "inputs": {
+      "name": "Girdiler"
+    },
+    "media": {
+      "name": "Medya"
+    }
+  },
+  "sections": {
+    "footer": {
+      "name": "Altbilgi",
+      "settings": {
+      }
+    },
+    "header": {
+      "name": "Üstbilgi",
+      "settings": {
+        "logo": {
+          "label": "Logo görseli"
+        },
+        "menu": {
+          "label": "Menü"
+        }
+      }
+    },
+    "main-article": {
+      "name": "Blog gönderisi"
+    },
+    "main-blog": {
+      "name": "Blog gönderileri",
+      "settings": {
+      }
+    },
+    "main-cart-items": {
+      "name": "Ürünler",
+      "settings": {
+      }
+    },
+    "main-collection-product-grid": {
+      "name": "Ürün ızgarası",
+      "settings": {
+      }
+    },
+    "main-list-collections": {
+      "name": "Koleksiyonlar listesi sayfası",
+      "settings": {
+        "sort": {
+          "label": "Koleksiyonları sıralama ölçütü:",
+          "options__1": {
+            "label": "Alfabetik olarak, A-Z"
+          },
+          "options__2": {
+            "label": "Alfabetik olarak, Z-A"
+          },
+          "options__3": {
+            "label": "Tarih, yeniden eskiye"
+          },
+          "options__4": {
+            "label": "Tarih, eskiden yeniye"
+          },
+          "options__5": {
+            "label": "Ürün sayısı, yüksekten düşüğe"
+          },
+          "options__6": {
+            "label": "Ürün sayısı, düşükten yükseğe"
+          }
+        }
+      }
+    },
+    "main-page": {
+      "name": "Sayfa"
+    },
+    "main-password-footer": {
+      "name": "Parola altbilgisi",
+      "settings": {
+      }
+    },
+    "main-password-header": {
+      "name": "Parola üstbilgisi",
+      "settings": {
+        "logo": {
+          "label": "Logo görseli"
+        }
+      }
+    },
+    "main-product": {
+      "settings": {
+      },
+      "name": "Ürün bilgileri"
+    },
+    "main-search": {
+      "name": "Arama sonuçları",
+      "settings": {
+      }
+    },
+    "page": {
+      "name": "Sayfa",
+      "settings": {
+      }
+    },
+    "product-recommendations": {
+      "name": "Ürün önerileri",
+      "settings": {
+      }
+    }
+  }
+}

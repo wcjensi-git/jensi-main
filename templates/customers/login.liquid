@@ -1,0 +1,82 @@
+{{ 'customer.css' | asset_url | stylesheet_tag }}
+<script src="{{ 'customer.js' | asset_url }}" defer="defer"></script>
+<div class="customer login">
+  <div class="recover-form hide-form">
+    <h1 id="recover" tabindex="-1">{{ 'customer.recover_password.title' | t }}</h1>
+    <div>
+      <p>{{ 'customer.recover_password.subtext' | t }}</p>
+      {%- form 'recover_customer_password' -%}
+        {% assign recover_success = form.posted_successfully? %}
+        <div class="customer-field">
+          {%- comment -%}<label for="RecoverEmail">{{ 'customer.login_page.email' | t }}</label>{%- endcomment -%}
+          <input type="email" value="" name="email" id="RecoverEmail" autocorrect="off" autocapitalize="off" autocomplete="email" {% if form.errors %} aria-invalid="true" aria-describedby="RecoverEmail-email-error" autofocus{% endif %} placeholder="{{ 'customer.login_page.email' | t }}">        
+        </div>
+        {%- if form.errors -%}
+          <small id="RecoverEmail-email-error" class="form-message">          
+            {{ form.errors.messages['form'] }}
+          </small>
+        {%- endif -%}
+        <button class="button">
+          {{ 'customer.login_page.submit' | t }}
+        </button>
+        <a href="#login" class="enable-login">
+          {{ 'customer.login_page.cancel' | t }}
+        </a>
+      {%- endform -%}
+    </div>
+  </div>
+  <div class="login-form">
+    <h1 id="login" tabindex="-1">{{ 'customer.login_page.title' | t }}</h1>
+    <div>
+      {%- if recover_success == true -%}
+        <h3 class="form-message" tabindex="-1" autofocus>
+          {{ 'customer.recover_password.success' | t }}
+        </h3>
+      {%- endif -%}
+      {%- form 'customer_login', novalidate: 'novalidate' -%}
+        {%- if form.errors -%}
+      	<div class="form-error">
+          <h2 class="form-message" tabindex="-1" autofocus>
+            <span class="visually-hidden">{{ 'accessibility.error' | t }} </span>          
+            {{ 'templates.contact.form.error_heading' | t }}
+          </h2>
+          {{ form.errors | default_errors }}
+      	</div>
+        {%- endif -%}
+        <div class="customer-field">
+          {%- comment -%}<label for="CustomerEmail">{{ 'customer.login_page.email' | t }}</label>{%- endcomment -%}
+          <input type="email" name="customer[email]" id="CustomerEmail" autocomplete="email" autocorrect="off" autocapitalize="off" {% if form.errors contains 'form' %}aria-invalid="true"{% endif %} placeholder="{{ 'customer.login_page.email' | t }}">        
+        </div>
+        {%- if form.password_needed -%}
+          <div class="customer-field">
+            {%- comment -%}<label for="CustomerPassword">{{ 'customer.login_page.password' | t }}</label>{%- endcomment -%}
+            <input type="password" value="" name="customer[password]" id="CustomerPassword" autocomplete="current-password" {% if form.errors contains 'form' %} aria-invalid="true"{% endif %} placeholder="{{ 'customer.login_page.password' | t }}">          
+          </div>
+          <a href="#recover" class="enable-forgot">
+            {{ 'customer.login_page.forgot_password' | t }}
+          </a>
+        {%- endif -%}
+      <div>
+        <button class="submit button">
+          {{ 'customer.login_page.sign_in' | t }}
+        </button>
+      </div>
+      <div>
+        <a href="{{ routes.account_register_url }}" class="button">
+          {{ 'customer.login_page.create_account' | t }}
+        </a>      
+      </div>
+      {%- endform -%}
+    </div>
+  </div>
+  {%- if shop.checkout.guest_login -%}
+    <div>      
+      <h2>{{ 'customer.login_page.guest_title' | t }}</h2>
+      {%- form 'guest_login' -%}
+        <button class="button">
+          {{ 'customer.login_page.guest_continue' | t }}
+        </button>
+      {%- endform -%}
+    </div>
+  {%- endif -%}
+</div>

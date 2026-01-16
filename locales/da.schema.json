@@ -1,0 +1,192 @@
+{
+  "settings_schema": {
+    "colors": {
+      "name": "Farver",
+      "settings": {
+      }
+    },
+    "typography": {
+      "name": "Typografi",
+      "settings": {
+        "type_header_font": {
+          "label": "Skrifttype",
+          "info": "Valget af en anden skrifttype kan påvirke hastigheden i din butik. [Få mere at vide om systemskrifttyper.](https:\/\/help.shopify.com\/en\/manual\/online-store\/os\/store-speed\/improving-speed#fonts)"
+        },
+        "header__1": {
+          "content": "Overskrifter"
+        },
+        "header__2": {
+          "content": "Brødtekst"
+        },
+        "type_body_font": {
+          "label": "Skrifttype",
+          "info": "Valget af en anden skrifttype kan påvirke hastigheden i din butik. [Få mere at vide om systemskrifttyper.](https:\/\/help.shopify.com\/en\/manual\/online-store\/os\/store-speed\/improving-speed#fonts)"
+        }
+      }
+    },
+    "social-media": {
+      "name": "Sociale medier",
+      "settings": {
+        "social_twitter_link": {
+          "label": "Twitter",
+          "info": "https:\/\/twitter.com\/shopify"
+        },
+        "social_facebook_link": {
+          "label": "Facebook",
+          "info": "https:\/\/facebook.com\/shopify"
+        },
+        "social_pinterest_link": {
+          "label": "Pinterest",
+          "info": "https:\/\/pinterest.com\/shopify"
+        },
+        "social_instagram_link": {
+          "label": "Instagram",
+          "info": "http:\/\/instagram.com\/shopify"
+        },
+        "social_tiktok_link": {
+          "label": "TikTok",
+          "info": "https:\/\/tiktok.com\/@shopify"
+        },
+        "social_tumblr_link": {
+          "label": "Tumblr",
+          "info": "https:\/\/shopify.tumblr.com"
+        },
+        "social_snapchat_link": {
+          "label": "Snapchat",
+          "info": "https:\/\/www.snapchat.com\/add\/shopify"
+        },
+        "social_youtube_link": {
+          "label": "YouTube",
+          "info": "https:\/\/www.youtube.com\/shopify"
+        },
+        "social_vimeo_link": {
+          "label": "Vimeo",
+          "info": "https:\/\/vimeo.com\/shopify"
+        },
+        "header": {
+          "content": "SoMe-konti"
+        }
+      }
+    },
+    "favicon": {
+      "name": "Favoritikon",
+      "settings": {
+        "favicon": {
+          "label": "Billede for favoritikon",
+          "info": "Skaleres ned til 32 x 32 px"
+        }
+      }
+    },
+    "global": {
+      "settings": {
+      }
+    },
+    "buttons": {
+      "name": "Knapper"
+    },
+    "inputs": {
+      "name": "Inputs"
+    },
+    "media": {
+      "name": "Medie"
+    }
+  },
+  "sections": {
+    "footer": {
+      "name": "Sidefod",
+      "settings": {
+      }
+    },
+    "header": {
+      "name": "Sidehoved",
+      "settings": {
+        "logo": {
+          "label": "Logobillede"
+        },
+        "menu": {
+          "label": "Nabídka"
+        }
+      }
+    },
+    "main-article": {
+      "name": "Blogopslag"
+    },
+    "main-blog": {
+      "name": "Blogopslag",
+      "settings": {
+      }
+    },
+    "main-cart-items": {
+      "name": "Varer",
+      "settings": {
+      }
+    },
+    "main-collection-product-grid": {
+      "name": "Produktgitter",
+      "settings": {
+      }
+    },
+    "main-list-collections": {
+      "name": "Siden Kollektionsliste",
+      "settings": {
+        "sort": {
+          "label": "Sortér kollektioner efter:",
+          "options__1": {
+            "label": "Alfabetisk, A-Å"
+          },
+          "options__2": {
+            "label": "Alfabetisk, Å-A"
+          },
+          "options__3": {
+            "label": "Dato, nyere til ældre"
+          },
+          "options__4": {
+            "label": "Dato, ældre til nyere"
+          },
+          "options__5": {
+            "label": "Produktantal, høj til lav"
+          },
+          "options__6": {
+            "label": "Produktantal, lav til høj"
+          }
+        }
+      }
+    },
+    "main-page": {
+      "name": "Side"
+    },
+    "main-password-footer": {
+      "name": "Sidefod på adgangskodeside",
+      "settings": {
+      }
+    },
+    "main-password-header": {
+      "name": "Sidehoved på adgangskodesiden",
+      "settings": {
+        "logo": {
+          "label": "Logobillede"
+        }
+      }
+    },
+    "main-product": {
+      "name": "Produktoplysninger",
+      "settings": {
+      }
+    },
+    "main-search": {
+      "name": "Søgeresultater",
+      "settings": {
+      }
+    },
+    "page": {
+      "name": "Side",
+      "settings": {
+      }
+    },
+    "product-recommendations": {
+      "name": "Produktanbefalinger",
+      "settings": {
+      }
+    }
+  }
+}

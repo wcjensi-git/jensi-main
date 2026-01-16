@@ -1,0 +1,22 @@
+<div class="account-left {% if template contains 'customers/addresses' %}account-sider{% endif %}">
+  <h1>{{'customer.account.hello' | t}} {{customer.name}}</h1>
+  <ul role="list">
+    {%- for link in linklists[settings.customer_menu].links -%}    
+    {%- if request.path == link.url -%}
+    <li class="active">
+      <div class="d-none d-lg-block">
+        <a href="javascript:void(0)">{{link.title}}</a>
+      </div>
+      <div class="d-block d-lg-none">
+        <a href="javascript:void(0)" class="account-link">{{link.title}}</a>
+      </div>
+    </li>
+    {%- else -%}
+    <li>
+      <a href="{{link.url}}">{{link.title}}</a>
+    </li>
+    {%- endif -%}
+    {%- endfor -%}
+    <li><a href="{{ routes.account_logout_url }}" class="button">{{ 'customer.log_out' | t }}</a></li>  
+  </ul> 
+</div>

@@ -1,0 +1,22 @@
+<div {{ block.shopify_attributes }}>
+  {%- case block.settings.select -%}
+  {%-  when 'description' -%}
+  	{%- if product.description != blank -%}
+  	<div class="rte">{{product.description}}</div>
+  	{%- endif -%}
+  {%-  when 'payment_icon' -%}
+  	{%- render 'payments' -%}
+  {%-  when 'text' -%}
+    {%- if block.settings.text_selector != blank -%}
+    <div class="rte">
+      {{- block.settings.text_selector -}}
+    </div>
+    {%- endif -%}
+  {%-  when 'image' -%}
+    {%- if block.settings.image != blank -%}
+    <div>
+      <img src="{{block.settings.image | img_url:'master'}}" loading="lazy"/>
+    </div>
+    {%- endif -%}
+  {%- endcase -%}
+</div>

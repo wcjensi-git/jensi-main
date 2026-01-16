@@ -1,0 +1,38 @@
+{%- case block.type -%}
+  {%- when 'text_field' -%}
+  <div>
+    <input autocomplete="{{block.settings.title | handle}}" type="text" id="ContactForm-{{block.settings.title | handle}}" name="contact[{{block.settings.title}}]" placeholder="{{block.settings.title}}">
+  </div>
+  {%- when 'email_field' -%}
+  <div>
+    <input
+           autocomplete="{{block.settings.title | handle}}"
+           type="email"
+           id="ContactForm-{{block.settings.title | handle}}"
+           name="contact[{{block.settings.title | handle}}]"
+           spellcheck="false"
+           autocapitalize="off"
+           value="{% if form.email %}{{ form.email }}{% elsif customer %}{{ customer.email }}{% endif %}"
+           aria-required="true"
+           {% if form.errors contains 'email' %}
+           aria-invalid="true"
+           aria-describedby="ContactForm-email-error"
+           {% endif %}
+           placeholder="{{block.settings.title}}"
+           >
+    {%- if form.errors contains 'email' -%}
+    <small id="ContactForm-email-error">
+      <span class="visually-hidden">{{ 'accessibility.error' | t }}</span>
+      <span>{{ form.errors.translated_fields['email'] | capitalize }} {{ form.errors.messages['email'] }}</span>
+    </small>
+    {%- endif -%}
+  </div>
+  {%- when 'textarea_field' -%}
+  <div>
+    <textarea rows="10" id="ContactForm-{{block.settings.title | handle}}" name="contact[{{block.settings.title}}]" placeholder="{{block.settings.title}}">{{- form.body -}}</textarea>
+  </div>
+  {%- when 'number_field' -%}
+  <div>
+    <input type="tel" id="ContactForm-{{block.settings.title | handle}}" autocomplete="tel" name="contact[{{block.settings.title}}]" pattern="[0-9\-]*" value="{% if form.phone %}{{ form.phone }}{% elsif customer %}{{ customer.phone }}{% endif %}" placeholder="{{block.settings.title}}">
+  </div>
+{%- endcase -%}

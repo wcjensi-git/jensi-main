@@ -1,0 +1,32 @@
+{%- liquid
+	assign desktop_caption = section.settings.desktop_caption_position
+    assign mobile_caption = section.settings.mobile_caption_position
+    assign desktop_text = section.settings.text_alignment
+    assign mobile_text = section.settings.mobile_text_alignment
+    assign desktop_vertical = section.settings.vertical_alignments
+    assign mobile_vertical = section.settings.mobile_vertical_alignments
+    if desktop_caption == 'above_image'
+    	assign desk_caption_cls = 'desktop_above'
+    else
+    	assign desk_caption_cls = 'desktop_below'
+    endif
+    if mobile_caption == 'above_image'
+    	assign mob_caption_cls = 'mobile_above'
+    else
+    	assign mob_caption_cls = 'mobile_below'
+    endif
+-%}
+<div class="snippet-list-collection">
+  <div>
+    <a href="{{ card_collection.url }}" class="list-collection-image">
+      {%- if card_collection.featured_image -%}
+      <img src="{{ card_collection.featured_image | image_url: width: 1500 }}" loading="lazy">
+      {%- else -%}
+      {{- 'image' | placeholder_svg_tag: 'placeholder-svg' -}}
+      {%- endif -%}
+    </a>
+  </div>
+  <div class="mediatext-{{desktop_text}} mobile-mediatext-{{mobile_text}} {{desk_caption_cls}} {{mob_caption_cls}} {% if desktop_caption == 'above_image' %}vertical-{{desktop_vertical}}{% endif %} {% if mobile_caption == 'above_image' %}mobile-vertical-{{mobile_vertical}}{% endif %}">
+    <{{section.settings.heading_selector}}><a href="{{ card_collection.url }}">{{ card_collection.title }}</a></{{section.settings.heading_selector}}>
+  </div>
+</div>

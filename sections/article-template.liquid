@@ -1,0 +1,162 @@
+{{ 'article.css' | asset_url | stylesheet_tag }}
+<section class="section-article-template section-id-{{section.id}}">
+  <article itemscope itemtype="http://schema.org/BlogPosting">
+    {%- comment -%}<!--------------------Article Image-------------------------->{%- endcomment -%}
+    {%- if section.settings.enable_image and article.image -%}
+    <div class="article-image">
+      {%- liquid
+    	if section.settings.desktop_fix_height
+            assign banner_desktop = section.settings.desktop_height | append:'px'
+            assign banner_class = 'banner-height'
+        else
+            assign banner_desktop = 'auto'
+        endif        
+      -%}    
+      <style>
+        @media(min-width:992px){.banner-height{height:{{banner_desktop}};}}
+        @media(max-width:991px){.banner-height{height:50vh;min-height:200px;}}
+      </style>
+      <div class="{{banner_class}}" itemprop="image">
+          {{- article.image | image_url:width:1920 | image_tag:loading:'lazy',height:nil -}}
+      </div>
+    </div>
+    {%- endif -%}
+    {%- comment -%}<!--------------------Article Description-------------------------->{%- endcomment -%}
+    <div class="text-{{section.settings.text_alignment}}">
+      {%- if section.settings.enable_title -%}
+      <h1 itemprop="headline">{{ article.title | escape }}</h1>
+      {%- endif -%}
+      <div>
+        {%- if section.settings.show_date -%}
+        <span itemprop="dateCreated pubdate datePublished">{{- article.published_at | time_tag: format: 'date' -}}</span>
+        {%- endif -%}
+        {%- if section.settings.show_author -%}
+        <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+        	<span itemprop="name">{{- article.author -}}</span>
+        </span>
+        {%- endif -%}
+      </div>
+      {%- if article.content -%}
+      <div itemprop="articleBody">
+      {{- article.content -}}
+      </div>
+      {%- endif -%}
+    </div>
+  </article>
+</section>
+<script type="application/ld+json">
+  {
+    "@context": "http://schema.org",
+    "@type": "Article",
+    "articleBody": {{ article.content | strip_html | json }},
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": {{ request.origin | append: page.url | json }}
+    },
+    "headline": {{ article.title | json }},
+    {% if article.excerpt != blank %}
+      "description": {{ article.excerpt | strip_html | json }},
+    {% endif %}
+    {% if section.settings.enable_image and article.image %}
+      {% assign image_size = article.image.width | append: 'x' %}
+      "image": [
+        {{ article | img_url: image_size | prepend: "https:" | json }}
+      ],
+    {% endif %}
+    {% if section.settings.show_date %}
+    "datePublished": {{ article.published_at | date: '%Y-%m-%dT%H:%M:%SZ' | json }},
+    "dateCreated": {{ article.created_at | date: '%Y-%m-%dT%H:%M:%SZ' | json }},
+    {% endif %}
+    {% if section.settings.show_author %}
+    "author": {
+      "@type": "Person",
+      "name": {{ article.author | json }}
+    },
+    {% endif %}
+    "publisher": {
+      "@type": "Organization",
+      {% if settings.share_image %}
+        {% assign image_size = settings.share_image.width | append: 'x' %}
+        "logo": {
+          "@type": "ImageObject",
+          "height": {{ settings.share_image.height | json }},
+          "url": {{ settings.share_image | img_url: image_size | prepend: "https:" | json }},
+          "width": {{ settings.share_image.width | json }}
+        },
+      {% endif %}
+      "name": {{ shop.name | json }}
+    }
+  }
+</script>
+{% schema %}
+{
+  "name": "t:sections.article-template.name",
+  "settings":[
+		{
+			"type":"header",
+			"content":"t:sections.article-template.settings.header.content"
+		},			
+		{
+			"type":"paragraph",
+			"content":"t:sections.article-template.settings.paragraph.label"
+		},
+		{
+			"type":"checkbox",
+			"id":"desktop_fix_height",
+			"label":"t:sections.article-template.settings.desktop_height.label"
+		},
+		{
+			"type":"range",
+			"id":"desktop_height",
+			"label":"t:sections.article-template.settings.desktop_height.label",
+			"min":40,
+			"max":600,
+			"step":20,
+			"default":200
+		},		
+        {
+            "type":"select",
+            "id":"text_alignment",
+            "label":"t:sections.all.text_alignment.name",
+            "options":[
+                {
+                  "label":"t:sections.all.text_alignment.left.label",
+                  "value":"left"
+                },
+                {
+                  "label":"t:sections.all.text_alignment.center.label",
+                  "value":"center"
+                },
+                {
+                  "label":"t:sections.all.text_alignment.right.label",
+                  "value":"right"
+                }
+            ]
+        },
+		{
+			"type":"checkbox",
+			"id":"enable_title",
+			"label":"t:sections.article-template.settings.enable_title.label",
+			"default":true
+		},
+		{
+			"type":"checkbox",
+			"id":"enable_image",
+			"label":"t:sections.article-template.settings.show_image.label",
+			"default":true
+		},		
+		{
+			"type":"checkbox",
+			"id":"show_date",
+			"label":"t:sections.article-template.settings.enable_date.label",
+			"default":true
+		},
+		{
+			"type":"checkbox",
+			"id":"show_author",
+			"label":"t:sections.article-template.settings.enable_author.label",
+			"default":true
+		}
+  	]
+}
+{% endschema %}

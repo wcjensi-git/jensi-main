@@ -1,0 +1,83 @@
+{%- liquid
+  assign media_image = block.settings.image
+  assign mob_media_image = block.settings.mobile_image
+  assign media_iframe = block.settings.video
+  assign media_video = block.settings.mp4
+  assign media_type = block.settings.media_type
+  assign text-alignment = block.settings.text_alignment
+  assign mob_text_alignment = block.settings.mobile_text_alignment
+  assign horizontal = block.settings.horizontal_alignment
+  assign mob_horizontal = block.settings.mobile_horizontal_alignment
+  assign vertical = block.settings.vertical_alignment
+  assign mob_vertical = block.settings.mobile_vertical_alignment
+-%}
+<div class="swiper-slide snippet-media-slider snippet-media{{block.id}} {% unless media_type == 'video' %}snippet-video{% endunless %}" data-number="{{forloop}}" {{ block.shopify_attributes }}>
+  {%- if block.settings.caption_color != blank or block.settings.ovarlay != blank -%}
+  <style>
+    {%- if block.settings.caption_color != blank -%}
+    {%- unless block.settings.caption_color == 'rgba(0,0,0,0)' -%}
+    .snippet-media{{block.id}}{color:{{block.settings.caption_color}};}
+    {%- endunless -%}
+    {%- endif -%}
+    {%- if block.settings.ovarlay != blank -%}
+    .snippet-media{{block.id}} .media-list:after{background:{{block.settings.ovarlay}};}
+    {%- endif -%}
+  </style>
+  {%- endif -%}
+    {%- if block.settings.button_url != blank -%}
+    <a href="{{block.settings.button_url}}" class="media-list">
+    {%- else -%}
+    <div class="media-list">
+    {%- endif -%}
+    <div class="snippet-media-box">
+      {%- if media_type == 'image' -%}
+      {%- if media_image != blank or mob_media_image != blank -%}
+      	{%- if mob_media_image != blank -%}
+      		{%- assign desktop_media = 'full-image d-none d-md-block' -%}
+       	{%- else -%}
+      		{%- assign desktop_media = 'full-image' -%}
+      	{%- endif -%}
+      	{%- if media_image != blank -%}
+      	{{- media_image | image_url:width:1920 | image_tag:loading:'lazy',width:nil,class:desktop_media -}}
+      	{%- endif -%} 
+      	{%- if mob_media_image != blank -%}
+      	{{- mob_media_image | image_url:width:1920 | image_tag:loading:'lazy',width:nil,class:'full-image d-block d-md-none' -}}
+      	{%- endif -%}
+      {%- else -%}
+      	{{- 'image' | placeholder_svg_tag: 'svg-full placeholder-svg' -}}
+      {%- endif -%}
+      {%- elsif media_type == 'iframe' -%}
+        {%- if media_iframe != blank -%}
+			{%- if media_iframe.type == 'youtube' -%}
+      		<iframe class="fulliframe" src="https://www.youtube.com/embed/{{media_iframe.id}}?mute=1&autoplay=1&loop=1&playlist={{media_iframe.id}}" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      		{%- else -%}
+      		<iframe class="fulliframe" src="https://player.vimeo.com/video/{{media_iframe.id }}?muted=1&autoplay=1&autopause=0&loop=1&background=1&playlist={{media_iframe.id }}" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      		{%- endif -%}
+        {%- endif -%}
+      {%- else -%}
+		{%- if media_video != blank -%}
+        <video muted loop autoplay playsinline class="fullvideo">
+          <source src="{{- media_video -}}" type="video/mp4">
+        </video>
+      	{%- endif -%}
+      {%- endif -%}
+    </div>
+    <div class="media-caption vertical-{{vertical}} mobile-vertical-{{mob_vertical}}">
+      <div class="media-caption-inner mediatext-{{text-alignment}} mobile-mediatext-{{mob_text_alignment}} horizontal-{{horizontal}} mobile-horizontal-{{mob_horizontal}}">
+      {%- if block.settings.title != blank -%}
+        <{{section.settings.heading_selector}}>{{- block.settings.title -}}</{{section.settings.heading_selector}}>
+      {%- endif -%}
+      {%- if block.settings.content != blank -%}
+        <div>{{- block.settings.content -}}</div>
+      {%- endif -%}
+      {%- if block.settings.button_url != blank and block.settings.button_label != blank -%}
+        <span class="button">{{- block.settings.button_label -}}</span>
+      {%- endif -%}
+      </div>
+    </div>
+    {%- if block.settings.button_url == blank -%}
+    </div>
+    {%- else -%}
+    </a>
+    {%- endif -%}
+</div>

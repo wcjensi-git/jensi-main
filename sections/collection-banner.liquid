@@ -1,0 +1,119 @@
+<section class="section-collection-banner section-id-{{section.id}}">
+{%- if section.settings.show_title or section.settings.show_description or section.settings.enable_image or section.settings.enable_breadcrumb -%}
+  {{ 'collection-banner.css' | asset_url | stylesheet_tag }}
+  {%- comment -%}<!-----------Collection Banner------------------------>{%- endcomment -%}
+  {%- if section.settings.enable_image and collection.image != blank -%}
+  <div class="collection-image">
+    {%- liquid
+    	if section.settings.desktop_fix_height
+            assign banner_desktop = section.settings.desktop_height | append:'px'
+            assign banner_class = 'banner-height'
+        else
+            assign banner_desktop = 'auto'
+        endif
+        if section.settings.mobile_fix_height
+            assign banner_mobile = section.settings.mobile_height | append:'px'
+            assign banner_class = 'banner-height'
+        else
+            assign banner_mobile = 'auto'
+        endif
+    -%}
+    <style>
+      @media(min-width:992px){.banner-height{height:{{banner_desktop}};}}
+      @media(max-width:991px){.banner-height{height:{{banner_mobile}};}}
+    </style>
+    <div class="{{banner_class}}">
+		{{- collection.image | image_url:width:1920 | image_tag:loading:'lazy',height:nil -}}
+    </div>
+  </div>
+  {%- endif -%}
+  {%- if section.settings.show_title or section.settings.show_description -%}
+  <div class="text-{{section.settings.text_alignment}}">
+    {%- comment -%}<!-----------Collection Title------------------------>{%- endcomment -%}
+    {%- if section.settings.show_title -%}
+    <h1>{{- collection.title -}}</h1>
+    {%- endif -%}
+    {%- comment -%}<!-----------Collection Description------------------------>{%- endcomment -%}
+    {%- if section.settings.show_description and collection.description != blank -%}
+    <div class="rte">{{- collection.description -}}</div>
+    {%- endif -%}
+  </div>
+  {%- endif -%}
+{%- endif -%}
+</section>
+{% schema %}
+  {
+    "name": "t:sections.collection-banner.name",
+    "settings": [
+		{
+			"type":"checkbox",
+			"id":"enable_image",
+			"label":"t:sections.collection-banner.settings.show_image.label",
+			"default":true
+		},
+		{
+			"type":"paragraph",
+			"content":"t:sections.collection-banner.settings.paragraph.label"
+		},
+		{
+			"type":"checkbox",
+			"id":"desktop_fix_height",
+			"label":"t:sections.collection-banner.settings.desktop_height.label"
+		},
+		{
+			"type":"range",
+			"id":"desktop_height",
+			"label":"t:sections.collection-banner.settings.desktop_height.label",
+			"min":40,
+			"max":600,
+			"step":20,
+			"default":200
+		},
+		{
+			"type":"checkbox",
+			"id":"mobile_fix_height",
+			"label":"t:sections.collection-banner.settings.mobile_height.label"
+		},
+		{
+			"type":"range",
+			"id":"mobile_height",
+			"label":"t:sections.collection-banner.settings.mobile_height.label",
+			"min":40,
+			"max":400,
+			"step":20,
+			"default":200
+		},
+        {
+            "type":"select",
+            "id":"text_alignment",
+            "label":"t:sections.all.text_alignment.name",
+            "options":[
+                {
+                    "label":"t:sections.all.text_alignment.left.label",
+                    "value":"left"
+                },
+                {
+                    "label":"t:sections.all.text_alignment.center.label",
+                    "value":"center"
+                },
+                {
+                    "label":"t:sections.all.text_alignment.right.label",
+                    "value":"right"
+                }
+            ]
+        },
+		{
+			"type":"checkbox",
+			"id":"show_title",
+			"label":"t:sections.collection-banner.settings.enable_title.label",
+			"default":true
+		},
+		{
+			"type":"checkbox",
+			"id":"show_description",
+			"label":"t:sections.collection-banner.settings.enable_description.label",
+			"default":true
+		}
+	 ]
+  }
+{% endschema %}

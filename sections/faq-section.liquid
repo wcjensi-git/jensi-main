@@ -1,0 +1,167 @@
+{{ 'accordion.css' | asset_url | stylesheet_tag }}
+{{ 'faq.css' | asset_url | stylesheet_tag }}
+<script src="{{ 'accordion.js' | asset_url }}" defer="defer"></script>
+<section class="section-faq section-id-{{section.id}}">
+  {%- comment -%}<!-------------Title-------------------->{%- endcomment -%}
+  {%- if section.settings.enable_title -%}
+  <div class="text-{{section.settings.title_alignment}}">
+    <h1>
+      {%- if section.settings.title != blank -%}
+      {{- section.settings.title -}}
+      {%- else -%}
+      {{- page.title -}}
+      {%- endif -%}
+    </h1>
+  </div>
+  {%- endif -%}
+  {%- comment -%}<!-------------Page Content-------------------->{%- endcomment -%}
+  {%- if section.settings.enable_page_content -%}
+  <div>{{page.content}}</div>
+  {%- endif -%}
+  {%- comment -%}<!-------------FAQ Blocks-------------------->{%- endcomment -%}
+  <div class="faq-wrap">
+    {%- for block in section.blocks -%}
+    	{%- assign faq_cat = block.settings.title | append:',' -%}
+    	{%- assign join_faq_cat = join_faq_cat | append:faq_cat -%}       	
+    {%- endfor -%}
+    {%- assign categories_list =  join_faq_cat | split:',' | uniq -%}
+    {%- for categories in categories_list -%}
+  		{%- render 'faq-block' , block:block , categories:categories -%}
+    {%- endfor -%}
+  </div>
+</section>
+{% schema %}
+  {
+    "name": "t:sections.faq-section.name",
+    "settings": [
+		{
+			"type":"checkbox",
+			"id":"enable_title",
+			"label":"t:sections.faq-section.settings.enable_title.label",
+			"default":true
+		},
+		{
+			"type":"text",
+			"id":"title",
+			"label":"t:sections.faq-section.settings.title.label",
+			"info":"t:sections.faq-section.settings.title.info"
+		},		
+		{
+			"type":"select",
+			"id":"title_alignment",
+			"label":"t:sections.all.text_alignment.name",
+            "options":[
+                {
+                  "label":"t:sections.all.text_alignment.left.label",
+                  "value":"left"
+                },
+                {
+                  "label":"t:sections.all.text_alignment.center.label",
+                  "value":"center"
+                },
+                {
+                  "label":"t:sections.all.text_alignment.right.label",
+                  "value":"right"
+                }
+            ]
+		},
+		{
+			"type":"checkbox",
+			"id":"enable_page_content",
+			"label":"t:sections.faq-section.settings.enable_content.label"
+		},
+		{
+					"type":"select",
+					"id":"category_title_select",
+					"label":"t:sections.faq-section.settings.category_title_selection.label",
+					"options":[
+						{
+							"label":"t:sections.faq-section.settings.category_title_selection.option__1.label",
+							"value":"h1"
+						},
+						{
+							"label":"t:sections.faq-section.settings.category_title_selection.option__2.label",
+							"value":"h2"
+						},
+						{
+							"label":"t:sections.faq-section.settings.category_title_selection.option__3.label",
+							"value":"h3"
+						},
+						{
+							"label":"t:sections.faq-section.settings.category_title_selection.option__4.label",
+							"value":"h4"
+						},
+						{
+							"label":"t:sections.faq-section.settings.category_title_selection.option__5.label",
+							"value":"h5"
+						},
+						{
+							"label":"t:sections.faq-section.settings.category_title_selection.option__6.label",
+							"value":"h6"
+						}
+					],
+					"default":"h4"
+				},
+				{
+					"type":"select",
+					"id":"question_title_select",
+					"label":"t:sections.faq-section.settings.question_title_selection.label",
+					"options":[
+						{
+							"label":"t:sections.faq-section.settings.question_title_selection.option__1.label",
+							"value":"h1"
+						},
+						{
+							"label":"t:sections.faq-section.settings.question_title_selection.option__2.label",
+							"value":"h2"
+						},
+						{
+							"label":"t:sections.faq-section.settings.question_title_selection.option__3.label",
+							"value":"h3"
+						},
+						{
+							"label":"t:sections.faq-section.settings.question_title_selection.option__4.label",
+							"value":"h4"
+						},
+						{
+							"label":"t:sections.faq-section.settings.question_title_selection.option__5.label",
+							"value":"h5"
+						},
+						{
+							"label":"t:sections.faq-section.settings.question_title_selection.option__6.label",
+							"value":"h6"
+						},
+						{
+							"label":"t:sections.faq-section.settings.question_title_selection.option__7.label",
+							"value":"p"
+						}
+					],
+					"default":"h5"
+				}
+	],
+	"blocks":[
+		{
+			"name":"t:sections.faq-section.blocks.faq_block.name",
+            "type":"faq_block",
+            "settings":[
+				{
+                    "type":"text",
+                    "id":"title",
+                    "label":"t:sections.faq-section.blocks.faq_block.settings.category.label"
+                },
+				
+				{
+                    "type":"text",
+                    "id":"question",
+                    "label":"t:sections.faq-section.blocks.faq_block.settings.question.label"
+                },				
+				{
+                    "type":"richtext",
+                    "id":"answer",
+                    "label":"t:sections.faq-section.blocks.faq_block.settings.answer.label"
+                }			
+			]
+		}
+	]
+  }
+{% endschema %}

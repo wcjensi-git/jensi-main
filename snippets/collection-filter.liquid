@@ -1,0 +1,187 @@
+<facet-filters-form class="snippet-collection-filter">
+  <script>
+  createSingleInstanceOfJS('{{"filter.js" | asset_url}}', '.snippet-collection-filter')
+  </script>
+  {%- liquid
+    assign sort_by = results.sort_by | default: resulcollectionts.default_sort_by
+    assign total_active_values = 0
+    if results.url
+      assign results_url = results.url
+    else 
+      assign terms = results.terms | escape
+      assign results_url = '?q=' | append: terms | append: '&options%5Bprefix%5D=last&sort_by=' | append: sort_by
+    endif
+  -%}
+  <button class="filter-button button">{{'sections.collection_template.filter_button' | t}}</button>
+  {%- if section.settings.enable_sort -%}
+  <button class="sort-button button">{{'sections.collection_template.sort_button' | t}}</button>
+  {%- endif -%}
+  <form id="form-facet">
+    {%- if section.settings.enable_sort -%}
+    <div class="sort-box filterwrap">
+      <div class="filter-sort filter-index" data-index="sort-{{forloop.index}}">
+        <h4>{{'sections.collection_template.sort' | t}}</h4>
+        {%- assign sort_by = results.sort_by | default: results.default_sort_by -%}        
+        <ul>
+          {%- for option in results.sort_options -%}
+          <li {% if option.value == sort_by %}class="active"{% endif %}>
+            <input type="radio" id="{{ option.value | handle }}" name="sort_by" value="{{ option.value | escape }}" {% if option.value == sort_by or forloop.first %}checked{% endif %}>            
+            <label for="{{ option.value | handle }}">
+              {{- option.name | escape -}}
+            </label>
+          </li>
+          {%- endfor -%}
+        </ul>       
+      </div>
+    </div>
+    {%- endif -%}
+    <div class="filter-box filterwrap">
+        {%- if results.terms -%}
+        <input type="hidden" name="q" value="{{ results.terms | escape }}">
+        <input name="options[prefix]" type="hidden" value="last">
+        {%- endif -%}
+      {%- comment -%}<!---------------------Sorting----------------------------------->{%- endcomment -%}
+      {%- comment -%}
+      {%- if section.settings.enable_sort -%}
+        <div class="filter-sort filter-index" data-index="sort-{{forloop.index}}">
+          <h4>{{'sections.collection_template.sort' | t}}</h4>
+          {%- assign sort_by = results.sort_by | default: results.default_sort_by -%}        
+          <ul>
+          {%- for option in results.sort_options -%}
+            <li {% if option.value == sort_by %}class="active"{% endif %}>
+              <input type="radio" id="{{ option.value | handle }}" name="sort_by" value="{{ option.value | escape }}" {% if option.value == sort_by or forloop.first %}checked{% endif %}>            
+              <label for="{{ option.value | handle }}">
+              {{- option.name | escape -}}
+              </label>
+            </li>
+          {%- endfor -%}
+          </ul>       
+        </div>
+      {%- endif -%}
+      {%- endcomment -%}
+      {%- comment -%}<!---------------------Facet Filter Start--------------------------------->{%- endcomment -%}
+      {%- if section.settings.enable_filter -%}
+      <div class="filter-wrap">
+          {%- for filter in results.filters -%}
+          <div class="facet-list {% unless filter.type == 'price_range' %}filter-index{% endunless %}" {% unless filter.type == 'price_range' %}data-index="{{forloop.index}}"{% endunless %}>
+              {%- case filter.type -%}
+                  {%- when 'list' -%}
+                      <h4>{{ filter.label | escape }}</h4>
+                      <ul>
+                      {%- for value in filter.values -%}
+                        <li class="{% if value.active %}active{% endif %}{% if value.count == 0 and value.active == false %} disable-facet{% endif %}" data-value="{{ value.param_name }}={{ value.value}}">
+                          <input type="checkbox" name="{{ value.param_name }}" value="{{ value.value }}" id="Filter-{{ filter.label | escape }}-{{ forloop.index }}" {% if value.active %}checked{% endif %} {% if value.count == 0 and value.active == false %}disabled{% endif %}>                          
+                          <label for="Filter-{{ filter.label | escape }}-{{ forloop.index }}">
+                            {{- value.label | escape -}}
+                          </label>
+                        </li>
+                        {%- endfor -%}
+                      </ul>
+                  {%- when 'price_range' -%}   
+                      <h4>{{ filter.label | escape }}</h4>
+                      {%- liquid
+                        assign currencies_using_comma_decimals = 'ANG,ARS,BRL,BYN,BYR,CLF,CLP,COP,CRC,CZK,DKK,EUR,HRK,HUF,IDR,ISK,MZN,NOK,PLN,RON,RUB,SEK,TRY,UYU,VES,VND' | split: ','
+                        assign uses_comma_decimals = false
+                        if currencies_using_comma_decimals contains cart.currency.iso_code
+                          assign uses_comma_decimals = true
+                        endif
+                      -%}
+                      <div class="range-wrap">
+                        <div class="multi-range-slider">
+                          <input type="range" class="price-left" name="{{ filter.min_value.param_name }}" id="Mobile-Filter-{{ filter.label | escape }}-GTE" {% if filter.min_value.value %}
+                              {%- if uses_comma_decimals -%}value="{{ filter.min_value.value | money_without_currency | replace: '.', '' | replace: ',', '.' }}"{%- else -%}value="{{ filter.min_value.value | money_without_currency | replace: ',', '' }}"{% endif %}{% else %}value="0"{% endif %} type="number" placeholder="0" min="0" inputmode="decimal"
+                              {%- if uses_comma_decimals -%}max="{{ filter.range_max | money_without_currency | replace: '.', '' | replace: ',', '.' }}"{%- else -%}max="{{ filter.range_max | money_without_currency | replace: ',', '' }}"{% endif %}>
+                          <input type="range" class="price-right"
+                              name="{{ filter.max_value.param_name }}"
+                              id="Mobile-Filter-{{ filter.label | escape }}-LTE"
+                              {%- if filter.max_value.value -%}
+                                {%- if uses_comma_decimals -%}value="{{ filter.max_value.value | money_without_currency | replace: '.', '' | replace: ',', '.' }}"{%- else -%}value="{{ filter.max_value.value | money_without_currency | replace: ',', '' }}"{% endif %}
+                              {%- else -%}
+                                 value="{{ filter.range_max | devided_by:100 }}"
+                              {%- endif -%}
+                              type="number" min="0" inputmode="decimal"
+                              {%- if uses_comma_decimals -%}
+                                placeholder="{{ filter.range_max | money_without_currency | replace: '.', '' | replace: ',', '.' }}"
+                                max="{{ filter.range_max | money_without_currency | replace: '.', '' | replace: ',', '.' }}"
+                              {%- else -%}
+                                placeholder="{{ filter.range_max | money_without_currency | replace: ',', '' }}"
+                                max="{{ filter.range_max | money_without_currency | replace: ',', '' }}"
+                              {% endif %}                              
+                          >
+                          {%- comment -%}<!----------------Max Range------------------------------->{%- endcomment -%}
+                          {%- if filter.max_value.value -%}
+                            {%- assign max_val = filter.max_value.value -%}
+                          {%- else -%}
+                              {%- assign max_val =  filter.range_max | devided_by:100 -%}                        	
+                          {%- endif -%}
+                          {%- assign max_val = max_val | divided_by:10 -%}
+                          {%- assign max_val = 100 | minus:max_val -%}
+                          {%- comment -%}<!----------------Min Range------------------------------->{%- endcomment -%}
+                          {%- if filter.min_value.value -%}
+                            {%- assign min_val = filter.min_value.value -%}
+                          {%- else -%}
+                              {%- assign min_val =  0 | devided_by:100 -%}                        	
+                          {%- endif -%}
+                          {%- assign min_val = min_val | divided_by:10 -%}
+                          <div class="price-slider">
+                            <div class="track">&nbsp;</div>
+                            <div class="range" style="left:{{min_val}}%;right:{{max_val}}%;">&nbsp;</div>
+                            <div class="thumb left" style="left:{{min_val}}%">&nbsp;</div>
+                            <div class="thumb right" style="right:{{max_val}}%">&nbsp;</div>
+                          </div>
+                          <div class="amount-wrap">
+                            <div class="amount-left">{{ cart.currency.symbol }}
+                              <span class="amount-percentage">
+                              {%- if filter.min_value.value -%}
+                                {%- if uses_comma_decimals -%}
+                                {{- filter.min_value.value | money_without_currency | replace: '.', '' | replace: ',', '.' -}}
+                                {%- else -%}
+                                {{- filter.min_value.value | money_without_currency | replace: ',', '' -}}{%- endif -%}
+                              {%- else -%}0{%- endif -%}
+                              </span>
+                            </div>
+                            <div class="amount-right">{{ cart.currency.symbol }}
+                              <span class="amount-percentage">
+                              {%- if filter.max_value.value -%}
+                                {%- if uses_comma_decimals -%}{{ filter.max_value.value | money_without_currency | replace: '.', '' | replace: ',', '.' }}{%- else -%}{{ filter.max_value.value | money_without_currency | replace: ',', '' }}{%- endif -%}
+                              {%- else -%}
+                                 {{- filter.range_max | devided_by:100 -}}
+                              {%- endif -%}
+                              </span>
+                            </div>                          
+                          </div>
+                        </div>
+                      </div>
+              {%- endcase -%}
+          </div>
+          {%- endfor -%}
+          <div>
+            <a href="javascript:void(0)" class="button apply-filter">
+              <span>{{ 'sections.collection_template.apply' | t }}</span>
+            </a>
+            <a href="{{ results_url }}" class="button clear-filter">
+              <span>{{ 'sections.collection_template.clear' | t }}</span>
+            </a>
+          </div>
+      </div>
+      {%- endif -%}
+        {%- comment -%}<!---------------------Facet Filter End----------------------------------->{%- endcomment -%}    
+      {%- assign active_filter = false -%}
+      {%- for filter in results.filters -%}
+        {%- for value in filter.active_values -%}
+          {%- assign active_filter = true -%}
+        {%- endfor -%}
+      {%- endfor -%}
+      {%- if active_filter -%}
+      <div class="active-facet"></div>
+      {%- endif -%}
+    </div>  
+  </form>
+</facet-filters-form>
+{%- if request.design_mode -%}
+<script>
+  document.addEventListener("shopify:section:load", function(event) {
+   createSingleInstanceOfJS('{{"filter.js" | asset_url}}', '.snippet-collection-filter')
+  });
+</script>
+{%- endif -%}

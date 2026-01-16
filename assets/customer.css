@@ -1,0 +1,31 @@
+.form-error{color:#f00;}
+.hide-form{display:none;}
+.account-wrap{display:flex;flex-wrap:wrap;}
+.account-left{width:30%;padding-right:20px;}
+.account-right{width:70%;padding-right:20px;}
+.order-row{display:flex;flex-wrap:wrap;}
+.order-row > div{width:14.28%;flex:0 0 auto;padding-right:10px;}
+.cart-discount svg{width:10px;height:10px;}
+.personal-part{width:30%;flex:0 0 auto;padding-right:15px;}
+.address-part{width:70%;flex:0 0 auto;padding-right:15px;}
+.outer-wrap{display:flex;flex-wrap:wrap;}
+.customer-field input[type="checkbox"]{vertical-align:middle;margin:0;}
+.customer-field label{vertical-align:middle;}
+.address-list{width:33.33%;}
+.address-list-outer{display:flex;flex-wrap:wrap;}
+.address-edit-form{display:none;}
+.address-edit-form.active-form{display:block;}
+#address_form_new,.address-edit-form{display:none;}
+.active-open-form#address_form_new{display:block;}
+.order-details{border-collapse: collapse;}
+@media(max-width:991px){
+  .account-right{width:100%;padding-right:0;}
+  .account-left{width:100%;padding-right:0;}
+  .account-sider,.order,.account-page-active{display:none;}
+  .account-page-active.active .order,.account-page-active.active{display:block;}
+}
+@media(max-width:767px){
+  .order-row > div{width:25%;}
+  .personal-part,.address-part{width:100%;}
+  .address-list{width:100%;}
+}

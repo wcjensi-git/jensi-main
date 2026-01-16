@@ -1,0 +1,313 @@
+{%- if section.settings.enable_section -%}
+{{ 'blog-banner.css ' | asset_url | stylesheet_tag }}
+<div class="section-blog-banner section-id-{{section.id}}">
+  {%- liquid
+    	if section.settings.desktop_fix_height
+            assign banner_desktop = section.settings.desktop_height | append:'px'
+            assign banner_class = 'banner-height'
+        else
+            assign banner_desktop = 'auto'
+        endif
+        if section.settings.mobile_fix_height
+            assign banner_mobile = section.settings.mobile_height | append:'px'
+            assign banner_class = 'banner-height'
+        else
+            assign banner_mobile = 'auto'
+        endif
+    -%}
+    {%- liquid
+        assign text-alignment = section.settings.text_alignment
+        assign mob_text_alignment = section.settings.mobile_text_alignment
+        assign horizontal = section.settings.horizontal_alignment
+        assign mob_horizontal = section.settings.mobile_horizontal_alignment
+        assign vertical = section.settings.vertical_alignment
+        assign mob_vertical = section.settings.mobile_vertical_alignment
+  	-%}
+	<style>
+      {%- if section.settings.enable_banner -%}
+      @media(min-width:992px){.banner-height{height:{{banner_desktop}};}}
+      @media(max-width:991px){.banner-height{height:{{banner_mobile}};}}
+      {%- endif -%}
+      {%- if section.settings.caption_color != blank or section.settings.ovarlay != blank -%}
+        {%- if section.settings.caption_color != blank -%}
+        {%- unless section.settings.caption_color == 'rgba(0,0,0,0)' -%}
+        .section-id-{{section.id}}{color:{{section.settings.caption_color}};}
+        {%- endunless -%}
+        {%- endif -%}
+        {%- if section.settings.ovarlay != blank -%}
+        .section-id-{{section.id}} .media-list:after{background:{{section.settings.ovarlay}};}
+        {%- endif -%}
+  	  {%- endif -%}
+    </style>
+  {%- assign media_image = section.settings.image -%}
+  {%- assign mob_media_image = section.settings.mobile_image -%}
+  {%- if section.settings.enable_banner -%}
+  <div class="{{banner_class}} media-list">
+    {%- comment -%}<!----------------Banner Image---------------------------->{%- endcomment -%}    
+     {%- if media_image != blank or mob_media_image != blank -%}
+        {%- if mob_media_image != blank -%}
+        	{%- assign desktop_media = 'd-none d-md-block' -%}
+        {%- else -%}
+        	{%- assign desktop_media = '' -%}
+        {%- endif -%}
+        {%- if media_image != blank -%}
+        	{{- media_image | image_url:width:1920 | image_tag:loading:'lazy',width:nil,class:desktop_media -}}
+        {%- endif -%} 
+        {%- if mob_media_image != blank -%}
+        	{{- mob_media_image | image_url:width:1920 | image_tag:loading:'lazy',width:nil,class:'full-image d-block d-md-none' -}}
+        {%- endif -%}
+     {%- endif -%}    
+    {%- comment -%}<!---------------Above Banner Caption---------------------->{%- endcomment -%}
+    {%- if section.settings.caption_position == 'above_image' -%}
+    <div class="media-caption vertical-{{vertical}} mobile-vertical-{{mob_vertical}}">
+      <div class="media-caption-inner mediatext-{{text-alignment}} mobile-mediatext-{{mob_text_alignment}} horizontal-{{horizontal}} mobile-horizontal-{{mob_horizontal}}">
+      {%- if section.settings.title != blank -%}
+        <h1>{{-section.settings.title-}}</h1>
+      {%- endif -%}
+      {%- if section.settings.paragraph != blank -%}
+        <div class="rte">{{-section.settings.paragraph-}}</div>
+      {%- endif -%}
+      </div>
+    </div>
+    {%- endif -%}
+  </div>
+  {%- endif -%}
+  {%- comment -%}<!---------------Under Banner Caption---------------------->{%- endcomment -%}
+  {%- if section.settings.caption_position == 'under_image' or section.settings.enable_banner == false -%}
+  <div class="mediatext-{{text-alignment}} mobile-mediatext-{{mob_text_alignment}}">
+    {%- if section.settings.title != blank -%}
+    <h1>{{-section.settings.title-}}</h1>
+    {%- endif -%}
+    {%- if section.settings.paragraph != blank -%}
+    <div>{{-section.settings.paragraph-}}</div>
+    {%- endif -%}
+  </div>
+  {%- endif -%} 
+</div>
+{%- endif -%}
+{% schema %}
+  {
+    "name": "t:sections.blog-banner.name",
+    "settings": [
+		{
+			"type":"checkbox",
+			"id":"enable_section",
+			"label":"t:sections.blog-banner.settings.enable_section.label",
+			"default":true
+		},
+		{
+			"type":"header",
+			"content":"t:sections.all.media.image.label"
+		},
+		{
+			"type":"checkbox",
+			"id":"enable_banner",
+			"label":"t:sections.blog-banner.settings.enable_banner.label",
+			"default":true
+		},
+		{
+            "type":"image_picker",
+            "id":"image",
+            "label":"t:sections.all.media.desktop_image.label"
+        },
+		{
+            "type":"image_picker",
+            "id":"mobile_image",
+            "label":"t:sections.all.media.mobile_image.label"
+        },
+        {
+			"type":"paragraph",
+			"content":"t:sections.collection-banner.settings.paragraph.label"
+		},
+		{
+			"type":"checkbox",
+			"id":"desktop_fix_height",
+			"label":"t:sections.collection-banner.settings.desktop_height.label"
+		},
+		{
+			"type":"range",
+			"id":"desktop_height",
+			"label":"t:sections.collection-banner.settings.desktop_height.label",
+			"min":40,
+			"max":600,
+			"step":20,
+			"default":200
+		},
+		{
+			"type":"checkbox",
+			"id":"mobile_fix_height",
+			"label":"t:sections.collection-banner.settings.mobile_height.label"
+		},
+		{
+			"type":"range",
+			"id":"mobile_height",
+			"label":"t:sections.collection-banner.settings.mobile_height.label",
+			"min":40,
+			"max":400,
+			"step":20,
+			"default":200
+		},
+		{
+            "type":"color_background",
+            "id":"ovarlay",
+            "label":"t:sections.all.overlay"
+        },
+		{
+			"type":"header",
+			"content":"Caption"
+		},
+		{
+			"type":"select",
+			"id":"caption_position",
+			"label":"t:sections.blog-banner.settings.caption_position.label",
+			"options":[
+				{
+					"label":"t:sections.blog-banner.settings.caption_position.option__1.label",
+					"value":"above_image"
+				},
+				{
+					"label":"t:sections.blog-banner.settings.caption_position.option__2.label",
+					"value":"under_image"
+				}
+			]
+		},
+		{
+            "type":"text",
+            "id":"title",
+            "label":"t:sections.all.title"
+        },
+        {
+            "type":"richtext",
+            "id":"paragraph",
+            "label":"t:sections.all.paragraph"
+        },
+        {
+            "type":"color",
+            "id":"caption_color",
+            "label":"t:sections.all.text_color"
+        },
+		{
+			"type":"header",
+			"content":"t:sections.blog-section.settings.desktop.label"
+		},
+		{
+            "type":"select",
+            "id":"text_alignment",
+            "label":"t:sections.all.text_alignment.name",
+            "options":[
+              {
+                "label":"t:sections.all.text_alignment.left.label",
+                "value":"left"
+              },
+              {
+                "label":"t:sections.all.text_alignment.center.label",
+                "value":"center"
+              },
+              {
+                "label":"t:sections.all.text_alignment.right.label",
+                "value":"right"
+              }
+            ]
+        },
+        {
+            "type":"select",
+            "id":"horizontal_alignment",
+            "label":"t:sections.all.horizontal_alignment.name",
+            "options":[
+              {
+                "label":"t:sections.all.horizontal_alignment.left.label",
+                "value":"left"
+              },
+              {
+                "label":"t:sections.all.horizontal_alignment.center.label",
+                "value":"center"
+              },
+              {
+                "label":"t:sections.all.horizontal_alignment.right.label",
+                "value":"right"
+              }
+            ]
+        },
+        {
+            "type":"select",
+            "id":"vertical_alignment",
+            "label":"t:sections.all.vertical_alignment.name",
+            "options":[
+              {
+                "label":"t:sections.all.vertical_alignment.left.label",
+                "value":"top"
+              },
+              {
+                "label":"t:sections.all.vertical_alignment.center.label",
+                "value":"middle"
+              },
+              {
+                "label":"t:sections.all.vertical_alignment.right.label",
+                "value":"bottom"
+              }
+            ]
+        },
+		{
+			"type":"header",
+			"content":"t:sections.blog-section.settings.mobile.label"
+		},
+		{
+            "type":"select",
+            "id":"mobile_text_alignment",
+            "label":"t:sections.all.text_alignment.name",
+            "options":[
+              {
+                "label":"t:sections.all.text_alignment.left.label",
+                "value":"left"
+              },
+              {
+                "label":"t:sections.all.text_alignment.center.label",
+                "value":"center"
+              },
+              {
+                "label":"t:sections.all.text_alignment.right.label",
+                "value":"right"
+              }
+            ]
+        },
+        {
+            "type":"select",
+            "id":"mobile_horizontal_alignment",
+            "label":"t:sections.all.horizontal_alignment.name",
+            "options":[
+              {
+                "label":"t:sections.all.horizontal_alignment.left.label",
+                "value":"left"
+              },
+              {
+                "label":"t:sections.all.horizontal_alignment.center.label",
+                "value":"center"
+              },
+              {
+                "label":"t:sections.all.horizontal_alignment.right.label",
+                "value":"right"
+              }
+            ]
+        },
+        {
+          "type":"select",
+          "id":"mobile_vertical_alignment",
+          "label":"t:sections.all.vertical_alignment.name",
+          "options":[
+              {
+                "label":"t:sections.all.vertical_alignment.left.label",
+                "value":"top"
+              },
+              {
+                "label":"t:sections.all.vertical_alignment.center.label",
+                "value":"middle"
+              },
+              {
+                "label":"t:sections.all.vertical_alignment.right.label",
+                "value":"bottom"
+              }
+           ]
+        }
+	]
+  }
+{% endschema %}

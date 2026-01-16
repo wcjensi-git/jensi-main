@@ -1,0 +1,26 @@
+body,input[type="text"],input[type="tel"],input[type="password"],input[type="number"],input[type="email"],input[type="search"],input[type="phone"],select,textarea{font-family:var(--font-body-family);font-style:var(--font-body-style);font-weight:var(--font-body-weight);}
+h1,h2,h3,h4,h5,h6{font-family: var(--font-heading-family);font-style: var(--font-heading-style);font-weight: var(--font-heading-weight);}
+p,h1,h2,h3,h4,h5,h6{margin-top:0;margin-bottom:0;}
+p:last-child{margin-bottom:0;}
+::-webkit-input-placeholder {color: inherit;}
+:-ms-input-placeholder{color: inherit;}
+::placeholder {color: inherit;}
+button{font-family:var(--font-body-family);}
+@media(min-width:992px){
+  body,button,input[type="text"],input[type="tel"],input[type="password"],input[type="number"],input[type="email"],input[type="search"],input[type="phone"],select,textarea,body{font-size:var(--desktop-body-font);}
+  h1{font-size:var(--desktop-h1-font);}
+  h2{font-size:var(--desktop-h2-font);}
+  h3{font-size:var(--desktop-h3-font);}
+  h4{font-size:var(--desktop-h4-font);}
+  h5{font-size:var(--desktop-h5-font);}
+  h6{font-size:var(--desktop-h6-font);}
+}
+@media(max-width:991px){
+  body,button,input[type="text"],input[type="tel"],input[type="password"],input[type="number"],input[type="email"],input[type="search"],input[type="phone"],select,textarea,body{font-size:var(--mobile-body-font);}
+  h1{font-size:var(--mobile-h1-font);}
+  h2{font-size:var(--mobile-h2-font);}
+  h3{font-size:var(--mobile-h3-font);}
+  h4{font-size:var(--mobile-h4-font);}
+  h5{font-size:var(--mobile-h5-font);}
+  h6{font-size:var(--mobile-h6-font);}
+}

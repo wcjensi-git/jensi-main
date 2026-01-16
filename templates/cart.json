@@ -1,0 +1,35 @@
+{
+  "wrapper": ".template-cart",
+  "sections": {
+    "cart-items": {
+      "type": "cart-section",
+      "settings": {
+        "enable_cart_title": true,
+        "cart_title": "Your Cart",
+        "text_alignment": "left",
+        "enable_product_image": true,
+        "enable_quantity": true,
+        "enable_payment": true,
+        "shopping_text": "Continue Shopping",
+        "shopping_url": "shopify:\/\/collections\/shoes"
+      }
+    },
+    "1649131814b5945492": {
+      "type": "product-carousel",
+      "settings": {
+        "title": "You might also like",
+        "text_alignment": "left",
+        "heading_selector": "h2",
+        "collection": "shoes",
+        "loop_infinite": true,
+        "amount_of_products": 6,
+        "desktop_grid": 4,
+        "mob_grid": "two_column"
+      }
+    }
+  },
+  "order": [
+    "cart-items",
+    "1649131814b5945492"
+  ]
+}

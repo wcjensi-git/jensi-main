@@ -1,0 +1,27 @@
+{{ 'product-grid.css' | asset_url | stylesheet_tag }}
+<div id="predictive-search-results" data-count="{{settings.desktop_suggestion}}">
+  <div class="top-result">
+    {%- if search.results_count == 0 -%}
+    {{- 'templates.search.no_results' | t: terms: predictive_search.terms -}}
+    {%- else -%}
+    {{- 'templates.search.results_with_count' | t: terms: predictive_search.terms, count: predictive_search.resources.products.size -}}
+    {%- endif -%}
+  </div>
+  <div class="search-row">
+    {%- for product in predictive_search.resources.products limit:settings.desktop_suggestion -%}
+    <div class="search-column">
+      {%- render 'product-grid' , product:product -%}      
+    </div>
+    {%- endfor -%}    
+  </div>
+  {%- if predictive_search.resources.products.size > 0 -%} 
+  <div class="bottom-search-button">    
+    <form action="{{ routes.search_url }}" method="get" role="search" class="hidden-search">
+      <input id="SearchValue" type="hidden" name="q" value="{{ search.terms | escape }}" role="combobox" aria-expanded="false" aria-owns="predictive-search-results-list" aria-controls="predictive-search-results-list" aria-haspopup="listbox" aria-autocomplete="list" autocorrect="off" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="{{section.settings.search_placeholder}}">
+      <input name="options[prefix]" type="hidden" value="last">
+      <input type="hidden" name="type" value="product" />
+      <button type="submit" class="button">{{- 'general.search.search_button_label' | t -}}</button>
+    </form>
+  </div>
+  {%- endif -%}
+</div>

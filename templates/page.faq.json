@@ -1,0 +1,138 @@
+{
+  "wrapper": ".template-faq",
+  "sections": {
+    "164930849738f7ef0e": {
+      "type": "breadcrumb",
+      "settings": {
+        "title": "FAQ"
+      }
+    },
+    "main": {
+      "type": "faq-section",
+      "blocks": {
+        "bcede36c-80fc-46d1-9617-9edf71e7ef72": {
+          "type": "faq_block",
+          "settings": {
+            "title": "Section Title 1",
+            "question": "Title 1",
+            "answer": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. <\/p>"
+          }
+        },
+        "cba98796-eea3-4035-83dc-e692af958869": {
+          "type": "faq_block",
+          "settings": {
+            "title": "Section Title 1",
+            "question": "Title 2",
+            "answer": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. <\/p>"
+          }
+        },
+        "e333850b-3b41-4af3-855e-c0f3817b2ce3": {
+          "type": "faq_block",
+          "settings": {
+            "title": "Section Title 2",
+            "question": "Title 1",
+            "answer": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. <\/p>"
+          }
+        },
+        "9e5dad82-61dd-4737-b1b5-7e4243a88c92": {
+          "type": "faq_block",
+          "settings": {
+            "title": "Section Title 2",
+            "question": "Title 2",
+            "answer": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. <\/p>"
+          }
+        },
+        "aa6fb777-9b62-484b-88d7-fae8d1975087": {
+          "type": "faq_block",
+          "settings": {
+            "title": "Section Title 3",
+            "question": "Title 1",
+            "answer": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. <\/p>"
+          }
+        },
+        "bbef4b08-0aa5-4387-8893-1bfa23c774d3": {
+          "type": "faq_block",
+          "settings": {
+            "title": "Section Title 3",
+            "question": "Title 2",
+            "answer": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. <\/p>"
+          }
+        },
+        "6092c354-be6d-489f-9222-0c58fc56d67e": {
+          "type": "faq_block",
+          "settings": {
+            "title": "Section Title 4",
+            "question": "Title 1",
+            "answer": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. <\/p>"
+          }
+        },
+        "8d884337-241c-4001-b577-eeac4de738f1": {
+          "type": "faq_block",
+          "settings": {
+            "title": "Section Title 4",
+            "question": "Title 2",
+            "answer": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. <\/p>"
+          }
+        },
+        "cf9bed10-1162-4747-a3ae-368d71c14f52": {
+          "type": "faq_block",
+          "settings": {
+            "title": "Section Title 5",
+            "question": "Title 1",
+            "answer": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. <\/p>"
+          }
+        },
+        "5233676b-baed-4bc1-86dc-aec50a4dc525": {
+          "type": "faq_block",
+          "settings": {
+            "title": "Section Title 5",
+            "question": "Title 2",
+            "answer": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. <\/p>"
+          }
+        },
+        "b2f3f2c4-d502-4dde-8bbe-91c3f84d9738": {
+          "type": "faq_block",
+          "settings": {
+            "title": "Section Title 6",
+            "question": "Title 1",
+            "answer": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. <\/p>"
+          }
+        },
+        "ff6a2713-a731-4fd9-a616-80f058526c39": {
+          "type": "faq_block",
+          "settings": {
+            "title": "Section Title 6",
+            "question": "Title 2",
+            "answer": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. <\/p>"
+          }
+        }
+      },
+      "block_order": [
+        "bcede36c-80fc-46d1-9617-9edf71e7ef72",
+        "cba98796-eea3-4035-83dc-e692af958869",
+        "e333850b-3b41-4af3-855e-c0f3817b2ce3",
+        "9e5dad82-61dd-4737-b1b5-7e4243a88c92",
+        "aa6fb777-9b62-484b-88d7-fae8d1975087",
+        "bbef4b08-0aa5-4387-8893-1bfa23c774d3",
+        "6092c354-be6d-489f-9222-0c58fc56d67e",
+        "8d884337-241c-4001-b577-eeac4de738f1",
+        "cf9bed10-1162-4747-a3ae-368d71c14f52",
+        "5233676b-baed-4bc1-86dc-aec50a4dc525",
+        "b2f3f2c4-d502-4dde-8bbe-91c3f84d9738",
+        "ff6a2713-a731-4fd9-a616-80f058526c39"
+      ],
+      "settings": {
+        "enable_title": true,
+        "title": "FAQ",
+        "title_alignment": "left",
+        "enable_page_content": false,
+        "category_title_select": "h4",
+        "question_title_select": "h5"
+      }
+    }
+  },
+  "order": [
+    "164930849738f7ef0e",
+    "main"
+  ]
+}

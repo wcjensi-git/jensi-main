@@ -1,0 +1,4 @@
+.accordian-content{max-height: 0;overflow: hidden;will-change: max-height;transition: all 0.25s ease-out;}
+.accordian-wrap.active .accordian-content{opacity:1;}
+.accordian-title{cursor:pointer;}
+.accordian-title{border-bottom:1px solid #000;}

@@ -1,0 +1,19 @@
+<div class="snippet-search-bar">
+  <predictive-search>
+    <form action="{{ routes.search_url }}" method="get" role="search">
+      <input id="Search" type="text" name="q" value="{{ search.terms | escape }}" role="combobox" aria-expanded="false" aria-owns="predictive-search-results-list" aria-controls="predictive-search-results-list" aria-haspopup="listbox" aria-autocomplete="list" autocorrect="off" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="{{section.settings.search_placeholder}}">
+      <input name="options[prefix]" type="hidden" value="last">
+      <input type="hidden" name="type" value="product" />
+      {%- if section.settings.search_icon != blank -%}
+      <div class="search-icon">
+        <div class="d-none d-lg-block">
+          <button type="submit" class="search-Button" disabled>{{-section.settings.search_icon-}}</button>
+        </div>
+        <div class="d-block d-lg-none">
+          <a href="javascript:void(0)" class="mobile-search">{%- render 'icon-close' -%}</a>
+        </div>
+      </div>
+      {%- endif -%}
+    </form>
+  </predictive-search>
+</div>

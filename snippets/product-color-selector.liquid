@@ -1,0 +1,29 @@
+<div {{ block.shopify_attributes }}>
+    {%- assign colorlist = false -%}
+    {%- for i in (1..10) -%}
+    	{%- capture temp_c_title -%}color_name_{{i}}{%- endcapture -%}
+    		{%- assign c_title = product.metafields.my_fields[temp_c_title] -%}
+    	{%- capture temp_c_code -%}color_code_{{i}}{%- endcapture -%}
+    		{%- assign c_code = product.metafields.my_fields[temp_c_code] -%}
+    	{%- capture temp_c_product -%}color_product_{{i}}{%- endcapture -%}
+    		{%- assign c_product = product.metafields.my_fields[temp_c_product] -%}
+    	{%- if c_title != blank or c_code != blank or c_product != blank -%}
+    		{%- assign colorlist = true -%}
+    	{%- endif -%}
+    {%- endfor -%}
+    {%- if colorlist -%}
+    <ul class="list--inline metafield-colors">
+    {%- for i in (1..10) -%}
+    	{%- capture temp_c_title -%}color_name_{{i}}{%- endcapture -%}
+    		{%- assign c_title = product.metafields.my_fields[temp_c_title] -%}
+    	{%- capture temp_c_code -%}color_code_{{i}}{%- endcapture -%}
+    		{%- assign c_code = product.metafields.my_fields[temp_c_code] -%}
+    	{%- capture temp_c_product -%}color_product_{{i}}{%- endcapture -%}
+    		{%- assign c_product = product.metafields.my_fields[temp_c_product] -%}
+    	{%- if c_title != blank or c_code != blank or c_product != blank -%}
+    		<li><a href="/products/{{c_product}}" style="background:{{c_code}}"></a></li>
+    	{%- endif -%}
+    {%- endfor -%}
+    </ul>
+    {%- endif -%}
+</div>

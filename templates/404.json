@@ -1,0 +1,27 @@
+{
+  "wrapper": ".template-404",
+  "sections": {
+    "main": {
+      "type": "main-404",
+      "settings": {
+      }
+    },
+    "16493926972941326e": {
+      "type": "product-carousel",
+      "settings": {
+        "title": "You might alos like",
+        "text_alignment": "left",
+        "heading_selector": "h2",
+        "collection": "shoes",
+        "loop_infinite": true,
+        "amount_of_products": 6,
+        "desktop_grid": 4,
+        "mob_grid": "two_column"
+      }
+    }
+  },
+  "order": [
+    "main",
+    "16493926972941326e"
+  ]
+}

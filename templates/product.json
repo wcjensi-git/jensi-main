@@ -1,0 +1,111 @@
+{
+  "wrapper": ".template-product",
+  "sections": {
+    "1649304358f883ceb1": {
+      "type": "breadcrumb",
+      "settings": {
+        "title": ""
+      }
+    },
+    "main": {
+      "type": "product-section",
+      "blocks": {
+        "a2404e6d-d50a-46d9-9814-38397449c97b": {
+          "type": "title",
+          "settings": {
+          }
+        },
+        "8b614f20-50d6-4a14-b749-a744e4eb4480": {
+          "type": "price",
+          "settings": {
+          }
+        },
+        "ea7a4db8-48ec-4763-a05e-6b0d84499f46": {
+          "type": "simple-content",
+          "settings": {
+            "select": "description",
+            "text_selector": ""
+          }
+        },
+        "f3464acc-7a1e-4f2b-8de9-47ec8e6c1717": {
+          "type": "accordian-tab",
+          "settings": {
+            "select": "description",
+            "selector_title": "Title",
+            "text_selector": ""
+          }
+        },
+        "4fe18f23-8e3a-40e4-b95d-fe038cc87fbb": {
+          "type": "accordian-tab",
+          "settings": {
+            "select": "payment_icon",
+            "selector_title": "Title 2",
+            "text_selector": ""
+          }
+        },
+        "0c225654-3258-4246-87b3-ec9857ccf2c4": {
+          "type": "accordian-tab",
+          "settings": {
+            "select": "text",
+            "selector_title": "Title 3",
+            "text_selector": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur<\/p>"
+          }
+        },
+        "c8a8e9d0-fed2-470e-b1db-0a182a605f05": {
+          "type": "variant-selector",
+          "settings": {
+            "display_variant_label": false
+          }
+        },
+        "8e866cba-d81a-48be-babc-7015462e77ee": {
+          "type": "color-selector",
+          "settings": {
+          }
+        },
+        "fd489f67-8d07-4029-a872-75d047ade77e": {
+          "type": "add-cart",
+          "settings": {
+          }
+        }
+      },
+      "block_order": [
+        "a2404e6d-d50a-46d9-9814-38397449c97b",
+        "8b614f20-50d6-4a14-b749-a744e4eb4480",
+        "ea7a4db8-48ec-4763-a05e-6b0d84499f46",
+        "f3464acc-7a1e-4f2b-8de9-47ec8e6c1717",
+        "4fe18f23-8e3a-40e4-b95d-fe038cc87fbb",
+        "0c225654-3258-4246-87b3-ec9857ccf2c4",
+        "c8a8e9d0-fed2-470e-b1db-0a182a605f05",
+        "8e866cba-d81a-48be-babc-7015462e77ee",
+        "fd489f67-8d07-4029-a872-75d047ade77e"
+      ],
+      "settings": {
+        "enable_zoom": true,
+        "media_ratio": "1\/1",
+        "media_column": "1",
+        "media_layout": "media-slider",
+        "media_slider": "circles",
+        "sticky_info": true,
+        "choose_size_selector": true,
+        "variant_type": "dropdown"
+      }
+    },
+    "product-recommendations": {
+      "type": "product-recommendations",
+      "settings": {
+        "title": "Title",
+        "text_alignment": "left",
+        "heading_selector": "h2",
+        "loop_infinite": true,
+        "products_to_show": 5,
+        "desktop_grid": 4,
+        "mob_grid": "two_column"
+      }
+    }
+  },
+  "order": [
+    "1649304358f883ceb1",
+    "main",
+    "product-recommendations"
+  ]
+}

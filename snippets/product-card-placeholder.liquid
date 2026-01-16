@@ -1,0 +1,25 @@
+<div class="snippet-product-grid placeholder-grid">
+  <a href="{{ product.url | within:collection}}" tabindex="-1" class="product-link">
+    <div class="product-images">
+    {{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}
+    <span class="grid-badge" style="color:{{settings.badge_text_1}};background:{{settings.badge_background_1}}">{{ 'onboarding.badge' | t }}</span>
+    </div>
+    <ul class="grid-size-variants list--inline">
+      <li>{{ 'onboarding.s' | t }}</li>
+      <li>{{ 'onboarding.m' | t }}</li>
+      <li>{{ 'onboarding.l' | t }}</li>
+      <li>{{ 'onboarding.xl' | t }}</li>
+      <li>{{ 'onboarding.xxl' | t }}</li>
+    </ul>
+  </a>
+  <div class="grid-meta">
+    <p><a href="#">{{ 'onboarding.product_title' | t }}</a></p>
+    <p>{{price | default:1999 | money }}</p>
+    <ul class="list--inline metafield-colors">
+      <li><a href=""></a></li>
+      <li><a href=""></a></li>
+      <li><a href=""></a></li>
+      <li><a href=""></a></li>
+    </ul>
+  </div>
+</div>

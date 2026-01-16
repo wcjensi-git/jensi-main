@@ -1,0 +1,26 @@
+{
+  "wrapper": ".template-list-collection",
+  "sections": {
+    "main": {
+      "type": "list-collection-section",
+      "settings": {
+        "title": "Collections",
+        "title_alignment": "left",
+        "desktop_grid": 4,
+        "mob_grid": "two_column",
+        "sort": "alphabetical",
+        "image_ratio": "portrait",
+        "heading_selector": "h3",
+        "desktop_caption_position": "below_image",
+        "text_alignment": "left",
+        "vertical_alignments": "middle",
+        "mobile_caption_position": "below_image",
+        "mobile_text_alignment": "left",
+        "mobile_vertical_alignments": "middle"
+      }
+    }
+  },
+  "order": [
+    "main"
+  ]
+}

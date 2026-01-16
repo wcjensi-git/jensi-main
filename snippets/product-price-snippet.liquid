@@ -1,0 +1,8 @@
+<h5 {{ block.shopify_attributes }} id="price-{{ section.id }}">
+{%- assign price = product.selected_or_first_available_variant.price -%}
+{%- assign compare_price = product.selected_or_first_available_variant.compare_at_price -%}
+  <span class="price-regular">{{price | money}}</span>
+  {%- if compare_price > price -%}
+  <span class="price-compare">{{compare_price | money}}</span>
+  {%- endif -%}
+</h5>

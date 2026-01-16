@@ -1,0 +1,312 @@
+<script>
+  createSingleInstanceOfJS('{{"media-slider.js" | asset_url}}', '.section-media-slider')
+  createSingleInstanceOfCSS('{{"media-slider.css" | asset_url}}', '.section-media-slider')
+</script>
+<noscript>
+  {{ 'media-slider.css' | asset_url | stylesheet_tag }}
+</noscript>
+<div class="section-media-slider section-id-{{section.id}}">
+  {%- assign is_graggable = false -%}
+  {%- assign showarrows = false -%}
+  {%- assign autoplay = false -%}
+  {%- if section.settings.draggable_slider and section.blocks.size > 1 -%}
+  	{%- assign is_graggable = true -%}
+  {%- endif -%}
+  {%- if section.settings.show_arrows and section.blocks.size > 1 -%}
+  	{%- assign showarrows = true -%}
+  {%- endif -%}
+  {%- assign slider_play_time = section.settings.autoplay_time -%}
+  {%- if slider_play_time != 0 and section.blocks.size > 1 -%}
+  	{%- assign autoplay = true -%}
+  {%- endif -%}
+  <div class="media-slider swiper" datadata-id="{{section.id}}" data-single="{% if section.blocks.size == 1 %}true{% else %}false{% endif %}" data-draggable="{{is_graggable}}" data-arrows="{{showarrows}}" data-playtime="{{slider_play_time | times:1000}}" data-autoplay="{{autoplay}}">
+    <div class="swiper-wrapper">
+    {%- for block in section.blocks -%}
+      {%- render 'media-slider' , section:section , block:block -%}
+    {%- endfor -%}
+    </div>
+    {%- if showarrows -%}
+    <div class="swiper-button-next"></div>
+    <div class="swiper-button-prev"></div>
+    {%- endif -%}
+  </div>
+</div>
+{%- if request.design_mode -%}
+<script>
+  document.addEventListener("shopify:section:load", function(event) {
+   createSingleInstanceOfJS('{{"media-slider.js" | asset_url}}', '.section-media-slider')
+   createSingleInstanceOfCSS('{{"media-slider.css" | asset_url}}', '.section-media-slider')
+   mediaslider();
+  });
+</script>
+{%- endif -%}
+{% schema %}
+  {
+    "name": "t:sections.media-slider.name",
+    "settings": [		
+		{
+			"type":"checkbox",
+			"id":"draggable_slider",
+			"label":"t:sections.media-slider.settings.draggable.label",
+			"default":true
+		},
+		{
+			"type":"checkbox",
+			"id":"show_arrows",
+			"label":"t:sections.media-slider.settings.show_arrows.label",
+			"default":true
+		},
+		{
+			"type":"range",
+			"id":"autoplay_time",
+			"label":"t:sections.media-slider.settings.autoplay_time.label",
+			"min":0,
+			"max":10,
+			"default":0,
+			"info":"t:sections.media-slider.settings.autoplay_time.info"
+		},
+		{
+			"type":"select",
+			"id":"heading_selector",
+			"label":"t:sections.all.title_format.name",
+			"options":[
+				{
+					"label":"t:sections.all.title_format.option__1.label",
+					"value":"h1"
+				},
+				{
+					"label":"t:sections.all.title_format.option__2.label",
+					"value":"h2"
+				},
+				{
+					"label":"t:sections.all.title_format.option__3.label",
+					"value":"h3"
+				},
+				{
+					"label":"t:sections.all.title_format.option__4.label",
+					"value":"h4"
+				},
+				{
+					"label":"t:sections.all.title_format.option__5.label",
+					"value":"h5"
+				},
+				{
+					"label":"t:sections.all.title_format.option__6.label",
+					"value":"h6"
+				}
+			],
+			"default":"h2"
+		}
+	],
+	"blocks":[
+		{
+			"name":"t:sections.media-slider.blocks.name",
+			"type":"media-slider",
+			"settings":[
+				{
+					"type":"select",
+					"id":"media_type",
+					"label":"t:sections.all.media.media_type.name",
+					"options":[
+						{
+							"label":"t:sections.all.media.media_type.option__1.label",
+							"value":"image"
+						},
+						{
+							"label":"t:sections.all.media.media_type.option__2.label",
+							"value":"iframe"
+						},
+						{
+							"label":"t:sections.all.media.media_type.option__3.label",
+							"value":"mp4"
+						}
+					]
+				},
+				{
+					"type":"image_picker",
+					"id":"image",
+					"label":"t:sections.all.media.desktop_image.label"
+				},
+				{
+					"type":"video_url",
+					"id":"video",
+					"label":"t:sections.all.media.video_iframe.label",
+					"accept":["youtube","vimeo"]
+				},
+				{
+					"type":"text",
+					"id":"mp4",
+					"label":"t:sections.all.media.video_mp4.label"
+				},
+				{
+					"type":"select",
+					"id":"text_alignment",
+					"label":"t:sections.all.text_alignment.name",
+					"options":[
+						{
+							"label":"t:sections.all.text_alignment.left.label",
+							"value":"left"
+						},
+						{
+							"label":"t:sections.all.text_alignment.center.label",
+							"value":"center"
+						},
+						{
+							"label":"t:sections.all.text_alignment.right.label",
+							"value":"right"
+						}
+					]
+				},
+				{
+					"type":"select",
+					"id":"horizontal_alignment",
+					"label":"t:sections.all.horizontal_alignment.name",
+					"options":[
+						{
+							"label":"t:sections.all.horizontal_alignment.left.label",
+							"value":"left"
+						},
+						{
+							"label":"t:sections.all.horizontal_alignment.center.label",
+							"value":"center"
+						},
+						{
+							"label":"t:sections.all.horizontal_alignment.right.label",
+							"value":"right"
+						}
+					]
+				},
+				{
+					"type":"select",
+					"id":"vertical_alignment",
+					"label":"t:sections.all.vertical_alignment.name",
+					"options":[
+						{
+							"label":"t:sections.all.vertical_alignment.left.label",
+							"value":"top"
+						},
+						{
+							"label":"t:sections.all.vertical_alignment.center.label",
+							"value":"middle"
+						},
+						{
+							"label":"t:sections.all.vertical_alignment.right.label",
+							"value":"bottom"
+						}
+					]
+				},				
+				{
+					"type":"text",
+					"id":"title",
+					"label":"t:sections.all.title"
+				},
+				{
+					"type":"richtext",
+					"id":"content",
+					"label":"t:sections.all.paragraph"
+				},
+				{
+					"type":"color",
+					"id":"caption_color",
+					"label":"t:sections.all.text_color"
+				},
+				{
+					"type":"text",
+					"id":"button_label",
+					"label":"t:sections.all.button_label"
+				},
+				{
+					"type":"url",
+					"id":"button_url",
+					"label":"t:sections.all.button_url"
+				},
+				{
+					"type":"color_background",
+					"id":"ovarlay",
+					"label":"Overlay",
+					"label":"t:sections.all.overlay"
+				},
+				{
+					"type":"header",
+					"content":"t:sections.all.header_mobile.content"
+				},
+				{
+					"type":"image_picker",
+					"id":"mobile_image",
+					"label":"t:sections.all.media.mobile_image.label"
+				},
+				{
+					"type":"select",
+					"id":"mobile_text_alignment",
+					"label":"t:sections.all.text_alignment.name",
+					"options":[
+						{
+							"label":"t:sections.all.text_alignment.left.label",
+							"value":"left"
+						},
+						{
+							"label":"t:sections.all.text_alignment.center.label",
+							"value":"center"
+						},
+						{
+							"label":"t:sections.all.text_alignment.right.label",
+							"value":"right"
+						}
+					]
+				},
+				{
+					"type":"select",
+					"id":"mobile_horizontal_alignment",
+					"label":"t:sections.all.horizontal_alignment.name",
+					"options":[
+						{
+							"label":"t:sections.all.horizontal_alignment.left.label",
+							"value":"left"
+						},
+						{
+							"label":"t:sections.all.horizontal_alignment.center.label",
+							"value":"center"
+						},
+						{
+							"label":"t:sections.all.horizontal_alignment.right.label",
+							"value":"right"
+						}
+					]
+				},
+				{
+					"type":"select",
+					"id":"mobile_vertical_alignment",
+					"label":"t:sections.all.vertical_alignment.name",
+					"options":[
+						{
+							"label":"t:sections.all.vertical_alignment.left.label",
+							"value":"top"
+						},
+						{
+							"label":"t:sections.all.vertical_alignment.center.label",
+							"value":"middle"
+						},
+						{
+							"label":"t:sections.all.vertical_alignment.right.label",
+							"value":"bottom"
+						}
+					]
+				}
+			]
+		}
+	],
+	"presets":[
+		{
+			"name":"t:sections.media-slider.presets.name",			
+             "blocks": [
+               {
+                 "type": "media-slider"
+               },
+               {
+                 "type": "media-slider"
+               }
+             ]
+		}
+	]
+  }
+{% endschema %}

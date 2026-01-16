@@ -1,0 +1,128 @@
+{{ 'collection-section.css' | asset_url | stylesheet_tag }}
+<script>
+  createSingleInstanceOfCSS('{{"product-grid.css" | asset_url}}', '.section-main-search')                        
+</script>
+<noscript>
+  {{ 'product-grid.css' | asset_url | stylesheet_tag }}
+</noscript>
+<section class="section-main-search section-{{section.id}}">
+  <div class="text-{{section.settings.text_alignment}}">
+    {%- if search.performed -%}
+    <h1>{{ 'templates.search.search_for' | t:terms: search.terms }}</h1>
+    {%- else -%}
+    <h1>{{ 'templates.search.title' | t:count: search.results_count }}</h1>
+    {%- endif -%} 
+  </div>
+  {%- if search.performed -%}
+    {%- liquid
+      assign desktop_grid = section.settings.desktop_grid
+      if section.settings.mob_grid   == 'two_column'
+          assign mobile_grid = 2
+      else
+          assign mobile_grid = 1
+      endif
+    -%}
+    <style>
+      @media(min-width:992px){.collection-grid{grid-template-columns: repeat({{desktop_grid}}, minmax(0, 1fr));}}
+      @media(max-width:991px){.collection-grid{grid-template-columns: repeat({{mobile_grid}}, minmax(0, 1fr));}}
+    </style>    
+      {%- paginate search.results by section.settings.product_limit -%}
+      {%- comment -%}<!-------------------Collection Filter-------------------------------->{%- endcomment -%}
+      {%- if section.settings.enable_filter or section.settings.enable_sort -%}
+      {%- render 'collection-filter', section:section , block:block , results:search -%}
+      {%- endif -%}  	  
+        <div id="collection-grid" data-id="{{ section.id }}">        
+          <div class="collection-grid" id="product-grid">
+            {%- if search.results.size == 0 and search.filters != empty -%}
+              {{ 'sections.collection_template.empty' | t }}             
+            {%- else -%}
+              {%- for item in search.results -%} 
+              <div class="product-item">
+                {%- render 'product-grid' , product:item -%}
+              </div>
+              {%- endfor -%}
+            {%- endif -%}
+          </div>
+          {%- if paginate.pages > 1 -%}
+          {%- render 'pagination', paginate: paginate, anchor: '' -%}
+          {%- endif -%}
+        </div>     	  
+      {% endpaginate %}    
+  {%- endif -%}
+</section>
+{%- if request.design_mode -%}
+<script>
+  document.addEventListener("shopify:section:load", function(event) {
+   createSingleInstanceOfCSS('{{"product-grid.css" | asset_url}}', '.section-main-search')
+  });
+</script>
+{%- endif -%}
+{% schema %}
+{
+  "name": "t:sections.main-search.name",
+  "settings": [
+		{
+            "type":"select",
+            "id":"text_alignment",
+            "label":"t:sections.all.text_alignment.name",
+            "options":[
+                {
+                  "label":"t:sections.all.text_alignment.left.label",
+                  "value":"left"
+                },
+                {
+                  "label":"t:sections.all.text_alignment.center.label",
+                  "value":"center"
+                },
+                {
+                  "label":"t:sections.all.text_alignment.right.label",
+                  "value":"right"
+                }
+            ]
+        },
+    	{
+			"type":"range",
+			"id":"desktop_grid",
+			"label":"t:sections.all.desktop_grid.label",
+			"min":2,
+			"max":4,
+			"default":4
+		},
+		{
+			"type":"select",
+			"id":"mob_grid",
+			"label":"t:sections.all.mobile_grid.name",
+			"options":[
+				{
+					"label":"t:sections.all.mobile_grid.option__1.label",
+					"value":"two_column"
+				},
+				{
+					"label":"t:sections.all.mobile_grid.option__2.label",
+					"value":"one_column"
+				}
+			]
+		},
+        {
+			"type":"range",
+			"id":"product_limit",
+			"label":"t:sections.main-search.settings.product_limit.label",
+			"min":2,
+			"max":50,
+			"default":16
+		},
+		{
+			"type":"checkbox",
+			"id":"enable_filter",
+			"label":"t:sections.main-search.settings.enable_filter.label",
+			"default":true
+		},
+		{
+			"type":"checkbox",
+			"id":"enable_sort",
+			"label":"t:sections.main-search.settings.enable_sort.label",
+			"default":true
+		}
+    ]
+}
+{% endschema %}

@@ -1,0 +1,192 @@
+{
+  "settings_schema": {
+    "colors": {
+      "name": "Màu sắc",
+      "settings": {
+      }
+    },
+    "typography": {
+      "name": "Kiểu chữ",
+      "settings": {
+        "type_header_font": {
+          "label": "Phông chữ",
+          "info": "Việc chọn phông chữ khác có thể ảnh hưởng đến tốc độ của cửa hàng. [Tìm hiểu thêm về phông chữ hệ thống.](https:\/\/help.shopify.com\/en\/manual\/online-store\/os\/store-speed\/improving-speed#fonts)"
+        },
+        "header__1": {
+          "content": "Tiêu đề"
+        },
+        "header__2": {
+          "content": "Nội dung"
+        },
+        "type_body_font": {
+          "label": "Phông chữ",
+          "info": "Việc chọn phông chữ khác có thể ảnh hưởng đến tốc độ của cửa hàng. [Tìm hiểu thêm về phông chữ hệ thống.](https:\/\/help.shopify.com\/en\/manual\/online-store\/os\/store-speed\/improving-speed#fonts)"
+        }
+      }
+    },
+    "social-media": {
+      "name": "Truyền thông xã hội",
+      "settings": {
+        "social_twitter_link": {
+          "label": "Twitter",
+          "info": "https:\/\/twitter.com\/shopify"
+        },
+        "social_facebook_link": {
+          "label": "Facebook",
+          "info": "https:\/\/facebook.com\/shopify"
+        },
+        "social_pinterest_link": {
+          "label": "Pinterest",
+          "info": "https:\/\/pinterest.com\/shopify"
+        },
+        "social_instagram_link": {
+          "label": "Instagram",
+          "info": "http:\/\/instagram.com\/shopify"
+        },
+        "social_tiktok_link": {
+          "label": "TikTok",
+          "info": "https:\/\/tiktok.com\/@shopify"
+        },
+        "social_tumblr_link": {
+          "label": "Tumblr",
+          "info": "https:\/\/shopify.tumblr.com"
+        },
+        "social_snapchat_link": {
+          "label": "Snapchat",
+          "info": "https:\/\/www.snapchat.com\/add\/shopify"
+        },
+        "social_youtube_link": {
+          "label": "YouTube",
+          "info": "https:\/\/www.youtube.com\/shopify"
+        },
+        "social_vimeo_link": {
+          "label": "Vimeo",
+          "info": "https:\/\/vimeo.com\/shopify"
+        },
+        "header": {
+          "content": "Tài khoản mạng xã hội"
+        }
+      }
+    },
+    "favicon": {
+      "name": "Biểu tượng trang web",
+      "settings": {
+        "favicon": {
+          "label": "Hình ảnh biểu tượng trang web",
+          "info": "Sẽ được thu nhỏ xuống 32 x 32 px"
+        }
+      }
+    },
+    "global": {
+      "settings": {
+      }
+    },
+    "buttons": {
+      "name": "Nút"
+    },
+    "inputs": {
+      "name": "Thông tin đầu vào"
+    },
+    "media": {
+      "name": "Phương tiện"
+    }
+  },
+  "sections": {
+    "footer": {
+      "name": "Chân trang",
+      "settings": {
+      }
+    },
+    "header": {
+      "name": "Đầu trang",
+      "settings": {
+        "logo": {
+          "label": "Hình ảnh logo"
+        },
+        "menu": {
+          "label": "Menu"
+        }
+      }
+    },
+    "main-article": {
+      "name": "Bài viết blog"
+    },
+    "main-blog": {
+      "name": "Bài viết blog",
+      "settings": {
+      }
+    },
+    "main-cart-items": {
+      "name": "Mặt hàng",
+      "settings": {
+      }
+    },
+    "main-collection-product-grid": {
+      "name": "Lưới sản phẩm",
+      "settings": {
+      }
+    },
+    "main-list-collections": {
+      "name": "Trang danh sách bộ sưu tập",
+      "settings": {
+        "sort": {
+          "label": "Koleksiyonları sıralama ölçütü:",
+          "options__1": {
+            "label": "Alfabetik olarak, A-Z"
+          },
+          "options__2": {
+            "label": "Alfabetik olarak, Z-A"
+          },
+          "options__3": {
+            "label": "Tarih, yeniden eskiye"
+          },
+          "options__4": {
+            "label": "Tarih, eskiden yeniye"
+          },
+          "options__5": {
+            "label": "Ürün sayısı, yüksekten düşüğe"
+          },
+          "options__6": {
+            "label": "Ürün sayısı, düşükten yükseğe"
+          }
+        }
+      }
+    },
+    "main-page": {
+      "name": "Trang"
+    },
+    "main-password-footer": {
+      "name": "Chân trang mật khẩu",
+      "settings": {
+      }
+    },
+    "main-password-header": {
+      "name": "Đầu trang mật khẩu",
+      "settings": {
+        "logo": {
+          "label": "Logo görseli"
+        }
+      }
+    },
+    "main-product": {
+      "name": "Thông tin sản phẩm",
+      "settings": {
+      }
+    },
+    "main-search": {
+      "name": "Kết quả tìm kiếm",
+      "settings": {
+      }
+    },
+    "page": {
+      "name": "Trang",
+      "settings": {
+      }
+    },
+    "product-recommendations": {
+      "name": "Đề xuất sản phẩm",
+      "settings": {
+      }
+    }
+  }
+}

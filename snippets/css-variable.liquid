@@ -1,0 +1,57 @@
+{%- liquid
+      assign body_font_bold = settings.type_body_font | font_modify: 'weight', 'bold'
+      assign body_font_italic = settings.type_body_font | font_modify: 'style', 'italic'
+      assign body_font_bold_italic = body_font_bold | font_modify: 'style', 'italic'
+    -%}
+{%- style -%}
+{{- settings.type_body_font | font_face: font_display: 'swap' -}}
+{{- body_font_bold | font_face: font_display: 'swap' -}}
+{{- body_font_italic | font_face: font_display: 'swap' -}}
+{{- body_font_bold_italic | font_face: font_display: 'swap' -}}
+{{- settings.type_header_font | font_face: font_display: 'swap' -}}
+{%- if settings.header_width_type == 'full-width' -%}
+  {%- assign headerwidth = '100%' -%}
+{%- else -%}
+  {%- assign headerwidth = settings.header_container | append:'px' -%}
+{%- endif -%}
+{%- if settings.product_image_height == 'square' -%}
+  {%- assign grid_product_ratio = '1/1' -%}
+{%- else -%}
+  {%- assign grid_product_ratio = '4/5' -%}
+{%- endif -%}
+:root {
+--font-body-family: {{ settings.type_body_font.family }}, {{ settings.type_body_font.fallback_families }};
+--font-body-style: {{ settings.type_body_font.style }};
+--font-body-weight: {{ settings.type_body_font.weight }};
+--font-heading-family: {{ settings.type_header_font.family }}, {{ settings.type_header_font.fallback_families }};
+--font-heading-style: {{ settings.type_header_font.style }};
+--font-heading-weight: {{ settings.type_header_font.weight }};   
+--desktop-body-font:{{settings.body}}px;
+--desktop-h1-font:{{settings.heading_1}}px;
+--desktop-h2-font:{{settings.heading_2}}px;
+--desktop-h3-font:{{settings.heading_3}}px;
+--desktop-h4-font:{{settings.heading_4}}px;
+--desktop-h5-font:{{settings.heading_5}}px;
+--desktop-h6-font:{{settings.heading_6}}px;
+--mobile-body-font:{{settings.mob_body}}px;
+--mobile-h1-font:{{settings.mob_heading_1}}px;
+--mobile-h2-font:{{settings.mob_heading_2}}px;
+--mobile-h3-font:{{settings.mob_heading_3}}px;
+--mobile-h4-font:{{settings.mob_heading_4}}px;
+--mobile-h5-font:{{settings.mob_heading_5}}px;
+--mobile-h6-font:{{settings.mob_heading_6}}px;    
+--header-width:{{headerwidth}};
+--background-color:{{settings.background_color}};
+--text-color:{{settings.text_color}};
+--button-background:{{settings.button_background_color}};
+--button-text:{{settings.button_text_color}};
+--accent-background-1:{{settings.accent_background_color_1}};
+--accent-text-1:{{settings.accent_text_color_1}};
+--accent-background-2:{{settings.accent_background_color_2}};
+--accent-text-2:{{settings.accent_text_color_2}};
+--cart-overlay:{{settings.overlay_cart}};
+--grid-product-ratio:{{grid_product_ratio}};
+}
+*,*::before,*::after {box-sizing: inherit;}
+html {box-sizing: border-box;}    
+{%- endstyle -%}

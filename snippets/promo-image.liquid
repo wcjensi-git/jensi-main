@@ -1,0 +1,156 @@
+{%- for block in section.blocks -%}
+	{%- if block.type == 'promo_image' -%}
+      {%- liquid
+          assign desktop_column = block.settings.grid_column_placement
+          assign desktop_row = block.settings.grid_row_placement
+          assign desktop_span = block.settings.grid_span
+          assign desktop_bottom = block.settings.margin_bottom
+          assign mobile_column = block.settings.mob_grid_column_placement
+          assign mobile_row = block.settings.mob_grid_row_placement
+          assign mobile_span = block.settings.mob_grid_span
+          assign mobile_bottom = block.settings.mob_margin_bottom
+          assign collection_promo = collections[block.settings.collection].url
+          if section.settings.mob_grid   == 'two_column'
+              assign mobile_grid = 2
+          else
+              assign mobile_grid = 1
+          endif
+      -%}
+      {%- assign collection_url = collection.url -%}
+      {%- if collection_url == collection_promo -%}
+	  {%- comment -%}<!-------------------Capture Promo Media-------------------------------->{%- endcomment -%}
+		{%- capture promomedia -%}
+			{%- if block.settings.url != blank -%}
+            <a href="{{block.settings.url}}" class="promo-list">
+            {%- else -%}
+            <div class="promo-list">
+            {%- endif -%}
+            <style>       
+              .promo-image-{{block.id}}{
+                {%- if desktop_column != blank -%}
+                  {%- if desktop_span != blank and desktop_span != 0 -%}
+                      grid-column:{{desktop_column}} / span {{desktop_span}};
+                  {%- else -%}
+                      grid-column:{{desktop_column}};
+                  {%- endif -%}
+                {%- else -%}
+                  {%- if desktop_span != blank and desktop_span != 0 -%}
+                      grid-column:span {{desktop_span}};
+                  {%- endif -%}
+                {%- endif -%}
+                {%- if desktop_row != blank -%}grid-row:{{desktop_row}};{%- endif -%}
+                {%- if desktop_bottom != blank -%}margin-bottom:{{desktop_bottom}}px;{%- endif -%}
+              }
+              {%- if block.settings.caption_color != blank -%}
+              {%- unless block.settings.caption_color == 'rgba(0,0,0,0)' -%}
+              .promo-image-{{block.id}}{color:{{block.settings.caption_color}};}
+              {%- endunless -%}
+              {%- endif -%}
+              {%- if block.settings.overlay != blank -%}
+              .promo-image-{{block.id}} .promo-list:after{background:{{block.settings.overlay}};}
+              {%- endif -%}
+              @media(max-width:991px){
+                .promo-image-{{block.id}}{
+                  {%- if mobile_column != blank -%}
+                    {%- if mobile_span != blank and mobile_span != 0 -%}
+                        grid-column:{{mobile_column}} / span {{mobile_span}};
+                    {%- else -%}
+                        grid-column:{{mobile_column}};
+                    {%- endif -%}
+                  {%- else -%}
+                    {%- if mobile_span != blank and mobile_span != 0 -%}
+                        grid-column:span {{mobile_span}};
+                    {%- endif -%}
+                  {%- endif -%}
+                  {%- if mobile_row != blank -%}grid-row:{{mobile_row}};{%- endif -%}
+                  {%- if mobile_bottom != blank -%}margin-bottom:{{mobile_bottom}}px;{%- endif -%}
+                }
+              }
+            </style>
+            {%- liquid
+              assign media_image = block.settings.image
+              assign mob_media_image = block.settings.mobile_image
+              assign text-alignment = block.settings.text_alignment
+              assign mob_text_alignment = block.settings.mobile_text_alignment
+              assign horizontal = block.settings.horizontal_alignment
+              assign mob_horizontal = block.settings.mobile_horizontal_alignment
+              assign vertical = block.settings.vertical_alignment
+              assign mob_vertical = block.settings.mobile_vertical_alignment
+            -%}
+            <div class="snippet-media-box">
+            {%- if media_image != blank or mob_media_image != blank -%}
+              {%- if mob_media_image != blank -%}
+                  {%- assign desktop_media = 'full-image d-none d-md-block' -%}
+              {%- else -%}
+                  {%- assign desktop_media = 'full-image' -%}
+              {%- endif -%}
+              {%- if media_image != blank -%}
+              {{- media_image | image_url:width:1920 | image_tag:loading:'lazy',width:nil,class:desktop_media -}}
+              {%- endif -%} 
+              {%- if mob_media_image != blank -%}
+              {{- mob_media_image | image_url:width:1920 | image_tag:loading:'lazy',width:nil,class:'full-image d-block d-md-none' -}}
+              {%- endif -%}
+            {%- endif -%}
+            </div>
+            <div class="media-caption vertical-{{vertical}} mobile-vertical-{{mob_vertical}}">
+              <div class="media-caption-inner mediatext-{{text-alignment}} mobile-mediatext-{{mob_text_alignment}} horizontal-{{horizontal}} mobile-horizontal-{{mob_horizontal}}">
+              {%- if block.settings.title != blank -%}
+                <h2>{{- block.settings.title -}}</h2>
+              {%- endif -%}
+              {%- if block.settings.paragraph != blank -%}
+                <div class="rte">{{- block.settings.paragraph -}}</div>
+              {%- endif -%}
+              {%- if block.settings.url != blank and block.settings.button_label != blank -%}
+                <span class="button">{{- block.settings.button_label -}}</span>
+              {%- endif -%}
+              </div>
+            </div>
+          {%- if block.settings.url == blank -%}
+          </div>
+          {%- else -%}
+          </a>
+          {%- endif -%}
+		{%- endcapture -%}
+	  {%- comment -%}<!-------------------Desktop Promo Media-------------------------------->{%- endcomment -%}
+        {%- if desktop_row == 1 -%}
+        	{%- assign number_media = 0 -%}		
+        {%- else -%}
+          {%- assign number_media = desktop_row | minus:1 -%}
+          {%- assign number_media = number_media | times:section.settings.desktop_grid -%}
+        {%- endif -%}
+        {%- assign number_media = number_media | plus:desktop_column -%}	 
+        {%- assign uniqcount = current_page | times:section.settings.product_limit -%}	  
+        {%- if number_media >= uniqcount-%}
+        	{%- assign uniqcount = uniqcount| plus:1 -%}
+        {%- endif -%}	
+        {%- assign g_pagesize = paginate.page_size -%}
+        {%- assign g_currentpage = current_page | minus:1 -%}
+        {%- assign g_pagemultiply = g_pagesize | times:g_currentpage -%}
+		{%- if number_media > g_pagemultiply and number_media <= uniqcount -%}
+          <div class="snippet-promo-image promo-image-{{block.id}} d-none d-lg-block">
+            {{promomedia}}
+          </div>
+		{%- endif -%}
+	  {%- comment -%}<!-------------------Mobile Promo Media-------------------------------->{%- endcomment -%}
+	 	{%- if mobile_row == 1 -%}
+        	{%- assign m_number_media = 0 -%}		
+        {%- else -%}
+          {%- assign m_number_media = mobile_row | minus:1 -%}
+          {%- assign m_number_media = m_number_media | times:mobile_grid -%}
+        {%- endif -%}
+        {%- assign m_number_media = m_number_media | plus:mobile_column -%}	 
+        {%- assign m_uniqcount = current_page | times:section.settings.product_limit -%}	  
+        {%- if m_number_media >= m_uniqcount-%}
+        	{%- assign m_uniqcount = m_uniqcount| plus:1 -%}
+        {%- endif -%}	
+        {%- assign m_pagesize = paginate.page_size -%}
+        {%- assign m_currentpage = current_page | minus:1 -%}
+        {%- assign m_pagemultiply = m_pagesize | times:m_currentpage -%}
+		{%- if m_number_media > m_pagemultiply and m_number_media <= m_uniqcount -%}
+          <div class="snippet-promo-image promo-image-{{block.id}} d-block d-lg-none">
+            {{promomedia}}
+          </div>
+		{%- endif -%}      	  
+      {%- endif -%}
+	{%- endif -%}
+{%- endfor -%}

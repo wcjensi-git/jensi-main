@@ -1,0 +1,61 @@
+{%- assign media_column = section.settings.media_column -%}
+<style>
+  .media-grid-inner{
+    {%- if section.settings.media_ratio == '100vh' -%}
+    height:100vh;min-height:400px;
+    {%- else -%}
+    aspect-ratio:{{section.settings.media_ratio}};
+    {%- endif -%}
+  }
+  {%- if section.settings.media_ratio == '100vh' -%}
+  .media-thumb .media-grid-inner{height:inherit;min-height:auto;}
+  {%- endif -%}
+  .slider-thumb.autoheight .media-grid-inner{height:100%;}
+</style>
+{%- assign img_zoom = false -%}
+{%- if section.settings.enable_zoom -%}
+	{%- assign img_zoom = true -%}
+{%- endif -%}
+<div class="media-slider">
+  <div class="media-nav swiper main-slider-{{section.settings.media_slider}}">
+    <div class="swiper-wrapper medialist">
+    {%- for media in product.media -%}
+    <div class="media-grid-column swiper-slide">
+      <div class="media-grid-inner">
+        {%- case media.media_type -%}
+        {%- when 'image' -%}
+        <img src="{{ media | img_url: 'master'}}" alt="{{ media.alt }}" loading="lazy" {% if img_zoom %}class="product-image-zoom"{% endif %}>
+        {%- when 'external_video' -%}
+        {%- assign video_class = 'js-' | append: media.host -%}
+        {%- if media.host == 'youtube' -%}
+        {{- media | external_video_url: autoplay: true, mute: true, loop: true, playlist: media.external_id | external_video_tag: class: video_class, loading: "lazy" -}}
+        {%- else -%}
+        {{- media | external_video_url: autoplay: true, muted: true, loop: true | external_video_tag: class: video_class, loading: "lazy" -}}
+        {%- endif -%}    
+        {%- when 'video' -%}
+        {{- media | video_tag: autoplay:true, mute:true , loop:true -}}
+        {%- when 'model' -%}
+        {{- media | model_viewer_tag -}}
+        {%- else -%}
+        {{- media | media_tag -}}
+        {%- endcase -%}
+      </div>
+    </div>
+    {%- endfor -%}
+    </div>
+    <div class="swiper-button-next"></div>
+    <div class="swiper-button-prev"></div>
+    <div class="swiper-pagination"></div>
+  </div>
+  <div class="media-thumb slider-{{section.settings.media_slider}} swiper {% if section.settings.media_ratio == '100vh' %}autoheight{% endif %}">
+    <div class="swiper-wrapper">
+    {%- for media in product.media -%}
+      <div class="media-grid-column swiper-slide" data-id="{{media.id}}" data-index="{{forloop.index}}">
+        <div class="media-grid-inner">
+          <img src="{{ media | img_url: 'master'}}" alt="{{ media.alt }}" loading="lazy">
+        </div>
+      </div>
+    {%- endfor -%}
+    </div>
+  </div>
+</div>

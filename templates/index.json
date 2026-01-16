@@ -1,0 +1,292 @@
+{
+  "sections": {
+    "16475061309167c05b": {
+      "type": "media-slider",
+      "blocks": {
+        "3875d846-dd39-4645-a544-001df14e25d7": {
+          "type": "media-slider",
+          "settings": {
+            "media_type": "image",
+            "video": "https:\/\/www.youtube.com\/watch?v=_9VUPq3SxOc",
+            "mp4": "https:\/\/cdn.shopify.com\/s\/files\/1\/0567\/3543\/2863\/files\/placeholder-video.mp4?v=1647514642",
+            "text_alignment": "left",
+            "horizontal_alignment": "left",
+            "vertical_alignment": "bottom",
+            "title": "Title",
+            "content": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididuntut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.<\/p>",
+            "caption_color": "#000000",
+            "button_label": "button",
+            "button_url": "",
+            "ovarlay": "",
+            "mobile_text_alignment": "left",
+            "mobile_horizontal_alignment": "left",
+            "mobile_vertical_alignment": "top"
+          }
+        },
+        "27d06905-f895-4d2d-9f50-0ed487856da0": {
+          "type": "media-slider",
+          "settings": {
+            "media_type": "image",
+            "video": "",
+            "mp4": "",
+            "text_alignment": "center",
+            "horizontal_alignment": "right",
+            "vertical_alignment": "top",
+            "title": "",
+            "content": "",
+            "caption_color": "",
+            "button_label": "",
+            "button_url": "",
+            "ovarlay": "",
+            "mobile_text_alignment": "left",
+            "mobile_horizontal_alignment": "left",
+            "mobile_vertical_alignment": "top"
+          }
+        }
+      },
+      "block_order": [
+        "3875d846-dd39-4645-a544-001df14e25d7",
+        "27d06905-f895-4d2d-9f50-0ed487856da0"
+      ],
+      "settings": {
+        "draggable_slider": true,
+        "show_arrows": true,
+        "autoplay_time": 0,
+        "heading_selector": "h2"
+      }
+    },
+    "1647860653cbe5f54e": {
+      "type": "media-row",
+      "blocks": {
+        "29749ca4-cda8-4fda-8388-0c13a796c3da": {
+          "type": "video",
+          "settings": {
+            "reposnsive_option": "show_all",
+            "media_type": "mp4",
+            "video": "https:\/\/www.youtube.com\/watch?v=_9VUPq3SxOc",
+            "mp4": "https:\/\/cdn.shopify.com\/s\/files\/1\/0567\/3543\/2863\/files\/placeholder-video.mp4?v=1647514642",
+            "url": "",
+            "overlay": "",
+            "title": "Title",
+            "paragraph": "",
+            "caption_color": "#000000",
+            "button_label": "",
+            "text_alignment": "left",
+            "horizontal_alignment": "left",
+            "vertical_alignment": "bottom",
+            "mobile_text_alignment": "left",
+            "mobile_horizontal_alignment": "left",
+            "mobile_vertical_alignment": "bottom",
+            "advanced": false,
+            "column_count": 1
+          }
+        },
+        "f82eae91-ee59-43f9-8163-e70522643e04": {
+          "type": "image",
+          "settings": {
+            "reposnsive_option": "show_all",
+            "url": "",
+            "overlay": "",
+            "title": "Title",
+            "paragraph": "",
+            "caption_color": "#000000",
+            "button_label": "",
+            "text_alignment": "left",
+            "horizontal_alignment": "left",
+            "vertical_alignment": "bottom",
+            "mobile_text_alignment": "left",
+            "mobile_horizontal_alignment": "left",
+            "mobile_vertical_alignment": "bottom",
+            "advanced": false,
+            "column_count": 1
+          }
+        }
+      },
+      "block_order": [
+        "29749ca4-cda8-4fda-8388-0c13a796c3da",
+        "f82eae91-ee59-43f9-8163-e70522643e04"
+      ],
+      "settings": {
+        "desktop_height": "adapt_media",
+        "mobile_height": "portrait",
+        "reverse_direction_mobile": true,
+        "heading_selector": "h2"
+      }
+    },
+    "1648018356baa2c859": {
+      "type": "product-carousel",
+      "settings": {
+        "title": "",
+        "text_alignment": "left",
+        "heading_selector": "h2",
+        "collection": "shoes",
+        "loop_infinite": false,
+        "amount_of_products": 6,
+        "desktop_grid": 4,
+        "mob_grid": "two_column"
+      }
+    },
+    "1648093521fbecf3fc": {
+      "type": "media-row",
+      "blocks": {
+        "1648093521554ac87e-0": {
+          "type": "image",
+          "settings": {
+            "reposnsive_option": "show_all",
+            "url": "",
+            "overlay": "",
+            "title": "",
+            "paragraph": "",
+            "caption_color": "",
+            "button_label": "",
+            "text_alignment": "left",
+            "horizontal_alignment": "left",
+            "vertical_alignment": "top",
+            "mobile_text_alignment": "left",
+            "mobile_horizontal_alignment": "left",
+            "mobile_vertical_alignment": "top",
+            "advanced": true,
+            "column_count": 2
+          }
+        },
+        "f09a8fd4-b185-4434-b069-8aedf1c71e79": {
+          "type": "text",
+          "settings": {
+            "reposnsive_option": "show_all",
+            "overlay": "",
+            "title": "Title",
+            "paragraph": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididuntut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.<\/p>",
+            "caption_color": "",
+            "button_label": "",
+            "url": "",
+            "text_alignment": "left",
+            "horizontal_alignment": "left",
+            "vertical_alignment": "top",
+            "mobile_text_alignment": "left",
+            "mobile_horizontal_alignment": "left",
+            "mobile_vertical_alignment": "top",
+            "advanced": false,
+            "column_count": 1
+          }
+        }
+      },
+      "block_order": [
+        "1648093521554ac87e-0",
+        "f09a8fd4-b185-4434-b069-8aedf1c71e79"
+      ],
+      "settings": {
+        "desktop_height": "adapt_media",
+        "mobile_height": "adapt_media",
+        "reverse_direction_mobile": false,
+        "heading_selector": "h2"
+      }
+    },
+    "164810346081ad47b2": {
+      "type": "media-row",
+      "blocks": {
+        "dd2beb97-e49e-461f-8303-2b80c217dc17": {
+          "type": "video",
+          "settings": {
+            "reposnsive_option": "show_all",
+            "media_type": "mp4",
+            "video": "",
+            "mp4": "https:\/\/cdn.shopify.com\/s\/files\/1\/0567\/3543\/2863\/files\/placeholder-video.mp4?v=1647514642",
+            "url": "",
+            "overlay": "",
+            "title": "Title",
+            "paragraph": "<p>Lorem ipsum dolor sit amet.<\/p>",
+            "caption_color": "",
+            "button_label": "",
+            "text_alignment": "left",
+            "horizontal_alignment": "left",
+            "vertical_alignment": "top",
+            "mobile_text_alignment": "left",
+            "mobile_horizontal_alignment": "left",
+            "mobile_vertical_alignment": "bottom",
+            "advanced": false,
+            "column_count": 2
+          }
+        },
+        "1648103460300e9646-0": {
+          "type": "image",
+          "settings": {
+            "reposnsive_option": "show_all",
+            "url": "",
+            "overlay": "",
+            "title": "Title",
+            "paragraph": "<p>Lorem ipsum dolor sit amet.<\/p>",
+            "caption_color": "",
+            "button_label": "",
+            "text_alignment": "left",
+            "horizontal_alignment": "left",
+            "vertical_alignment": "top",
+            "mobile_text_alignment": "left",
+            "mobile_horizontal_alignment": "left",
+            "mobile_vertical_alignment": "bottom",
+            "advanced": false,
+            "column_count": 1
+          }
+        },
+        "1648103460300e9646-1": {
+          "type": "image",
+          "settings": {
+            "reposnsive_option": "show_all",
+            "url": "",
+            "overlay": "",
+            "title": "Title",
+            "paragraph": "<p>Lorem ipsum dolor sit amet.<\/p>",
+            "caption_color": "",
+            "button_label": "",
+            "text_alignment": "left",
+            "horizontal_alignment": "center",
+            "vertical_alignment": "bottom",
+            "mobile_text_alignment": "left",
+            "mobile_horizontal_alignment": "left",
+            "mobile_vertical_alignment": "bottom",
+            "advanced": false,
+            "column_count": 1
+          }
+        },
+        "e9686cc0-2e5b-4d77-add9-55e7eb3fbffa": {
+          "type": "image",
+          "settings": {
+            "reposnsive_option": "show_all",
+            "url": "",
+            "overlay": "",
+            "title": "Title",
+            "paragraph": "<p>Lorem ipsum dolor sit amet.<\/p>",
+            "caption_color": "",
+            "button_label": "",
+            "text_alignment": "left",
+            "horizontal_alignment": "left",
+            "vertical_alignment": "top",
+            "mobile_text_alignment": "left",
+            "mobile_horizontal_alignment": "left",
+            "mobile_vertical_alignment": "bottom",
+            "advanced": false,
+            "column_count": 1
+          }
+        }
+      },
+      "block_order": [
+        "dd2beb97-e49e-461f-8303-2b80c217dc17",
+        "1648103460300e9646-0",
+        "1648103460300e9646-1",
+        "e9686cc0-2e5b-4d77-add9-55e7eb3fbffa"
+      ],
+      "settings": {
+        "desktop_height": "adapt_media",
+        "mobile_height": "square",
+        "reverse_direction_mobile": true,
+        "heading_selector": "h2"
+      }
+    }
+  },
+  "order": [
+    "16475061309167c05b",
+    "1647860653cbe5f54e",
+    "1648018356baa2c859",
+    "1648093521fbecf3fc",
+    "164810346081ad47b2"
+  ]
+}

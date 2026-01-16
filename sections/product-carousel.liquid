@@ -1,0 +1,188 @@
+<script>
+  createSingleInstanceOfJS('{{"product-carousel.js" | asset_url}}', '.section-product-carousel')
+  createSingleInstanceOfCSS('{{"product-carousel.css" | asset_url}}', '.section-product-carousel')
+  createSingleInstanceOfCSS('{{"product-grid.css" | asset_url}}', '.section-product-carousel')                       
+</script>
+<noscript>
+  {{ 'product-carousel.css' | asset_url | stylesheet_tag }}
+  {{ 'product-grid.css' | asset_url | stylesheet_tag }}
+</noscript>
+<product-carousel class="section-product-carousel section-id-{{section.id}}">
+  {%- if section.settings.title != blank -%}
+  <div class="text-{{section.settings.text_alignment}}">
+  <{{section.settings.heading_selector}}>{{section.settings.title}}</{{section.settings.heading_selector}}>
+  </div>
+  {%- endif -%}
+    {%- liquid
+      assign loopslide = false
+      assign spacerow = false
+      assign showarrows = false
+      assign total_products = section.settings.amount_of_products
+      assign desktopgrid = section.settings.desktop_grid
+      if section.settings.loop_infinite
+      	assign loopslide = true
+      endif
+      if total_products > desktopgrid
+      	assign spacerow = true
+        assign showarrows = true
+      endif
+      if loopslide
+      	assign spacerow = true
+        assign showarrows = true
+      endif
+      case section.settings.desktop_grid
+       when 2
+          assign grid = 'col-md-6'
+       when 3
+          assign grid = 'col-md-4'
+       when 4
+          assign grid = 'col-md-3'
+       endcase
+       case section.settings.mob_grid
+       when 'two_column'
+          assign mobgrid = 'col-6'
+       when 'one_column'
+          assign mobgrid = 'col-12'
+       endcase
+    -%}
+  <div class="carousel-rowouter {% if spacerow == true %}carousel-row-space{% endif %}">
+    <div class="carousel-row product-carousel swiper" data-id="{{section.id}}" data-loop="{{loopslide}}">
+      <div class="swiper-wrapper">
+        {%- for product in section.settings.collection.products limit:section.settings.amount_of_products -%}
+        <div class="swiper-slide col {{grid}} {{mobgrid}}">
+          {%- render 'product-grid', product:product -%}
+        </div>
+        {%- else -%}
+        {%- assign showarrows = true -%}
+        {%- for i in (1..5) -%}
+        <div class="swiper-slide col {{grid}} {{mobgrid}}">
+          {%- render 'product-card-placeholder' -%}
+        </div>
+        {%- endfor -%}
+        {%- endfor -%}
+      </div>
+    </div>
+    <div class="swiper-button-next {% unless showarrows %}hide-arrows{% endunless %}"></div>
+    <div class="swiper-button-prev {% unless showarrows %}hide-arrows{% endunless %}"></div>
+  </div>
+</product-carousel>
+{%- if request.design_mode -%}
+<script>
+  document.addEventListener("shopify:section:load", function(event) {
+   createSingleInstanceOfJS('{{"product-carousel.js" | asset_url}}', '.section-product-carousel')
+   createSingleInstanceOfCSS('{{"product-carousel.css" | asset_url}}', '.section-product-carousel')
+   createSingleInstanceOfCSS('{{"product-grid.css" | asset_url}}', '.section-product-carousel')                 
+   productcarousel();
+  });
+</script>
+{%- endif -%}
+{% schema %}
+  {
+    "name": "t:sections.product-carousel.name",
+    "settings": [
+		{
+			"type":"text",
+			"id":"title",
+			"label":"t:sections.all.title"
+		},
+        {
+            "type":"select",
+            "id":"text_alignment",
+            "label":"t:sections.all.text_alignment.name",
+            "options":[
+                {
+                  "label":"t:sections.all.text_alignment.left.label",
+                  "value":"left"
+                },
+                {
+                  "label":"t:sections.all.text_alignment.center.label",
+                  "value":"center"
+                },
+                {
+                  "label":"t:sections.all.text_alignment.right.label",
+                  "value":"right"
+                }
+            ]
+        },
+		{
+			"type":"select",
+			"id":"heading_selector",
+			"label":"t:sections.all.title_format.name",
+			"options":[
+				{
+					"label":"t:sections.all.title_format.option__1.label",
+					"value":"h1"
+				},
+				{
+					"label":"t:sections.all.title_format.option__2.label",
+					"value":"h2"
+				},
+				{
+					"label":"t:sections.all.title_format.option__3.label",
+					"value":"h3"
+				},
+				{
+					"label":"t:sections.all.title_format.option__4.label",
+					"value":"h4"
+				},
+				{
+					"label":"t:sections.all.title_format.option__5.label",
+					"value":"h5"
+				},
+				{
+					"label":"t:sections.all.title_format.option__6.label",
+					"value":"h6"
+				}
+			],
+			"default":"h2"
+		},
+		{
+			"type":"collection",
+			"id":"collection",
+			"label":"t:sections.product-carousel.settings.collection.label"
+		},
+		{
+			"type":"checkbox",
+			"id":"loop_infinite",
+			"label":"t:sections.product-carousel.settings.loop_infinite.label",
+			"default":true
+		},
+		{
+			"type":"range",
+			"id":"amount_of_products",
+			"label":"t:sections.product-carousel.settings.products_amount.label",
+			"min":2,
+			"max":6,
+			"default":6
+		},
+		{
+			"type":"range",
+			"id":"desktop_grid",
+			"label":"t:sections.all.desktop_grid.label",
+			"min":2,
+			"max":4,
+			"default":4
+		},
+		{
+			"type":"select",
+			"id":"mob_grid",
+			"label":"t:sections.all.mobile_grid.name",
+			"options":[
+				{
+					"label":"t:sections.all.mobile_grid.option__1.label",
+					"value":"two_column"
+				},
+				{
+					"label":"t:sections.all.mobile_grid.option__2.label",
+					"value":"one_column"
+				}
+			]
+		}
+	],
+	"presets":[
+		{
+			"name":"t:sections.product-carousel.presets.name"
+		}
+	]
+  }
+{% endschema %}
